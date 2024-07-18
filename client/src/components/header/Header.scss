@@ -1,0 +1,24 @@
+.navigation__container {
+    background-color: rgb(255, 234, 175);
+    padding: 1rem;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 1.5rem;
+    gap: 4rem;
+
+    &__wrapper {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__item {
+        font-size: 1.3rem;
+        font-weight: 400;
+        cursor: pointer;
+    }
+}
