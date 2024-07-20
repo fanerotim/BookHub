@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <main className='home__container'>
             <section className='home__text'>
-                    <h1 className='home__text__main-heading'>Welcome to the BookHub!</h1>
+                    <h1 className='home__text__main-heading'>Welcome to BookHub!</h1>
                     <h2 className='home__text__subheading'>Our mission is to provide information about books that have the power to change lives. You can scroll through a huge library of books and also have the option to join us</h2>
             </section>
 
@@ -13,7 +13,7 @@ const Home = () => {
 
             <section className='home__app__info'>
 
-                <div>
+                <div className='home__app__info__wrapper__one'>
                     <h1 className='home__app__info__heading'>Registered users can...</h1>
                     <ul className='home__app__info__icons__list'>
                         <div className='home__app__info__item__wrapper'>
@@ -34,7 +34,7 @@ const Home = () => {
 
                 </div>
 
-                <div>
+                <div className='home__app__info__wrapper__two'>
                     <h1 className='home__app__info__heading'>Also...</h1>
                     <ul className='home__app__info__icons__list'>
 

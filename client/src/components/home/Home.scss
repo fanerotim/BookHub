@@ -37,8 +37,8 @@
     height: 28rem;
     background-image: url('../../assets/home-background-l.jpg');
     background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
+    background-position: center;
+    // background-size: cover;
 }
 
 .home__app__info {
@@ -46,7 +46,9 @@
     padding: 2rem;
     // text-align: center;
     gap: 2rem;
-    
+    display: flex;
+    flex-direction: column;
+
     &__heading {
         font-size: 3.7rem;
         font-weight: 200;
@@ -58,7 +60,7 @@
     &__icons__list {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        // align-items: center;
         gap: 1rem;
 
         &__item {
@@ -78,9 +80,41 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-        width: 450px;
     }
 
+    &__wrapper__one {
+        align-self: start;
+        padding: .5rem;
+
+        & div:nth-child(1) {
+            padding-left: 1rem;
+        }
+
+        & div:nth-child(2) {
+            padding-left: 3rem;
+        }
+
+        & div:nth-child(3) {
+            padding-left: 5rem;
+        }
+    }
+
+    &__wrapper__two {
+        align-self: start;
+        padding: .5rem;
+        
+        & div:nth-child(1) {
+            padding-left: 11rem;
+        }
+
+        & div:nth-child(2) {
+            padding-left: 13rem;
+        }
+
+        & div:nth-child(3) {
+            padding-left: 15rem;
+        }
+    }
     
 
 }
