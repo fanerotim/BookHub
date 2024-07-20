@@ -1,34 +1,87 @@
 .home__container {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    padding: 3rem 0;
+    
+    margin: 0 auto;
+    max-width: 1580px;
 }
 
 .home__text {
-    padding: 2rem;
+    padding: 0 3rem;
+    height: 28rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: aliceblue;
 
     &__main-heading {
-        font-size: 4rem;
-        text-align: center;
+        font-size: 6rem;
         font-weight: 400;
         line-height: 1;
+        width: 60%;
+
+        &::first-letter {
+            color: rgb(189, 14, 14);
+        }
     }
 
     &__subheading {
-        font-size: 1.6rem;
-        text-align: center;
-        font-weight: 200;
-        color:rgb(114, 114, 114);
-        padding: 2rem;
+        width: 40%;
+        font-size: 1.3rem;
+        font-weight: 300;
+        color:rgb(110, 110, 110);
+        
     }
 }
 
 .home__background__img {
-    height: 25rem;
-    background-image: url('../../assets/background-img-home.jpg');
+    height: 28rem;
+    background-image: url('../../assets/home-background-l.jpg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
+}
+
+.home__app__info {
+    background-color: rgb(243, 238, 238);
+    padding: 2rem;
+    // text-align: center;
+    gap: 2rem;
+    
+    &__heading {
+        font-size: 3.7rem;
+        font-weight: 200;
+        padding-bottom: 2rem;
+        text-align: center;
+        line-height: 1;
+    }
+
+    &__icons__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        &__item {
+            font-size: 1.3rem;
+            line-height: 1.1;
+            color: rgb(68, 68, 68);
+            font-style: italic;
+        }
+
+        &__icon {
+            font-size: 3.2rem;
+            color: rgb(21, 102, 7);
+        }
+    }
+
+    &__item__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 450px;
+    }
+
+    
+
 }
 
