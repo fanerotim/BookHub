@@ -1,5 +1,4 @@
 .home__container {
-    
     margin: 0 auto;
     max-width: 1580px;
 }
@@ -18,7 +17,7 @@
         font-weight: 400;
         line-height: 1;
         width: 60%;
-        animation-duration: 3s;
+        animation-duration: 2s;
         animation-name: delayedLoad;
 
         &::first-letter {
@@ -31,7 +30,7 @@
         font-size: 1.3rem;
         font-weight: 300;
         color:rgb(110, 110, 110);
-        animation-duration: 4s;
+        animation-duration: 2s;
         animation-name: slideIn;
     }
 }
