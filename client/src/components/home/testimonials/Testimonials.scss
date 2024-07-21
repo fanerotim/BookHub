@@ -1,4 +1,5 @@
 .testimonials {
+    height: 28rem;
     padding: 2rem 2rem 4rem 2rem;
     background-color: rgb(183, 189, 194, .3);
     position: relative;
@@ -15,7 +16,6 @@
 .testimonials__card {
     width: 500px;
     max-width: 60%;
-
 
     margin: 0 auto;
     padding: 2rem;
@@ -73,10 +73,6 @@
     &__left {
         top: 50%;
         left: 10%;
-
-        &:active {
-            background-color: bisque;
-        }
     }
 
     &__right {

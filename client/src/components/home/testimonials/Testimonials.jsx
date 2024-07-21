@@ -24,18 +24,14 @@ const Testimonials = () => {
     function slideLeft() {
         setIndex(index => {
             if (index <= 0) {
-                
                 return index = testimonials.length - 1;
             } else {
-                console.log('more than 0')
                 return index - 1;
             }
         })
     }
 
-    useEffect(() => {
-        console.log(`re-render, ${index}`)
-    }, [index])
+    useEffect(() => {}, [index])
 
 
     return (
