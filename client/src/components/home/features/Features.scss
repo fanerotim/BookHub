@@ -76,3 +76,13 @@
     }
 
 }
+
+@keyframes slideIn {
+    from {
+        translate: 150vw 0;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
