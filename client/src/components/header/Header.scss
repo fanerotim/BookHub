@@ -1,13 +1,13 @@
 .navigation__container {
     // background-color: rgb(255, 234, 175);
     background-color: rgb(243, 243, 243);
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .navigation {
     display: flex;
-    justify-content: space-between;
-    width: fit-content;
+    justify-content: end;
+    width: 100%;
     margin-left: auto;
     margin-right: 1.5rem;
     gap: 4rem;
@@ -18,8 +18,33 @@
     }
 
     &__item {
-        font-size: 1.3rem;
-        font-weight: 400;
+        all: unset;
+        font-size: 1.1rem;
+        font-weight: 500;
         cursor: pointer;
+        
+        &:last-child {
+            margin-right: 3rem;
+        }
+
+        &:hover {
+            color: rgb(88, 88, 88);
+            
+            transform: scale(1.1);
+            transition: color 1s;
+        }
     }
+
+    // placing logo at the bottom as I am overwriting stlyes (placing it on left side)
+    &__logo {
+        align-self: center;
+        margin-right: auto;
+        margin-left: 3rem;
+        font-weight: bold;
+        color: rgb(25, 90, 230)
+    }
+}
+
+.active {
+    border-bottom: 3px solid rgb(57, 110, 255);
 }

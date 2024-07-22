@@ -1,19 +1,20 @@
 import './Header.scss'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
     return (
         <header className='navigation__container'>
             <ul className='navigation'>
+                <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
                 <div className='navigation__wrapper'>
-                    <Link to='/' className='navigation__item'>Home</Link>
-                    <Link to='/library' className='navigation__item'>Library</Link>
-                    <Link to='/about' className='navigation__item'>About</Link>
+                    <NavLink to='/' className='navigation__item'>Home</NavLink>
+                    <NavLink to='/library' className='navigation__item'>Library</NavLink>
+                    <NavLink to='/about' className='navigation__item'>About</NavLink>
                 </div>
 
                 <div className='navigation__wrapper'>
-                    <Link to='/login' className='navigation__item'>Login</Link>
-                    <Link to='/register' className='navigation__item'>Register</Link>
+                    <NavLink to='/login' className='navigation__item'>Login</NavLink>
+                    <NavLink to='/register' className='navigation__item'>Register</NavLink>
                 </div>
             </ul>
         </header>
