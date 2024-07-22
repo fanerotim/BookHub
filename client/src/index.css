@@ -1,0 +1,19 @@
+@keyframes slideIn {
+    from {
+        translate: 120vw;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes delayedLoad {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

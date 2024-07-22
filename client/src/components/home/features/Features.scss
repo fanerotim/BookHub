@@ -1,5 +1,7 @@
+@import url('../../../index.css');
+
 .home__app__info {
-    background-color: rgb(243, 238, 238);
+    background-color: rgb(243, 242, 242);
     padding: 2rem;
     gap: 2rem;
 
@@ -8,6 +10,7 @@
         justify-content: space-evenly;
         padding: 2rem;
         gap: 2rem;
+        opacity: 0;
     }
 
     &__heading {
@@ -16,6 +19,7 @@
         padding-bottom: 2rem;
         text-align: center;
         line-height: 1;
+        color: rgb(61, 61, 61);
     }
 
     &__subheading {
@@ -31,9 +35,8 @@
 
         &__item {
             font-size: 1.3rem;
-            line-height: 1.1;
             color: rgb(68, 68, 68);
-            font-style: italic;
+            font-weight: 300;
         }
 
         &__icon {
@@ -74,15 +77,5 @@
         align-items: center;
         gap: 1rem;
     }
-
 }
 
-@keyframes slideIn {
-    from {
-        translate: 150vw 0;
-    }
-
-    to {
-        translate: 0 0;
-    }
-}

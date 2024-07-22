@@ -5,7 +5,6 @@ const Features = () => {
 
     const [animation, setAnimation] = useState(false);
 
-
     // first iteration of thi functionality
     //TODO: review and improve code
     useEffect(() => {
@@ -13,7 +12,6 @@ const Features = () => {
             window.addEventListener('scroll', (e) => {
 
                 if (window.scrollY > 556) {
-                    console.log('triggered');
                     setAnimation((oldAnimation) => true)
                 }
             })
@@ -21,9 +19,7 @@ const Features = () => {
         triggerAnimation();
         return () => {
             window.removeEventListener('scroll', triggerAnimation);
-            console.log('unmounted');
         }
-
     }, [])
 
 
@@ -33,7 +29,7 @@ const Features = () => {
             <h1 className='home__app__info__heading'>Some of our Features</h1>
             <p className='home__app__info__subheading'>Registered users have access to the below functionalities. Don't worry though, you can browse through our library as a guest too</p>
 
-            <div className='home__app__info__features__wrapper' {...animation ? { style: { animationName: 'slideIn', animationDuration: '3s' } } : ''}>
+            <div className='home__app__info__features__wrapper' {...animation ? { style: { animationName: 'slideIn', animationDuration: '3s', opacity: 1 } } : ''}>
                 <ul className='home__app__info__icons__list'>
                     <div className='home__app__info__item__wrapper'>
                         <span className="material-symbols-outlined home__app__info__icons__list__icon home__app__info__icons__list__icon__like">thumb_up</span>

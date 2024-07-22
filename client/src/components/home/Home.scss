@@ -1,3 +1,5 @@
+@import url('../../index.css');
+
 .home__container {
     margin: 0 auto;
     max-width: 1580px;
@@ -32,26 +34,6 @@
         color:rgb(110, 110, 110);
         animation-duration: 2s;
         animation-name: delayedLoad;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        translate: 0 -100vh;
-    }
-
-    to {
-        translate: 0 0;
-    }
-}
-
-@keyframes delayedLoad {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }
 
