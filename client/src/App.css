@@ -5,3 +5,7 @@
     list-style-type: none;
     font-family: 'Poppins', sans-serif;
 }
+
+body {
+    max-width: 1580;
+}

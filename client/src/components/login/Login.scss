@@ -2,32 +2,36 @@
 
 .login__container {
     padding: 1.5rem;
-    background-color: rgb(15, 15, 15, .1);;
+    background-color: rgb(252, 166, 7, .5);
 }
 
 .login__wrapper {
     display: flex;
-    background-color: rgb(253, 253, 253);
-    box-shadow: .2rem .2rem 1rem rgb(248, 159, 159, .4);
-    padding: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: rgb(245, 245, 245);
+    box-shadow: .2rem .2rem 2rem rgba(83, 185, 253, 0.2);
+    padding: 1rem;
     border-radius: 1rem;
+    gap: 1rem;
+
 
     //this is a hacky way to get the footer stuck to the bottom of the page
     height: calc(100vh - 11.77rem);
+    height: 90vh;
+    ;
 
     &__info__container {
-        width: 100%;
-        max-width: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        max-width: 450px;
 
         &__main__text {
             font-size: 2.5rem;
             padding: 0 2rem;
             font-weight: 300;
             line-height: 1.3;
-            color:rgb(13, 39, 31);
+            color: rgb(13, 39, 31);
 
             &::after {
                 display: inline-block;
@@ -39,26 +43,39 @@
                 animation-duration: 2s;
             }
         }
-    }  
+    }
 }
 
 .login__form__container {
-    width: 100%;
+    width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+    padding-left: 3rem;
+    padding-top: 4rem;
+    align-self: start;
 }
 
 .login__form__heading {
-    font-size: 4rem;
-    color:rgb(15, 26, 63);
+    font-size: 5rem;
+    color: rgb(15, 26, 63);
+    line-height: 1;
+
+    &::after {
+        display: inline-block;
+        content: '.';
+        color: rgb(252, 6, 6);
+        font-size: 6rem;
+        line-height: 0;
+        animation-name: dropFromTop;
+        animation-duration: 2s;
+    }
 }
 
 .login__form {
     display: flex;
     flex-direction: column;
-    width: fit-content; 
-    padding: 1rem;
+    padding-top: 2rem;
     border-radius: 1rem;
 
     &__label {
@@ -69,23 +86,37 @@
     }
 
     &__input {
-        padding: .3rem;
-        border-radius: 1.3rem;
+        width: 18rem;
+        padding: .8rem;
+        border-radius: .3rem;
         border: none;
-        background-color: rgba(248, 229, 229, 0.9);
+        background-color: rgba(121, 195, 255, 0.4);
 
-        &:focus{
+        &:focus {
             outline: none;
-            background-color: rgb(253, 80, 109);
+            background-color: rgb(107, 153, 253);
         }
+    }
+
+    &__register__info {
+        padding-top: .5rem;
+        font-size: .9rem;
+        color: rgb(73, 73, 73);
+    }
+
+    &__register__link {
+        all: unset;
+        cursor: pointer;
+        display: block;
+        color: rgb(20, 20, 20);
     }
 
     &__button {
         all: unset;
         background-color: rgb(26, 252, 101, .5);
         text-align: center;
-        padding: .5rem .9rem;
-        border-radius: 1rem;
+        padding: .7rem 2rem;
+        border-radius: .2rem;
         margin-top: 2rem;
         width: fit-content;
         cursor: pointer;
