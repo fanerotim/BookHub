@@ -8,6 +8,16 @@
     }
 }
 
+@keyframes dropFromTop {
+    from {
+        translate: 0 -150vh;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
+
 @keyframes delayedLoad {
     from {
         opacity: 0;

@@ -1,16 +1,23 @@
 .testimonials {
-    height: 28rem;
-    padding: 2rem 2rem 4rem 2rem;
+    padding: 2rem 2rem 8rem 2rem;
     background-color: rgb(183, 189, 194, .3);
     position: relative;
 }
 
 .testimonials__heading {
-    padding: 2rem;
-    padding-bottom: 2rem;
+    padding: 1rem 2rem;
+    padding-bottom: 2.5rem;
     text-align: center;
     font-weight: 200;
     font-size: 2.5rem;
+    color: rgb(61, 61, 61);
+
+    &__small {
+        text-align: center;
+        margin: 0 auto;
+        font-weight: 200;
+        font-size: 1.2rem;
+    }
 }
 
 .testimonials__card {
@@ -18,30 +25,36 @@
     max-width: 60%;
 
     margin: 0 auto;
-    padding: 2rem;
-    background-color: rgb(248, 139, 248, .3);
+    padding: .7rem;
+    background-color: rgba(54, 134, 255, 0.3);
     border-radius: 1rem;
     box-shadow: .2rem .2rem .6rem rgba(58, 1, 1, 0.3);
 
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
     &__user__container {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        gap: 2rem;
         position: relative;
+        padding: 1.5rem 2rem;
+        background-color: white;
+        border-radius: 1rem;
 
         &__img {
-            width: 5rem;
-            height: 5rem;
+            width: 6rem;
+            height: 6rem;
             border-radius: 50%;
             object-fit: cover;
+
+            &__container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: .5rem;
+            }
         }
 
         &__name {
-            align-self: end;
+            color: rgb(58, 58, 58);
+            font-size: .9rem;
         }
 
         &__quote__icon::after {

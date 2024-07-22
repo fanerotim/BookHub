@@ -1,0 +1,100 @@
+@import url('../../index.css');
+
+.login__container {
+    padding: 1.5rem;
+    background-color: rgb(15, 15, 15, .1);;
+}
+
+.login__wrapper {
+    display: flex;
+    background-color: rgb(253, 253, 253);
+    box-shadow: .2rem .2rem 1rem rgb(248, 159, 159, .4);
+    padding: 2rem;
+    border-radius: 1rem;
+
+    //this is a hacky way to get the footer stuck to the bottom of the page
+    height: calc(100vh - 11.77rem);
+
+    &__info__container {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__main__text {
+            font-size: 2.5rem;
+            padding: 0 2rem;
+            font-weight: 300;
+            line-height: 1.3;
+            color:rgb(13, 39, 31);
+
+            &::after {
+                display: inline-block;
+                content: '.';
+                color: rgb(252, 6, 6);
+                font-size: 6rem;
+                line-height: 0;
+                animation-name: dropFromTop;
+                animation-duration: 2s;
+            }
+        }
+    }  
+}
+
+.login__form__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login__form__heading {
+    font-size: 4rem;
+    color:rgb(15, 26, 63);
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content; 
+    padding: 1rem;
+    border-radius: 1rem;
+
+    &__label {
+        font-size: 1.3rem;
+        font-weight: 300;
+        color: rgb(7, 5, 5);
+        padding: .5rem 0;
+    }
+
+    &__input {
+        padding: .3rem;
+        border-radius: 1.3rem;
+        border: none;
+        background-color: rgba(248, 229, 229, 0.9);
+
+        &:focus{
+            outline: none;
+            background-color: rgb(253, 80, 109);
+        }
+    }
+
+    &__button {
+        all: unset;
+        background-color: rgb(26, 252, 101, .5);
+        text-align: center;
+        padding: .5rem .9rem;
+        border-radius: 1rem;
+        margin-top: 2rem;
+        width: fit-content;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: .9rem;
+
+        &:hover {
+            background-color: rgba(3, 107, 38, .8);
+            color: white;
+        }
+    }
+}
