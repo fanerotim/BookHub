@@ -6,44 +6,112 @@
 }
 
 .home__text {
-    padding: 0 5rem;
+    padding: 18rem 5rem;
     height: 28rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    background-color: aliceblue;
+    gap: 4rem;
+
+    &__subheading__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+    }
 
     &__main-heading {
-        font-size: 6rem;
-        font-weight: 400;
-        line-height: 1;
-        width: 60%;
+        font-size: 4rem;
+        font-weight: 100;
+        line-height: 1.1;
         animation-duration: 2s;
         animation-name: delayedLoad;
 
-        &::first-letter {
-            color: rgb(189, 14, 14);
+        &__logo {
+            color: rgb(253, 10, 10, .8);
+            color: steelblue;
+            font-weight: bold;
+        }
+
+        &__description {
+            font-weight: 100;
+            font-size: 3.5rem;
         }
     }
 
     &__subheading {
-        width: 40%;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         font-weight: 300;
-        color:rgb(110, 110, 110);
+        color: rgb(110, 110, 110);
         animation-duration: 2s;
         animation-name: delayedLoad;
+
+        &__main {
+            padding-bottom: 1rem;
+            font-weight: 500;
+            color:rgb(37, 20, 20);
+        }
     }
 }
 
-.home__background__img {
-    height: 28rem;
-    background-image: url('../../assets/home-background-l.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.home__why__us__container {
+    // height: 28rem;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(37, 23, 2, .8);
+        background-image: url('../../assets/background-image-tilt1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: darken;
+        transform: skewY(-3deg);
+        z-index: -1;
+    }
 }
 
+.home__why__us__text__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 4rem;
+    gap: 3rem;
 
+    &__heading {
+        font-size: 5.5rem;
+        color: white;
+        padding: 2rem;
+        border-radius: .2rem;
+        padding-top: 2rem;
+        line-height: 1.1;
+        font-weight: 100;
 
+        &__question__mark {
+            line-height: 0;
+            font-weight: bold;
+            font-size: 7rem;
+            color: rgb(184, 46, 46);
+            opacity: 0;
+        }
+    }
+}
+
+.home__why__us__list {
+    color: white;
+
+    &__item {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        &__reason {
+            padding-bottom: .7rem;
+        }
+    }
+}
