@@ -1,8 +1,8 @@
 @import url('../../index.css');
 
 .login__container {
-    padding: 1.5rem;
-    background-color: rgb(252, 166, 7, .5);
+    // padding: 1.5rem;
+    // background-color: rgb(252, 166, 7, .5);
 }
 
 .login__wrapper {
@@ -16,7 +16,6 @@
     padding: 1rem;
     border-radius: .4rem;
     gap: 1rem;
-
 
     //this is a hacky way to get the footer stuck to the bottom of the page
     height: calc(100vh - 11.77rem);
