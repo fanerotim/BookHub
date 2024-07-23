@@ -2,13 +2,13 @@
 
 .home__app__info {
     // background-color: rgb(243, 242, 242);
-    padding: 4rem 2rem;
+    padding: 8rem 2rem 6rem 2rem;
     gap: 2rem;
 
     &__features__wrapper {
         display: flex;
         justify-content: space-evenly;
-        padding: 4rem 2rem 2rem 2rem;
+        padding: 6rem 2rem 2rem 2rem;
         gap: 2rem;
         opacity: 0;
     }
