@@ -13,6 +13,7 @@ const Features = () => {
 
                 if (window.scrollY > 556) {
                     setAnimation((oldAnimation) => true)
+                    document.body.style.overflowX = 'hidden'
                 }
             })
         }

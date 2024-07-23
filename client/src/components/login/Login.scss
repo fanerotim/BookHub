@@ -14,7 +14,7 @@
     background-color: rgb(245, 245, 245);
     box-shadow: .2rem .2rem 2rem rgba(83, 185, 253, 0.2);
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: .4rem;
     gap: 1rem;
 
 
@@ -90,11 +90,15 @@
         padding: .8rem;
         border-radius: .3rem;
         border: none;
+        font-weight: 500;
+        font-size: 1rem;
         background-color: rgba(121, 195, 255, 0.4);
 
         &:focus {
             outline: none;
-            background-color: rgb(107, 153, 253);
+            // background-color: rgb(107, 153, 253);
+            background-color: rgb(222, 236, 255);
+            color: rgb(44, 25, 1);
         }
     }
 
