@@ -1,7 +1,18 @@
+import useForm from '../../hooks/useForm'
 import './Login.scss'
 import {Link} from 'react-router-dom'
 
 const Login = () => {
+
+    const {values, handleChange} = useForm({
+        email: '',
+        password: ''
+    })
+
+    function handleSubmit() {
+        console.log(values);
+    }
+
     return (
 
         <div className='login__container'>
@@ -17,12 +28,22 @@ const Login = () => {
 
                     <h1 className='login__form__heading'>Log in</h1>
 
-                    <form className='login__form'>
+                    <form className='login__form' onSubmit={handleSubmit}>
                         <label className='login__form__label' htmlFor="">Email</label>
-                        <input className='login__form__input' type="email" />
+                        <input 
+                        className='login__form__input' 
+                        type="email" 
+                        name='email'
+                        value={values.email}
+                        onChange={handleChange}/>
 
                         <label className='login__form__label' htmlFor="">Password</label>
-                        <input className='login__form__input' type="password" />
+                        <input 
+                        className='login__form__input' 
+                        type="password"
+                        name='password' 
+                        value={values.password}
+                        onChange={handleChange}/>
                         <p className='login__form__register__info'>Don't have an account? <Link to='/register' className='login__form__register__link'>Click here to register</Link></p>
                         <button className='login__form__button'>Log in</button>
                     </form>
