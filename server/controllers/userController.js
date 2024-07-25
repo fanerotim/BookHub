@@ -20,9 +20,9 @@ router.post('/login', async (req, res) => {
     const loginDetails = req.body;
 
     try {
-        const hasLogged = await userService.login(loginDetails);
-        const token = await userService.generateToken(loginDetails);
-        return res.status(200).json({token, message: 'You have successfully logged in!'})
+        const loggedUserDetails = await userService.login(loginDetails);
+        const token = await userService.generateToken(loggedUserDetails);
+        return res.status(200).json({token, message: 'You have successfully logged in!', })
     } catch (err) {
         return res.status(400).json({message: err.message})
     }  

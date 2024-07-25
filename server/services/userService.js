@@ -41,7 +41,7 @@ exports.login = async (loginDetails) => {
         throw new Error('Incorrect password. Please try again.')
     }
 
-    return hasPasswordMatched;
+    return user;
 }
 
 exports.generateToken = async (userDetails) => {
