@@ -1,5 +1,6 @@
 import './Register.scss'
 import useForm from '../../hooks/useForm';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
 
@@ -12,7 +13,8 @@ const Register = () => {
 
     function submitHandler(e) {
         e.preventDefault();
-        console.log(values);
+
+        useAuth(values, 'register');
     }
 
     return (

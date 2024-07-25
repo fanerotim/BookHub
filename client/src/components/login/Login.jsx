@@ -1,6 +1,7 @@
 import useForm from '../../hooks/useForm'
 import './Login.scss'
 import {Link} from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
 
 const Login = () => {
 
@@ -9,8 +10,9 @@ const Login = () => {
         password: ''
     })
 
-    function handleSubmit() {
-        console.log(values);
+    function handleSubmit(e) {
+        e.preventDefault();
+        useAuth(values, 'login')
     }
 
     return (
