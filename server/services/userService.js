@@ -26,15 +26,29 @@ exports.register = async (newUserDetails) => {
     return newUser
 }
 
-exports.login = async (userDetails) = {
+exports.login = async (loginDetails) => {
+    // check if user exists in the db and throw an error if it does not
+    const user = await User.findOne({email: loginDetails.email});
 
+    if (!user) {
+        throw new Error('Login failed. Please try again.')
+    }
+
+    // check if provided password matches the one in the db and throw an error if it does not
+    const hasPasswordMatched = await bcrypt.compare(loginDetails.password, user.password);
+ 
+    if (!hasPasswordMatched) {
+        throw new Error('Incorrect password. Please try again.')
+    }
+
+    return hasPasswordMatched;
 }
 
-exports.generateToken = async (newUser) => {
+exports.generateToken = async (userDetails) => {
     
     const payload = {
-        _id: newUser._id,
-        email: newUser.email
+        _id: userDetails._id,
+        email: userDetails.email
     }
 
     const token = jwt.sign(payload, process.env.JWT_SECRET);

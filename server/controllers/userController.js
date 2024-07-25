@@ -2,10 +2,6 @@ const userService = require('../services/userService');
 
 const router = require('express').Router();
 
-router.post('/login', (req, res) => {
-    return res.status(200).json({message: 'Successfully accessed the LOGIN route'})
-})
-
 router.post('/register', async (req, res) => {
     const userDetails = req.body;
 
@@ -18,6 +14,18 @@ router.post('/register', async (req, res) => {
     } catch(err) {
         return res.status(400).json({message: err.message})
     } 
+})
+
+router.post('/login', async (req, res) => {
+    const loginDetails = req.body;
+
+    try {
+        const hasLogged = await userService.login(loginDetails);
+        const token = await userService.generateToken(loginDetails);
+        return res.status(200).json({token, message: 'You have successfully logged in!'})
+    } catch (err) {
+        return res.status(400).json({message: err.message})
+    }  
 })
 
 router.post('/', (req, res) => {
