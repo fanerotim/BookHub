@@ -12,14 +12,15 @@ export const apiService = async (method, path, data) => {
         options.body = JSON.stringify(data);
     }
 
-    try {
-        const result = await fetch(`${BASE_URL}${path}`, options);
-        return result;
-    } catch(err) {
-        throw new Error(err.message)
-    }
-
     
+        const response = await fetch(`${BASE_URL}${path}`, options);
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw result;
+        }
+
+        return result;
 }
 
 export const get = apiService.bind('', 'GET');
