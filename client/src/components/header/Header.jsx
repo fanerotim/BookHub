@@ -2,10 +2,16 @@ import { useEffect, useState } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink } from 'react-router-dom'
+import useLogout from '../../hooks/useLogout';
 
 const Header = () => {
 
     const { auth } = useAuthContext();
+    const {logout} = useLogout();
+
+    const logoutHandler = () => {
+        logout();
+    }
 
     return (
         <header className='navigation__container'>
@@ -19,7 +25,8 @@ const Header = () => {
 
                 <div className='navigation__wrapper'>
                     {auth ? (
-                        <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
+                        // <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
+                        <button onClick={logoutHandler} className='navigation__item'>Logout</button>
                     ) :
                         (
                             <>

@@ -1,0 +1,16 @@
+@import url('../../index.css');
+
+.spinner__container {
+    height: calc(100vh - 11.77rem);
+    background-color: rgb(241, 241, 241);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: delayedLoad;
+    animation-duration: 2s;
+}
+
+.spinner__text {
+    font-size: 5rem;  
+}
