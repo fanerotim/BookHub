@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 
 const isAuthenticated = (req, res, next) => {
-    const accessToken = req.headers.accesstoken;
-
+    const accessToken = req.headers['accesstoken'];
+    
     if (!accessToken) {
-        next();
+        return next();
     }
 
     try {

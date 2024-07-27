@@ -54,3 +54,4 @@ exports.generateToken = async (userDetails) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET);
     return token;
 }
+

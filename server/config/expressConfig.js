@@ -4,6 +4,7 @@ const cors = require('cors');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 
 const expressConfig = (app) => {
+    app.use(isAuthenticated);
     app.use(express.json())
 
     app.use(cors({
@@ -11,7 +12,6 @@ const expressConfig = (app) => {
         credentials: true
     }))
 
-    app.use(isAuthenticated);
 
     return app;
 }
