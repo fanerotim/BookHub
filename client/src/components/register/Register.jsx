@@ -1,8 +1,10 @@
 import './Register.scss'
 import useForm from '../../hooks/useForm';
-import useAuth from '../../hooks/useAuth';
+import { useSignup } from '../../hooks/useSignup';
 
 const Register = () => {
+
+    const { signup, error } = useSignup();
 
     const { values, handleChange } = useForm({
         username: '',
@@ -11,10 +13,9 @@ const Register = () => {
         rePassword: ''
     })
 
-    function submitHandler(e) {
+    async function submitHandler(e) {
         e.preventDefault();
-
-        useAuth(values, 'register');
+        await signup(values);
     }
 
     return (
@@ -30,37 +31,38 @@ const Register = () => {
                     <h1 className='register__form__heading'>Sign up</h1>
                     <form className='register__form' onSubmit={submitHandler}>
                         <label className='register__form__label'>Username</label>
-                        <input 
-                        className='register__form__input' 
-                        name='username'
-                        value={values.username}
-                        onChange={handleChange} 
-                        type="text" />
+                        <input
+                            className='register__form__input'
+                            name='username'
+                            value={values.username}
+                            onChange={handleChange}
+                            type="text" />
 
                         <label className='register__form__label'>Email</label>
-                        <input 
-                        className='register__form__input'
-                        name='email'
-                        value={values.email} 
-                        onChange={handleChange}
-                        type="email" />
+                        <input
+                            className='register__form__input'
+                            name='email'
+                            value={values.email}
+                            onChange={handleChange}
+                            type="email" />
 
                         <label className='register__form__label' >Password</label>
-                        <input 
-                        className='register__form__input' 
-                        name='password'
-                        value={values.password}
-                        onChange={handleChange}
-                        type="password" />
+                        <input
+                            className='register__form__input'
+                            name='password'
+                            value={values.password}
+                            onChange={handleChange}
+                            type="password" />
 
                         <label className='register__form__label'>Confirm Password</label>
-                        <input 
-                        className='register__form__input' 
-                        name='rePassword'
-                        value={values.rePassword}
-                        onChange={handleChange}
-                        type="password" />
+                        <input
+                            className='register__form__input'
+                            name='rePassword'
+                            value={values.rePassword}
+                            onChange={handleChange}
+                            type="password" />
                         <button className='register__form__button'>Submit</button>
+                        {error && (<p>{error}</p>)}
                     </form>
                 </div>
             </div>
