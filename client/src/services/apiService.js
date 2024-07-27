@@ -1,10 +1,10 @@
 import { BASE_URL } from "../constants";
 
-export const apiService = async (method, path, data) => {
+export const apiService = async (method, url, data) => {
 
     const options = {};
 
-    // TODO: get access token and attach it to the req
+    //TODO: get access token and attach it to the req
 
     //TODO: test if delete requests will cause any issues by having headers and body defined
     if (method !== 'GET') {
@@ -15,7 +15,7 @@ export const apiService = async (method, path, data) => {
         options.body = JSON.stringify(data);
     }
 
-    const response = await fetch(`${BASE_URL}${path}`, options);
+    const response = await fetch(`${BASE_URL}${url}`, options);
     const result = await response.json();
 
     if (!response.ok) {
