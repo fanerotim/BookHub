@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink } from 'react-router-dom'

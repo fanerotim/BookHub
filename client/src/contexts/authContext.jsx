@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 export const AuthContext = createContext();
 
@@ -15,8 +15,17 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, {
-        auth: null,
+        auth: null
     })
+
+    // the useEffect hook is used to set persisted state by checking if we have auth item in local storage
+    useEffect(() => {
+        const auth = JSON.parse(localStorage.getItem('auth'));
+
+        if (auth) {
+            dispatch({type: 'LOGIN', payload: auth})
+        }
+    }, [])
 
     return (
         <AuthContext.Provider value={{ ...state, dispatch }}>
