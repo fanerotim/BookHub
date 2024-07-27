@@ -1,18 +1,24 @@
 import useForm from '../../hooks/useForm'
 import './Login.scss'
-import {Link} from 'react-router-dom'
-import useAuth from '../../hooks/useAuth'
+import { Link, useNavigate } from 'react-router-dom'
+import useLogin from '../../hooks/useLogin'
 
 const Login = () => {
-
-    const {values, handleChange} = useForm({
+    const login = useLogin();
+    const navigate = useNavigate(); 
+    
+    const { values, handleChange } = useForm({
         email: '',
         password: ''
     })
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        useAuth(values, 'login')
+
+        // make a request to the API
+        await login(values)
+        // redirect on success
+        navigate('/')
     }
 
     return (
@@ -32,20 +38,20 @@ const Login = () => {
 
                     <form className='login__form' onSubmit={handleSubmit}>
                         <label className='login__form__label' htmlFor="">Email</label>
-                        <input 
-                        className='login__form__input' 
-                        type="email" 
-                        name='email'
-                        value={values.email}
-                        onChange={handleChange}/>
+                        <input
+                            className='login__form__input'
+                            type="email"
+                            name='email'
+                            value={values.email}
+                            onChange={handleChange} />
 
                         <label className='login__form__label' htmlFor="">Password</label>
-                        <input 
-                        className='login__form__input' 
-                        type="password"
-                        name='password' 
-                        value={values.password}
-                        onChange={handleChange}/>
+                        <input
+                            className='login__form__input'
+                            type="password"
+                            name='password'
+                            value={values.password}
+                            onChange={handleChange} />
                         <p className='login__form__register__info'>Don't have an account? <Link to='/register' className='login__form__register__link'>Click here to register</Link></p>
                         <button className='login__form__button'>Log in</button>
                     </form>
