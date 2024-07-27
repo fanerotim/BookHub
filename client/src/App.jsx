@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer'
 import Login from './components/login/Login'
 import Register from './components/register/Register'
 import { Routes, Route } from 'react-router-dom'
+import { Logout } from './components/logout/Logout'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
+        <Route path='/logout' element={<Logout/>}></Route>
       </Routes>
       
       <Footer />
