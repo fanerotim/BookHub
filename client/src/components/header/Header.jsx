@@ -1,7 +1,11 @@
+import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
+
+    const { auth } = useAuthContext();
+
     return (
         <header className='navigation__container'>
             <ul className='navigation'>
@@ -13,8 +17,17 @@ const Header = () => {
                 </div>
 
                 <div className='navigation__wrapper'>
-                    <NavLink to='/login' className='navigation__item'>Login</NavLink>
-                    <NavLink to='/register' className='navigation__item'>Register</NavLink>
+                    {auth ? (
+                        <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
+                    ) :
+                        (
+                            <>
+                                <NavLink to='/login' className='navigation__item'>Login</NavLink>
+                                <NavLink to='/register' className='navigation__item'>Register</NavLink>
+                            </>
+                        )}
+
+
                 </div>
             </ul>
         </header>
