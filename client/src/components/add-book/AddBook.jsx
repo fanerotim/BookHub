@@ -1,31 +1,67 @@
+import useForm from '../../hooks/useForm';
 import './AddBook.scss'
 
 const AddBook = () => {
+
+    const {values, handleChange} = useForm({
+        title: '',
+        author: '',
+        description: '',
+        imgUrl: ''
+    })
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(values);
+    }
+
     return (
         <section className='add-book__container'>
 
             <div className='add-book__form__container'>
 
-                {/* <h1 className='add-book__form__heading'>Add a Book to BookHub</h1> */}
-                <form className='add-book__form' action="">
+                <form className='add-book__form' onSubmit={handleSubmit}>
                     <div className='add-book__form__field__wrapper'>
                         <label className='add-book__form__label' htmlFor="">Title</label>
-                        <input className='add-book__form__input' type="text" name='title' />
+                        <input 
+                        className='add-book__form__input' 
+                        type="text" 
+                        name='title'
+                        value={values.title}
+                        onChange={handleChange} />
                     </div>
 
                     <div className='add-book__form__field__wrapper'>
                         <label className='add-book__form__label' htmlFor="">Author</label>
-                        <input className='add-book__form__input' type="text" name='author' />
+                        <input 
+                        className='add-book__form__input' 
+                        type="text" 
+                        name='author'
+                        value={values.author}
+                        onChange={handleChange}
+                        />
                     </div>
 
                     <div className='add-book__form__field__wrapper'>
                         <label className='add-book__form__label' htmlFor="">Description</label>
-                        <textarea className='add-book__form__textarea' name="description"></textarea>
+                        <textarea 
+                        className='add-book__form__textarea' 
+                        name="description"
+                        value={values.description}
+                        onChange={handleChange}
+                        >
+                        </textarea>
                     </div>
 
                     <div className='add-book__form__field__wrapper'>
                         <label className='add-book__form__label' htmlFor="">Cover Image Url</label>
-                        <input className='add-book__form__input' type="text" name='imgUrl' />
+                        <input 
+                        className='add-book__form__input' 
+                        type="text" 
+                        name='imgUrl' 
+                        value={values.imgUrl}
+                        onChange={handleChange}
+                        />
                     </div>
                     <button className='add-book__form__button'>Add</button>
                 </form>

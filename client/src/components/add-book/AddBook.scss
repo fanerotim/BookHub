@@ -3,13 +3,18 @@
 .add-book__container {
     display: flex;
     justify-content: space-around;
+
+    height: calc(100vh - 11rem);
 }
 
 .add-book__form__container {
     padding: 4rem 8rem;
     position: relative;
     z-index: 2;
-    background-color: rgba(151, 204, 186, 0.5);
+    // background-color: rgba(151, 204, 186, 0.5);
+    background-color: rgba(223, 223, 223, 0.5);
+    display: flex;
+    align-items: center;
 
     &::after {
         content: '';
@@ -21,8 +26,9 @@
         left: 0;
         box-shadow: .5rem .5rem 2rem rgb(204, 204, 204, .5);
         transform: skew(-15deg, -3deg);
+
         z-index: -1;
-        animation-name: delayedLoad;
+        animation-name: addBookSkew;
         animation-duration: 2s;
     }
 }
@@ -30,10 +36,9 @@
 .add-book__form {
     display: flex;
     flex-direction: column;
-
-    &__field__wrapper {
-        padding-bottom: 1rem;
-    }
+    gap: .5rem;
+    animation-name: delayedLoad;
+    animation-duration: 3s;
 
     &__label {
         display: block;
@@ -55,6 +60,7 @@
             color: rgb(44, 25, 1);
         }
     }
+
     &__textarea {
         height: 6rem;
     }
@@ -65,7 +71,7 @@
         text-align: center;
         padding: .7rem 2rem;
         border-radius: .2rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
         cursor: pointer;
         font-weight: 500;
         font-size: .9rem;
@@ -78,7 +84,10 @@
 }
 
 .add-book__text__container {
-    background-color: rgba(151, 204, 186, 0.5);
+    // background-color: rgba(151, 204, 186, 0.5);
+    background-color: rgba(223, 223, 223, 0.5);
+    display: flex;
+    align-items: center;
 }
 
 .add-book__text__wrapper {
@@ -94,18 +103,20 @@
         font-size: 5rem;
         line-height: 1.1;
         padding-bottom: 1rem;
-        font-weight: 200;
-        color: rgb(39, 39, 39, .9)
+        font-weight: 300;
+        color: rgb(15, 15, 15, .8)
     }
 
     &__subheading {
         font-size: 2rem;
-        font-weight: 400;
+        font-weight: 200;
         padding-bottom: 1rem;
+        color: rgb(35, 45, 53);
     }
 
     &__description {
-        font-weight: 200;
+        font-weight: 300;
         font-size: 1.2rem;
+        color: rgb(3, 3, 3, .7);
     }
 }

@@ -18,6 +18,16 @@
     }
 }
 
+@keyframes addBookSkew {
+    from {
+        transform: skew(0deg, 0deg);
+    }
+
+    to {
+        transform: skew(-15deg, -3deg);
+    }
+}
+
 @keyframes delayedLoad {
     from {
         opacity: 0;
