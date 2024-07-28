@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const isUser = require('../middlewares/isUser');
+const isGuest = require('../middlewares/isGuest');
 const User = require('../models/User');
 const bookService = require('../services/bookService');
 
@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     return res.status(200).json({message: 'Successfully accessed the CATALOG route!'})
 })
 
-router.post('/add-book', isUser, async (req, res) => {
+router.post('/add-book', isGuest, async (req, res) => {
     const bookDetails = req.body;
 
     // TODO: create middleware that checks if the user is authenticated
