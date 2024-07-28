@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const isAuthenticated = (req, res, next) => {
+    // this middleware verifies token of authorized requests
     const accessToken = req.headers['accesstoken'];
     
     if (!accessToken) {
