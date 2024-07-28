@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink } from 'react-router-dom'
@@ -7,7 +6,7 @@ import useLogout from '../../hooks/useLogout';
 const Header = () => {
 
     const { auth } = useAuthContext();
-    const {logout} = useLogout();
+    const { logout } = useLogout();
 
     const logoutHandler = () => {
         logout();
@@ -20,13 +19,13 @@ const Header = () => {
                 <div className='navigation__wrapper'>
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
                     <NavLink to='/library' className='navigation__item'>Library</NavLink>
-                    <NavLink to='/about' className='navigation__item'>About</NavLink>
+                    {auth && <NavLink to='/add-book' className='navigation__item'>Add a book</NavLink>}
                 </div>
 
                 <div className='navigation__wrapper'>
                     {auth ? (
                         // <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
-                        <button onClick={logoutHandler} className='navigation__item'>Logout</button>
+                            <button onClick={logoutHandler} className='navigation__item'>Logout</button>
                     ) :
                         (
                             <>
