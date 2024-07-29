@@ -1,10 +1,15 @@
 const router = require('express').Router();
 const isGuest = require('../middlewares/isGuest');
-const User = require('../models/User');
 const bookService = require('../services/bookService');
 
-router.get('/', (req, res) => {
-    return res.status(200).json({message: 'Successfully accessed the CATALOG route!'})
+router.get('/library', async (req, res) => {
+    
+    try {
+        const books = await bookService.getAll();
+        return res.status(200).json(books);
+    } catch(err) {
+        return res.status(400).json({message: err.message})
+    }
 })
 
 router.post('/add-book', isGuest, async (req, res) => {
