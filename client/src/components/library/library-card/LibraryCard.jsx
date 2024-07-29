@@ -1,16 +1,20 @@
 import './LibraryCard.scss'
 import placeholderImage from '../../../assets/elixir.jpg'
+import { Link } from 'react-router-dom';
 
-
-const LibraryCard = () => {
+const LibraryCard = ({book}) => {
     return (
         <section className='library__card__wrapper'>
-            <div className='library__card__img__container'>
-                <img className='library__card__img' src={placeholderImage} alt="" />
-            </div>
-            <p>Title</p>
-            <p>Author</p>
-            <button>More</button>
+            <Link className='link' to='/'>
+                <div className='library__card__img__container'>
+                    <img className='library__card__img' src={book.imgUrl} alt="" />
+                </div>
+
+                <div className='library__card__text'>
+                    <p className='library__card__text__title'>{book.title}</p>
+                    <p className='library__card__text__author'>{book.author}</p>
+                </div>
+            </Link>
         </section>
     )
 }
