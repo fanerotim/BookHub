@@ -12,7 +12,6 @@ export const apiService = async (method, url, data) => {
         options.body = JSON.stringify(data);
     }
 
-    //TODO: get access token and attach it to the req
     const userData = JSON.parse(localStorage.getItem('auth'));
 
     if (userData) {
