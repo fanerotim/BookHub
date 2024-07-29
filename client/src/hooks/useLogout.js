@@ -8,6 +8,7 @@ const useLogout = () => {
 
     const logout = async () => {
 
+        // TODO: Check why I get error when I manually change token and try to logout
         try {
             const logout = await apiService.post('/user/logout')
 
@@ -20,7 +21,14 @@ const useLogout = () => {
             // redirect to login
             navigate('/login')
         } catch (err) {
-            console.log(err.message)
+            //clear local storage
+            localStorage.removeItem('auth');
+
+            //update state: nullify it
+            dispatch({type: 'LOGOUT', payload: null})
+
+            // redirect to login
+            navigate('/login')
         }
     }
 
