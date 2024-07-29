@@ -1,0 +1,42 @@
+.library__container {
+    height: calc(100vh - 11rem);
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    gap: .5rem;
+    // padding: 2rem;
+}
+
+.library__text__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    
+    &__logo {
+        color: steelblue;
+        font-weight: bold;
+    }
+
+    &__heading {
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        font-size: 3.5rem;
+        font-weight: 200;
+    }
+
+    &__subheading {
+        color: rgb(29, 19, 19);
+        font-weight: 300;
+
+        &__main {
+            font-size: 1.1rem;
+            padding-bottom: 1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.library__card__container {
+    border: 1px solid green;
+    padding: 2rem;
+}
