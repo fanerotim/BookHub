@@ -14,3 +14,12 @@ exports.create = async (bookDetails) => {
     const newBook = await Book.create(bookDetails);
     return newBook;
 }
+
+exports.getAll = async () => {
+    const books = await Book.find();
+
+    if (books.length === 0) {
+        throw error('Error loading books. Please try again later.')
+    }
+    return books;
+}
