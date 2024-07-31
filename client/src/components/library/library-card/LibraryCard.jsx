@@ -1,5 +1,4 @@
 import './LibraryCard.scss'
-import placeholderImage from '../../../assets/elixir.jpg'
 import { Link } from 'react-router-dom';
 
 const LibraryCard = ({book}) => {
