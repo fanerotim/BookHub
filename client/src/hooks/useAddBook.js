@@ -8,7 +8,7 @@ const useAddBook = () => {
     const add = async (values) => {
         try {
             const newBook = await apiService.post('/books/add-book', values);
-            navigate('/')
+            navigate('/library')
         } catch (err) {
             // TODO: add error handling
             console.log(err.message);
