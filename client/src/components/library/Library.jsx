@@ -69,7 +69,7 @@ const Library = () => {
                     </div>
                 )
                 : (
-                    <h1 className='library__card__container__empty'>Our library is currently empty</h1>
+                    <h1 className='library__card__container__empty'>{catalog.length > 0 ? `We do not currently have ${genre.toLowerCase()} books` : 'Our library is currently empty'}</h1>
                 )}
 
         </section>
