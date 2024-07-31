@@ -10,7 +10,6 @@ router.get('/library', async (req, res) => {
     } catch(err) {
         return res.status(400).json({message: err.message})
     }
-
 })
 
 router.post('/add-book', isGuest, async (req, res) => {
@@ -22,7 +21,6 @@ router.post('/add-book', isGuest, async (req, res) => {
     } catch(err) {
         return res.status(409).json({message: err.message})
     }  
-
 })
 
 module.exports = router;
