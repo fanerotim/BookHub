@@ -8,6 +8,7 @@ const AddBook = () => {
         title: '',
         author: '',
         description: '',
+        genre: '',
         imgUrl: ''
     })
 
@@ -55,6 +56,20 @@ const AddBook = () => {
                             onChange={handleChange}
                         >
                         </textarea>
+                    </div>
+
+                    <div className='add-book__form__field__wrapper'>
+                        <label className='add-book__form__label' htmlFor='genre'>Genre</label>
+                        <select 
+                        className='add-book__form__select'
+                        name="genre"
+                        id='genre'
+                        onChange={handleChange}>
+                            <option value='Fiction'>Fiction</option>
+                            <option value='Biography'>Biography</option>
+                            <option value='Science-Fiction'>Science-Fiction</option>
+                            <option value='Psychology'>Psychology</option>
+                        </select>
                     </div>
 
                     <div className='add-book__form__field__wrapper'>

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
 
-    height: calc(100vh - 11rem);
+    height: calc(100vh - 2rem);
 }
 
 .add-book__form__container {
@@ -46,7 +46,8 @@
     }
 
     &__input,
-    &__textarea {
+    &__textarea,
+    &__select {
         border: none;
         outline: none;
         background-color: rgba(121, 195, 255, 0.4);
