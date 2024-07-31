@@ -17,6 +17,8 @@
     &:hover {
         box-shadow: .2rem .2rem .9rem rgb(0, 0, 0, .9);
         background-color: white;
+        transform: scale(1.01);
+        transition: transform .3s;
     }    
 }
 
