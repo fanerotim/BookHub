@@ -37,3 +37,13 @@
         opacity: 1;
     }
 }
+
+@keyframes dropLogo {
+    from {
+        translate: 0 -150vh;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
