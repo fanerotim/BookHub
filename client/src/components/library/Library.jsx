@@ -16,7 +16,6 @@ const Library = () => {
         (async () => {
             // only req to the db to get all books
             const allBooks = await getAll();
-            console.log(allBooks);
             // this state changes depending on genre and it is used to render books
             setBooks(oldBooks => allBooks)
             // keep all books in catalog state
@@ -34,21 +33,13 @@ const Library = () => {
             case 'SCIENCE-FICTION':
             case 'PSYCHOLOGY':
 
-                // adding this check as if there are no books in db .find will return an error an application will break
-                if (catalog.length === 0) {
-                    return;
-                }
-
-                const curBooks = catalog.find(book => book.genre.toLowerCase() === genre.toLowerCase())
-    
-                // this conditional checks if there are any books, if not then state is not updated.
-                // this is needed as if there are no books find method returns undefined and that is then set as state which breaks logic
-                if (curBooks) {
-                    setBooks((oldBooks) => [curBooks]);
-                }
+                const curBooks = catalog.filter(book => book.genre.toLowerCase() === genre.toLowerCase())
+                setBooks((oldBooks) => curBooks);
                 break;
+
             default:
                 setBooks((oldBooks) => catalog);
+                break;
         }
     }
 
@@ -68,18 +59,18 @@ const Library = () => {
                 <button onClick={getBooksHandler} className={genre === 'PSYCHOLOGY' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>PSYCHOLOGY</button>
             </ul>
 
-            {books.length > 0 
-            ? 
-            (
-            <div className='library__card__container'>
-                {books.map((book) => (
-                    <LibraryCard key={book._id} book={book} />
-                ))}
-            </div>
-            )
-            : (
-                <h1 className='library__card__container__empty'>Our library is currently empty</h1>
-            )}
+            {books.length > 0
+                ?
+                (
+                    <div className='library__card__container'>
+                        {books.map((book) => (
+                            <LibraryCard key={book._id} book={book} />
+                        ))}
+                    </div>
+                )
+                : (
+                    <h1 className='library__card__container__empty'>Our library is currently empty</h1>
+                )}
 
         </section>
     )
