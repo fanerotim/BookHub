@@ -40,7 +40,12 @@ const Library = () => {
                 }
 
                 const curBooks = catalog.find(book => book.genre.toLowerCase() === genre.toLowerCase())
-                setBooks((oldBooks) => [curBooks]);
+    
+                // this conditional checks if there are any books, if not then state is not updated.
+                // this is needed as if there are no books find method returns undefined and that is then set as state which breaks logic
+                if (curBooks) {
+                    setBooks((oldBooks) => [curBooks]);
+                }
                 break;
             default:
                 setBooks((oldBooks) => catalog);
