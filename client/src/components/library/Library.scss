@@ -1,8 +1,6 @@
+@import url('../../index.css');
+
 .library__container {
-    // height: calc(100vh - 11rem);
-    // display: grid;
-    // grid-template-columns: 1.5fr 3fr;
-    // gap: .5rem;
     padding: 7rem 0rem;
     background-color: rgb(247, 247, 247);
 }
@@ -15,11 +13,14 @@
     
     &__logo {
         color: steelblue;
+        display: inline-block;
         font-weight: bold;
+        animation-name: dropFromTop;
+        animation-duration: 1.2s;
     }
 
     &__heading {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
         line-height: 1.1;
         font-size: 7rem;
         font-weight: bold;
@@ -32,7 +33,7 @@
 
         &__main {
             font-size: 2.5rem;
-            padding-bottom: 1rem;
+            padding-bottom: 1.5rem;
             font-weight: 200;
             color: rgb(75, 40, 75);
 
@@ -53,14 +54,25 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
+
+    &__empty {
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 4rem;
+        color: red;
+        animation-name: delayedLoad;
+        animation-duration: 3s;
+    }
 }
 
 .library__subNavigation {
-    margin-top: 3rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     gap: 2rem;
     font-size: 1.3rem;
+    position: relative;
 
     &__item {
         all: unset;
@@ -70,5 +82,6 @@
 }
 
 .activeSubRoute {
-    color: grey;
+    transform: scale(1.2);
+    color: rgb(91, 158, 175);
 }

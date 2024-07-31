@@ -16,6 +16,7 @@ const Library = () => {
         (async () => {
             // only req to the db to get all books
             const allBooks = await getAll();
+            console.log(allBooks);
             // this state changes depending on genre and it is used to render books
             setBooks(oldBooks => allBooks)
             // keep all books in catalog state
@@ -29,7 +30,15 @@ const Library = () => {
 
         switch (genre) {
             case 'FICTION':
-            case 'CRIME':
+            case 'BIOGRAPHY':
+            case 'SCIENCE-FICTION':
+            case 'PSYCHOLOGY':
+
+                // adding this check as if there are no books in db .find will return an error an application will break
+                if (catalog.length === 0) {
+                    return;
+                }
+
                 const curBooks = catalog.find(book => book.genre.toLowerCase() === genre.toLowerCase())
                 setBooks((oldBooks) => [curBooks]);
                 break;
@@ -41,7 +50,7 @@ const Library = () => {
     return (
         <section className='library__container'>
             <div className='library__text__container'>
-                <h1 className='library__text__container__heading'><span className='library__text__container__logo'>Our </span>Library</h1>
+                <h1 className='library__text__container__heading'><span className='library__text__container__logo'>Our</span> Library</h1>
                 <p className='library__text__container__subheading__main'>Dive into the vast universe of books</p>
                 <p className='library__text__container__subheading'>Our catalog is designed to be your ultimate destination for discovering, sharing, and discussing books of all kinds.</p>
             </div>
@@ -49,14 +58,24 @@ const Library = () => {
             <ul className='library__subNavigation'>
                 <button onClick={getBooksHandler} className={genre === 'ALL' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>All</button>
                 <button onClick={getBooksHandler} className={genre === 'FICTION' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>Fiction</button>
-                <button onClick={getBooksHandler} className={genre === 'CRIME' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>Crime</button>
+                <button onClick={getBooksHandler} className={genre === 'BIOGRAPHY' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>BIOGRAPHY</button>
+                <button onClick={getBooksHandler} className={genre === 'SCIENCE-FICTION' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>SCIENCE-FICTION</button>
+                <button onClick={getBooksHandler} className={genre === 'PSYCHOLOGY' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>PSYCHOLOGY</button>
             </ul>
 
+            {books.length > 0 
+            ? 
+            (
             <div className='library__card__container'>
                 {books.map((book) => (
                     <LibraryCard key={book._id} book={book} />
                 ))}
             </div>
+            )
+            : (
+                <h1 className='library__card__container__empty'>Our library is currently empty</h1>
+            )}
+
         </section>
     )
 }
