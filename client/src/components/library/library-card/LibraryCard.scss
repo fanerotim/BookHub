@@ -1,3 +1,5 @@
+@import url('../../../index.css');
+
 .library__card__wrapper {
     width: fit-content;
     width: 250px;
@@ -13,7 +15,10 @@
     &:hover {
         box-shadow: .2rem .2rem .9rem rgb(0, 0, 0, .9);
         background-color: white;
-    }   
+    }  
+    
+    animation-name: delayedLoad;
+    animation-duration: 2s;
 }
 
 .library__card__text {
