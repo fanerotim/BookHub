@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LibraryCard = ({book}) => {
     return (
         <section className='library__card__wrapper'>
-            <Link className='link' to='/'>
+            <Link className='link' to={`/library/${book._id}`}>
                 <div className='library__card__img__container'>
                     <img className='library__card__img' src={book.imgUrl} alt="" />
                 </div>
