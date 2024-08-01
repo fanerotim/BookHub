@@ -1,9 +1,22 @@
 import { useParams } from "react-router-dom";
+import useBookDetails from "../../../hooks/useBookDetails";
+import { useEffect, useState } from "react";
 
-const Details = () => {
+const BookDetails = () => {
 
-    const bookId = useParams();
-    console.log(bookId);
+    // get bookId
+    const { bookId } = useParams();
+    const { getDetails } = useBookDetails();
+    const [book, setBook] = useState([]);
+    
+    
+    useEffect( () => {
+        (async () => {
+            const book = await getDetails(bookId);
+            setBook((oldBook) => book);
+            console.log(book);
+        })()
+    }, [])
 
     return (
         <>
