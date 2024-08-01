@@ -21,6 +21,6 @@ exports.getAll = async () => {
 }
 
 exports.getOne = async (bookId) => {
-    const book = await Book.find({_id: bookId});
+    const book = await Book.findOne({_id: bookId});
     return book;
 }
