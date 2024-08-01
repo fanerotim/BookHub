@@ -65,7 +65,7 @@ const AddBook = () => {
                         name="genre"
                         id='genre'
                         onChange={handleChange}>
-                            <option selected></option>
+                            <option defaultValue={''}></option>
                             <option value='Fiction'>Fiction</option>
                             <option value='Biography'>Biography</option>
                             <option value='Science-Fiction'>Science-Fiction</option>
