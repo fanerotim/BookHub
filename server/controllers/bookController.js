@@ -12,6 +12,17 @@ router.get('/library', async (req, res) => {
     }
 })
 
+router.get('/library/:bookId', async (req, res) => {
+    const bookId = req.params.bookId;
+
+    try {
+        const book = await bookService.getOne(bookId);
+        return res.status(200).json(book)
+    } catch(err) {
+        return res.status(404).json({message: err.message})
+    }
+})
+
 router.post('/add-book', isGuest, async (req, res) => {
     const bookDetails = req.body;
 

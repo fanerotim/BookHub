@@ -17,9 +17,10 @@ exports.create = async (bookDetails) => {
 
 exports.getAll = async () => {
     const books = await Book.find();
-
-    // if (books.length === 0) {
-    //     throw error('Error loading books. Please try again later.')
-    // }
     return books;
+}
+
+exports.getOne = async (bookId) => {
+    const book = await Book.find({_id: bookId});
+    return book;
 }
