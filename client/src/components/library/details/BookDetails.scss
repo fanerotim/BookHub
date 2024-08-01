@@ -1,0 +1,84 @@
+@import url('../../../index.css');
+
+.book__details__container {
+    background-color: rgb(245, 245, 245);
+}
+
+.book__details {
+    padding: 5rem;
+}
+
+.book__details__main__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__span {
+        font-weight: 200;
+        animation-name: delayedLoad;
+        animation-duration: 1s;
+    }
+
+    &__title {
+        font-size: 5rem;
+        font-weight: bold;
+        color: steelblue;
+    }
+
+    &__author {
+        font-size: 2.5rem;
+        font-weight: 200;
+        animation-name: delayedLoad;
+        animation-duration: 3s;
+    } 
+}
+
+
+.book__details__secondary__info {
+    display: flex;
+    justify-content: space-evenly;
+
+    padding-top: 5rem;
+    gap: 5rem;
+
+    &__description {
+        width: 500px;
+
+        &__heading {
+            font-size: 2rem;
+            font-weight: 200;
+            padding-bottom: 2rem;
+        }
+    
+        &__summary {
+            font-weight: 200;
+            font-size: 1.2rem;
+        }
+
+        &__button {
+            all: unset;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-top: 1rem;
+
+            &:hover {
+                color: rgb(82, 82, 82);
+            }
+        }
+    }
+
+    &__img__container {
+        width: 20rem;
+        // height: auto;
+    }
+
+    &__image {
+        object-fit: contain;
+        // height: 100%;
+        width: 100%;
+        border-radius: .5rem;
+        box-shadow: .1rem .1rem 1rem rgb(122, 122, 122, .3);
+    }
+}
+
