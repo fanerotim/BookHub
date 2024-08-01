@@ -8,6 +8,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import AddBook from './components/add-book/AddBook'
 import { useAuthContext } from './hooks/useAuthContext'
 import Library from './components/library/Library'
+import BookDetails from './components/library/details/BookDetails'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/register' element={auth ? <Navigate to='/'/> : <Register />}></Route>
                 <Route path='/add-book' element={auth ? <AddBook /> : <Navigate to='/login'/>}></Route>
                 <Route path='/library' element={<Library/>}></Route>
+                <Route path='/library/:bookId' element={<BookDetails/>}></Route>
             </Routes>
 
             <Footer />
