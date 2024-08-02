@@ -1,0 +1,31 @@
+.edit__page__container {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit__page__form {
+    display: flex;
+    border: 1px solid red;
+    padding: 2rem;
+}
+
+.edit__page__form__fields {
+    display: flex;
+    flex-direction: column;
+
+    &__title__author__container {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__label {
+        display: block;
+    }
+
+    &__input,
+    &__textarea,
+    &__select {
+        width: 100%;
+    }
+}
