@@ -2,10 +2,15 @@
 
 .book__details__container {
     background-color: rgb(245, 245, 245);
+    animation-name: delayedLoad;
+    animation-duration: 1s;
+    min-height: 100vh;
 }
 
 .book__details {
     padding: 5rem;
+    // setting min-height fixes the issue whereby the whole page's layout changes, but better option will be to limit the length of description in the first place
+    // min-height: 1200px;
 }
 
 .book__details__main__info {
@@ -30,7 +35,7 @@
         font-weight: 200;
         animation-name: delayedLoad;
         animation-duration: 3s;
-    } 
+    }
 }
 
 
@@ -49,10 +54,10 @@
             font-weight: 200;
             padding-bottom: 2rem;
         }
-    
+
         &__summary {
             font-weight: 200;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         &__button {
@@ -70,7 +75,6 @@
 
     &__img__container {
         width: 20rem;
-        // height: auto;
     }
 
     &__image {
@@ -82,3 +86,32 @@
     }
 }
 
+.button__container {
+    display: flex;
+    padding-top: 8rem;
+    gap: 2rem;
+
+    &__button {
+        all: unset;
+        padding: 1rem 3rem;
+        border-radius: .3rem;
+        cursor: pointer;
+    }
+
+
+    &__edit {
+        background: rgb(187, 248, 187);
+
+        &:hover {
+            background: rgb(112, 184, 112);
+        }
+    }
+
+    &__delete {
+        background-color: rgb(243, 105, 105);
+
+        &:hover {
+            background-color: rgb(212, 42, 42);
+        }
+    }
+}
