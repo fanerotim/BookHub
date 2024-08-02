@@ -24,3 +24,8 @@ exports.getOne = async (bookId) => {
     const book = await Book.findOne({_id: bookId});
     return book;
 }
+
+exports.update = async(bookDetails) => {
+    const updatedBook = await Book.findByIdAndUpdate(bookDetails._id, bookDetails)
+    return updatedBook;
+}

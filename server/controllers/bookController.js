@@ -34,4 +34,16 @@ router.post('/add-book', isGuest, async (req, res) => {
     }  
 })
 
+router.put('/:bookId/edit', async (req, res) => {
+    const bookId = req.params.bookId;
+    const bookDetails = req.body;
+
+    try {
+        const updatedBook = await bookService.update(bookDetails)
+        return res.status(200).json(updatedBook);
+    } catch(err) {
+        return res.status(400).json({message: err.message})
+    }
+})
+
 module.exports = router;
