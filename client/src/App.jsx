@@ -9,13 +9,14 @@ import AddBook from './components/add-book/AddBook'
 import { useAuthContext } from './hooks/useAuthContext'
 import Library from './components/library/Library'
 import BookDetails from './components/library/details/BookDetails'
+import EditBook from './components/library/edit/EditBook'
 
 function App() {
 
     const {auth} = useAuthContext();
 
     return (
-        <>
+        <div className='app'>
             <Header />
 
             <Routes>
@@ -25,10 +26,11 @@ function App() {
                 <Route path='/add-book' element={auth ? <AddBook /> : <Navigate to='/login'/>}></Route>
                 <Route path='/library' element={<Library/>}></Route>
                 <Route path='/library/:bookId' element={<BookDetails/>}></Route>
+                <Route path='/library/:bookId/edit' element={<EditBook/>}></Route>
             </Routes>
 
             <Footer />
-        </>
+        </div>
     )
 }
 
