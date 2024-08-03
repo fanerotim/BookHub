@@ -29,11 +29,12 @@ const DeleteBookModal = ({props}) => {
     return (
         <section className='delete__modal__container'>
             <div className='delete__modal'>
-                <h1 className='delete__modal__text'>Are you sure you want to delete your entry?</h1>
-
+                <h1 className='delete__modal__text'>Are you sure you want to delete this book entry from <span className='delete__modal__text__logo'>BookHub</span>? This action cannot be undone.</h1>
+                <p className='delete__modal__text__notice'>By clicking <span className='delete__modal__text__notice__delete'>Delete</span>, the book entry will be permanently removed from our library.</p>
+                
                 <div className='delete__modal__button__container'>
-                    <button onClick={handleApprove} className='delete__modal__button__container__approve delete__modal__button__container__button'>Yes</button>
-                    <button onClick={handleReject} className='delete__modal__button__container__reject delete__modal__button__container__button'>No</button>
+                    <button onClick={handleApprove} className='delete__modal__button__container__approve delete__modal__button__container__button'>Delete</button>
+                    <button onClick={handleReject} className='delete__modal__button__container__reject delete__modal__button__container__button'>Cancel</button>
                 </div>
             </div>
         </section>

@@ -2,16 +2,18 @@ import useAddBook from '../../hooks/useAddBook';
 import useForm from '../../hooks/useForm';
 import './AddBook.scss'
 
+
+const initialValues = {
+    title: '',
+    author: '',
+    description: '',
+    genre: '',
+    imgUrl: ''
+}
+
 const AddBook = () => {
 
-    const { values, handleChange } = useForm({
-        title: '',
-        author: '',
-        description: '',
-        genre: '',
-        imgUrl: ''
-    })
-
+    const { values, handleChange } = useForm(initialValues)
     const { add } = useAddBook();
 
     function handleSubmit(e) {
