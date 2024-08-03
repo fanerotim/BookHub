@@ -1,0 +1,43 @@
+.delete__modal__container {
+    // width: 100%;
+    // height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(34, 34, 34, .6);
+
+    position: absolute;
+    inset: 0;
+}
+
+.delete__modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 17rem;
+    align-items: center;
+    border-radius: .3rem;
+    padding: 5rem;
+    background-color: rgb(109, 146, 177);
+    background-color: rgb(209, 209, 209, .8);
+
+    &__text {
+        margin-bottom: 3rem;
+        font-size: 1.8rem;
+        font-weight: 300;
+    }
+}
+
+.delete__modal__button__container {
+    display: flex;
+    gap: 3rem;
+
+    &__button {
+        padding: .6rem 2rem;
+        border-radius: .3rem;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+}
+
