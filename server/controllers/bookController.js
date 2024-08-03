@@ -46,4 +46,15 @@ router.put('/:bookId/edit', async (req, res) => {
     }
 })
 
+router.delete('/:bookId/delete', async (req, res) => {
+    const bookId = req.params.bookId;
+
+    try {
+        const deletedBook = await bookService.delete(bookId);
+        return res.status(200).json(deletedBook);
+    } catch(err) {  
+        return res.status(404).json({message: err.message})
+    }
+})
+
 module.exports = router;
