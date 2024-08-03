@@ -3,6 +3,7 @@ import useBookDetails from "../../../hooks/useBookDetails";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './BookDetails.scss'
+import DeleteBookModal from "../delete-modal/DeleteBookModal";
 
 const BookDetails = () => {
 
@@ -11,6 +12,7 @@ const BookDetails = () => {
     const { getDetails } = useBookDetails();
     const [book, setBook] = useState({});
     const [showFullDescription, setShowFullDescription] = useState(false);
+    const [deleteModal, setDeleteModal] = useState(false);
 
 
     useEffect(() => {
@@ -28,10 +30,14 @@ const BookDetails = () => {
         setShowFullDescription((oldDescription) => !showFullDescription)
     }
 
+    function deleteHandler() {
+        setDeleteModal((oldModalState) => !oldModalState)
+    }
+
     return (
         <section className="book__details__container">
-            <section className="book__details">
 
+            <section className="book__details">
                 <div className="book__details__main__info">
                     <h1 className="book__details__main__info__title">{book.title}</h1>
                     <span className="book__details__main__info__span">by</span>
@@ -40,14 +46,15 @@ const BookDetails = () => {
 
                 <div className="book__details__secondary__info">
                     <div className="book__details__secondary__info__description">
-                    <span className="book__details__secondary__info__genre">{book.genre}</span>
+                        <span className="book__details__secondary__info__genre">{book.genre}</span>
                         <h1 className="book__details__secondary__info__description__heading">Description</h1>
                         <p className="book__details__secondary__info__description__summary">{showFullDescription ? book.description.substring(0, 400) + '...' : book.description}</p>
                         <button className="book__details__secondary__info__description__button" onClick={descriptionHandler}>{showFullDescription ? 'More' : 'Less'}</button>
 
                         <div className="button__container">
                             <Link to={`/library/${book._id}/edit`} className="button__container__button button__container__edit">Edit</Link>
-                            <Link to={`/library/${book._id}/delete`} className="button__container__button button__container__delete">Delete</Link>
+                            {/* <Link to={`/library/${book._id}/delete`} className="button__container__button button__container__delete">Delete</Link> */}
+                            <button onClick={deleteHandler} className="button__container__button button__container__delete">Delete</button>
                         </div>
                     </div>
 
@@ -56,9 +63,11 @@ const BookDetails = () => {
                     </div>
                 </div>
 
+                {deleteModal && <DeleteBookModal props={{ deleteHandler }} />}
             </section>
-            
+
         </section>
+
     )
 }
 

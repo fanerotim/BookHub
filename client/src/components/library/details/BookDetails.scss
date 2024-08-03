@@ -5,6 +5,8 @@
     animation-name: delayedLoad;
     animation-duration: 1s;
     min-height: 100vh;
+    // add position relative just so delete modal can be shown on top of this whole page
+    position: relative;
 }
 
 .book__details {
