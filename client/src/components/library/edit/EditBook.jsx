@@ -1,9 +1,10 @@
 import './EditBook.scss';
 import useBookDetails from '../../../hooks/useBookDetails';
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import useForm from '../../../hooks/useForm';
 import useEditBook from '../../../hooks/useEditBook';
+import { Link } from 'react-router-dom';
 
 const initialValues = {
     title: '',
@@ -19,7 +20,8 @@ const EditBook = () => {
     const { bookId } = useParams();
     const { getDetails } = useBookDetails();
     const [book, setBook] = useState({});
-    const { values, handleChange } = useForm(Object.assign(initialValues, book))
+    const formValues = useMemo(() => Object.assign({}, initialValues, book), [book])
+    const { values, handleChange } = useForm(formValues)
 
     useEffect(() => {
         (async () => {
@@ -39,14 +41,20 @@ const EditBook = () => {
     return (
         <section className='edit__page__container'>
             <div className='edit__page__form__text'>
-                <h1>Edit your book</h1>
+                <div className='edit__page__form__text__back__btn__container'>
+                    <Link to='/library' className='edit__page__form__text__back__btn'> <span className="material-symbols-outlined edit__page__form__text__back__arrow">keyboard_backspace</span>Back to Library</Link>
+                </div>
+
+                <h1 className='edit__page__form__text__heading'>Edit Book Entry</h1>
+                <p className='edit__page__form__text__description'>Welcome to the <span className='edit__page__form__text__description__logo'>BookHub</span> Edit Page. Use the form on the right to modify your book entry. Please double-check the information before saving your changes.</p>
+
             </div>
 
             <div className='edit__page__form__container'>
                 <form className='edit__page__form' onSubmit={handleSubmit}>
                     <div className='edit__page__form__fields'>
 
-                        <div className='edit__page__form__fields__title__author__container'>
+                        <div className='edit__page__form__fields__two'>
                             <div>
                                 <label
                                     htmlFor=""
@@ -93,45 +101,49 @@ const EditBook = () => {
                             ></textarea>
                         </div>
 
-                        <div>
-                            <label
-                                className='edit__page__form__fields__label'
-                                htmlFor=""
-                            >Genre
-                            </label>
-                            <select
-                                name='genre'
-                                id=""
-                                className='edit__page__form__fields__select'
-                                onChange={handleChange}
-                            >
-                                {genres.map((genre) => (
-                                    genre === values.genre
-                                        ? (
-                                            <option key={genre} defaultValue={values.genre}>{values.genre}</option>
-                                        )
-                                        : (
-                                            <option key={genre} value={genre}>{genre}</option>
-                                        )
-                                ))}
+                        <div className='edit__page__form__fields__two'>
+                            <div>
+                                <label
+                                    className='edit__page__form__fields__label'
+                                    htmlFor=""
+                                >Genre
+                                </label>
+                                <select
+                                    name='genre'
+                                    id=""
+                                    className='edit__page__form__fields__select'
+                                    onChange={handleChange}
+                                >
+                                    {genres.map((genre) => (
+                                        genre === values.genre
+                                            ? (
+                                                <option key={genre} selected={values.genre}>{values.genre}</option>
+                                            )
+                                            : (
+                                                <option key={genre} value={genre}>{genre}</option>
+                                            )
+                                    ))}
 
-                            </select>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    htmlFor=""
+                                    className='edit__page__form__fields__label'
+                                >Image Url</label>
+                                <input
+                                    type="text"
+                                    className='edit__page__form__fields__input'
+                                    name='imgUrl'
+                                    onChange={handleChange}
+                                    value={values.imgUrl}
+                                />
+                            </div>
                         </div>
 
-                        <div>
-                            <label
-                                htmlFor=""
-                                className='edit__page__form__fields__label'
-                            >Image Url</label>
-                            <input
-                                type="text"
-                                className='edit__page__form__fields__input'
-                                name='imgUrl'
-                                onChange={handleChange}
-                                value={values.imgUrl}
-                            />
-                        </div>
-                        <button>Save</button>
+
+                        <button className='edit__page__form__fields__save__btn'>Save</button>
                     </div>
                 </form>
             </div>
