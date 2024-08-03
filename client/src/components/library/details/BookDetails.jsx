@@ -40,6 +40,7 @@ const BookDetails = () => {
 
                 <div className="book__details__secondary__info">
                     <div className="book__details__secondary__info__description">
+                    <span className="book__details__secondary__info__genre">{book.genre}</span>
                         <h1 className="book__details__secondary__info__description__heading">Description</h1>
                         <p className="book__details__secondary__info__description__summary">{showFullDescription ? book.description.substring(0, 400) + '...' : book.description}</p>
                         <button className="book__details__secondary__info__description__button" onClick={descriptionHandler}>{showFullDescription ? 'More' : 'Less'}</button>
@@ -56,6 +57,7 @@ const BookDetails = () => {
                 </div>
 
             </section>
+            
         </section>
     )
 }

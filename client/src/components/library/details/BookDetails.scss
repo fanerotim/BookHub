@@ -46,6 +46,17 @@
     padding-top: 5rem;
     gap: 5rem;
 
+    &__genre {
+        font-size: .9rem;
+        color: rgb(61, 21, 21);
+        background-color: rgb(231, 231, 231);
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        padding: .3rem 1.4rem;
+        border-radius: .3rem;
+    }
+
     &__description {
         width: 500px;
 
