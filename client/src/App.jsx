@@ -10,6 +10,7 @@ import { useAuthContext } from './hooks/useAuthContext'
 import Library from './components/library/Library'
 import BookDetails from './components/library/details/BookDetails'
 import EditBook from './components/library/edit/EditBook'
+import DeleteBook from './components/library/delete-modal/DeleteBookModal'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/library' element={<Library/>}></Route>
                 <Route path='/library/:bookId' element={<BookDetails/>}></Route>
                 <Route path='/library/:bookId/edit' element={<EditBook/>}></Route>
+                {/* <Route path='/library/:bookId/delete' element={<DeleteBook/>}></Route> */}
             </Routes>
 
             <Footer />
