@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './BookDetails.scss'
 import DeleteBookModal from "../delete-modal/DeleteBookModal";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 
 const BookDetails = () => {
 
@@ -13,18 +14,25 @@ const BookDetails = () => {
     const [book, setBook] = useState({});
     const [showFullDescription, setShowFullDescription] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
-
+    // get logged user's token which incldues their id
+    const { auth } = useAuthContext();
+    const [isOwner, setIsOnwer] = useState(false);
 
     useEffect(() => {
         (async () => {
             const book = await getDetails(bookId);
             setBook((oldBook) => book);
 
+            if (auth) {
+                setIsOnwer((oldOwner) => auth._id === book.owner)
+            }
+
             if (book.description.length > 400) {
                 setShowFullDescription(true);
             }
+
         })()
-    }, [])
+    }, [auth])
 
     function descriptionHandler() {
         setShowFullDescription((oldDescription) => !showFullDescription)
@@ -51,11 +59,11 @@ const BookDetails = () => {
                         <p className="book__details__secondary__info__description__summary">{showFullDescription ? book.description.substring(0, 400) + '...' : book.description}</p>
                         <button className="book__details__secondary__info__description__button" onClick={descriptionHandler}>{showFullDescription ? 'More' : 'Less'}</button>
 
-                        <div className="button__container">
+                        {isOwner && <div className="button__container">
                             <Link to={`/library/${book._id}/edit`} className="button__container__button button__container__edit">Edit</Link>
                             {/* <Link to={`/library/${book._id}/delete`} className="button__container__button button__container__delete">Delete</Link> */}
                             <button onClick={deleteHandler} className="button__container__button button__container__delete">Delete</button>
-                        </div>
+                        </div>}
                     </div>
 
                     <div className="book__details__secondary__info__img__container">
