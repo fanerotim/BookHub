@@ -17,9 +17,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Book'
     }],
-    hasLiked: {
-        type: Boolean
-    }
+    addedBooks: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Book'
+    }]
 }, {timestamps: true})
 
 module.exports = mongoose.model('User', userSchema)

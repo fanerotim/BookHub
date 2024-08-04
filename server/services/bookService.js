@@ -13,6 +13,11 @@ exports.create = async (bookDetails) => {
     }
 
     const newBook = await Book.create(bookDetails);
+
+    // add id of new book to addedBooks array in User
+    const ownerId = newBook.owner;
+    await User.findByIdAndUpdate(ownerId, { addedBooks: newBook._id })
+
     return newBook;
 }
 
@@ -33,6 +38,13 @@ exports.update = async (bookDetails) => {
 
 exports.delete = async (bookId) => {
     const deletedBook = await Book.findByIdAndDelete(bookId);
+    const ownerId = deletedBook.owner;
+
+    // remove deleted book from addedBooks array in User document
+    const user = await User.findById(ownerId);
+    const addedBooks = user.addedBooks.filter(id => JSON.stringify(id) != JSON.stringify(deletedBook._id))
+    await User.findByIdAndUpdate(ownerId, {addedBooks: addedBooks})
+    
     return deletedBook;
 }
 
@@ -43,20 +55,20 @@ exports.like = async (bookId, userId) => {
 
     // check if book was already liked by user
     const hasLiked = book.likes.some(id => userId == id);
- 
+
     // if liked already throw error, else update hasLiked to true
     if (hasLiked) {
         throw Error('Already liked book')
-    } 
-    
+    }
+
     // add bookId to the list of liked books
-    await User.findByIdAndUpdate(userId, {$push: {likedBooks: bookId}})
+    await User.findByIdAndUpdate(userId, { $push: { likedBooks: bookId } })
 
     // update book's total number of likes by adding userId to the array
-    await Book.findByIdAndUpdate(bookId, {$push: {likes: userId}});
-    
+    await Book.findByIdAndUpdate(bookId, { $push: { likes: userId } });
+
     //get the updated book and return it to front-end
     const updatedBook = await Book.findById(bookId);
 
-    return updatedBook; 
+    return updatedBook;
 }
