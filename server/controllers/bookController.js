@@ -63,4 +63,16 @@ router.delete('/:bookId/delete', async (req, res) => {
     }
 })
 
+router.post('/:bookId/like', async (req, res) => {
+    const bookId = req.params.bookId;
+    const userId = req.user._id;
+
+    try {
+        const likedBook = await bookService.like(bookId, userId);
+        return res.status(200).json(likedBook)
+    } catch(err) {
+        return res.status(400).json({message: err.message})
+    }
+})
+
 module.exports = router;
