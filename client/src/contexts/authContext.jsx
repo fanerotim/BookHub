@@ -9,7 +9,7 @@ export const authReducer = (state, action) => {
         case 'LOGOUT':
             return { auth: null }
         default:
-            return state
+            return state;
     }
 }
 
