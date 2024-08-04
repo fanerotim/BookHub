@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Book = require('../models/Book');
+const User = require('../models/User');
 
 exports.create = async (bookDetails) => {
 
@@ -33,4 +34,31 @@ exports.update = async (bookDetails) => {
 exports.delete = async (bookId) => {
     const deletedBook = await Book.findByIdAndDelete(bookId);
     return deletedBook;
+}
+
+exports.like = async (bookId, userId) => {
+
+    // get book
+    const book = await Book.findById(bookId);
+
+    // check if book was already liked by user
+    const hasLiked = book.likes.some(id => userId == id);
+
+    // if liked already throw error, else update hasLiked to true
+    if (hasLiked) {
+        throw Error('Already liked book')
+    } else {
+        await Book.findByIdAndUpdate(bookId, {hasLiked: true})
+    }
+
+    // add bookId to the list of liked books
+    await User.findByIdAndUpdate(userId, {$push: {likedBooks: bookId}})
+
+    // update book's total number of likes by adding userId to the array
+    await Book.findByIdAndUpdate(bookId, {$push: {likes: userId}});
+    
+    //get the updated book and return it to front-end
+    const updatedBook = await Book.findById(bookId);
+
+    return updatedBook; 
 }
