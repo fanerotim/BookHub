@@ -24,6 +24,13 @@ const bookSchema = new mongoose.Schema({
     owner: {
         type: String,
         required: true
+    },
+    likes: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    }],
+    hasLiked: {
+        type: Boolean
     }
 })
 
