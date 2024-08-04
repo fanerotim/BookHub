@@ -12,6 +12,13 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    likedBooks: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Book'
+    }],
+    hasLiked: {
+        type: Boolean
     }
 }, {timestamps: true})
 
