@@ -79,7 +79,7 @@ const BookDetails = () => {
                         <p className="book__details__secondary__info__description__summary">{showFullDescription ? book.description.substring(0, 400) + '...' : book.description}</p>
                         <button className="book__details__secondary__info__description__button" onClick={descriptionHandler}>{showFullDescription ? 'More' : 'Less'}</button>
 
-                        <div className="button__container">
+                        {auth && <div className="button__container">
                             {isOwner
                                 ?
                                 (
@@ -92,10 +92,10 @@ const BookDetails = () => {
                                 (
                                     <button
                                         onClick={handleLike}
-                                        disabled={book.hasLiked} 
+                                        disabled={book.likes?.some(id => id == auth._id)} 
                                         className="button__container__button button__container__like" >Like</button>
                                 )}
-                        </div>
+                        </div>}
 
                     </div>
 
