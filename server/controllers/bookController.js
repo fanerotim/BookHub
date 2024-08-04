@@ -26,6 +26,12 @@ router.get('/library/:bookId', async (req, res) => {
 router.post('/add-book', isGuest, async (req, res) => {
     const bookDetails = req.body;
 
+    // get ownerId;
+    const ownerId = req.user._id;
+    
+    // add ownerId to new book object
+    bookDetails.owner = ownerId;
+
     try {
         const newBook = await bookService.create(bookDetails);
         return res.status(200).json(newBook)
