@@ -2,16 +2,19 @@ import './Register.scss'
 import useForm from '../../hooks/useForm';
 import { useSignup } from '../../hooks/useSignup';
 
+
+const initialValues = {
+    username: '',
+    email: '',
+    password: '',
+    rePassword: ''
+}
+
 const Register = () => {
 
     const { signup, error } = useSignup();
 
-    const { values, handleChange } = useForm({
-        username: '',
-        email: '',
-        password: '',
-        rePassword: ''
-    })
+    const { values, handleChange } = useForm(initialValues)
 
     async function submitHandler(e) {
         e.preventDefault();

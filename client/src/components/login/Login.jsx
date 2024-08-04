@@ -3,14 +3,16 @@ import './Login.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import useLogin from '../../hooks/useLogin'
 
+const initialValues = {
+    email: '',
+    password: ''
+}
+
 const Login = () => {
     const login = useLogin();
-    const navigate = useNavigate(); 
-    
-    const { values, handleChange } = useForm({
-        email: '',
-        password: ''
-    })
+    const navigate = useNavigate();
+
+    const { values, handleChange } = useForm(initialValues)
 
     async function handleSubmit(e) {
         e.preventDefault();
