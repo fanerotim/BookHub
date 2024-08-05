@@ -36,9 +36,21 @@ router.post('/logout', isGuest, (req, res) => {
     return res.status(200).json({message: 'User has successfully logged out'})
 })
 
-router.delete('/account', (req, res) => {
-    return res.status(200).json({message: 'Successfully accessed the DELETE route. This can be used to delete account.'})
+router.get('/profile', async (req, res) => {
+    const userId = req.user._id;
+
+    try {
+        const user = await userService.getUser(userId);
+        console.log(user);
+        return res.status(200).json(user);
+    } catch(err) {
+        res.status(404).json({message: err.message})
+    }
 })
+
+// router.delete('/account', (req, res) => {
+//     return res.status(200).json({message: 'Successfully accessed the DELETE route. This can be used to delete account.'})
+// })
 
 
 module.exports = router;
