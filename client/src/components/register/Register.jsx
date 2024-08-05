@@ -1,7 +1,8 @@
 import './Register.scss'
 import useForm from '../../hooks/useForm';
 import { useSignup } from '../../hooks/useSignup';
-
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
     username: '',
@@ -12,13 +13,33 @@ const initialValues = {
 
 const Register = () => {
 
-    const { signup, error } = useSignup();
+    const { signup } = useSignup();
+    const [error, setError] = useState(null)
+    const navigate = useNavigate();
 
     const { values, handleChange } = useForm(initialValues)
 
     async function submitHandler(e) {
         e.preventDefault();
-        await signup(values);
+
+        // form input validation
+        if (values.username == '') {
+            return setError((oldError) => 'Username must be provided')
+        } else if (values.email == '') {
+            return setError((oldError) => 'Email must be provided')
+        } else if (values.password == '') {
+            return setError((oldError) => 'Password must be provided')
+        } else if (values.password !== values.rePassword) {
+            return setError((oldPassword) => 'Password mismatch')
+        }
+
+        try {
+            const signUpReq = await signup(values);
+            // redirect on success
+            navigate('/')
+        } catch(err) {
+            setError((oldError) => err.message)
+        }
     }
 
     return (
