@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import useForm from '../../../hooks/useForm';
 import useEditBook from '../../../hooks/useEditBook';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
     title: '',
@@ -31,11 +32,31 @@ const EditBook = () => {
     }, [])
 
 
-    const { update, error } = useEditBook();
+    const { update } = useEditBook();
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        update(values);
+
+        if (values.title == '') {
+            return setError((oldError) => 'Title must be provided')
+        } else if (values.author == '') {
+            return setError((oldError) => 'Author must be provided')
+        } else if (values.description == '') {
+            return setError((oldError) => 'Description must be provided')
+        } else if(values.description.length > 600) {
+            return setError((oldError) => 'Description must be less than 600 characters')
+        } else if (values.imgUrl == '') {
+            return setError((oldError) => 'Image Url must be provided')
+        } 
+
+        try {
+            const updateBookRequest = await update(values);
+            navigate(`/library/${bookId}`)
+        } catch(err) {
+            setError((oldError) => err.message)
+        }
     }
 
     return (
