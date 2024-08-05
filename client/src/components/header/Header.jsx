@@ -19,13 +19,18 @@ const Header = () => {
                 <div className='navigation__wrapper'>
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
                     <NavLink to='/library' className='navigation__item'>Library</NavLink>
-                    {auth && <NavLink to='/add-book' className='navigation__item'>Add a book</NavLink>}
+                    {auth &&
+                        <>
+                            <NavLink to='/add-book' className='navigation__item'>Add a book</NavLink>
+                            <NavLink to='/profile' className='navigation__item'>Profile</NavLink>
+                        </>
+                    }
                 </div>
 
                 <div className='navigation__wrapper'>
                     {auth ? (
                         // <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
-                            <button onClick={logoutHandler} className='navigation__item'>Logout</button>
+                        <button onClick={logoutHandler} className='navigation__item'>Logout</button>
                     ) :
                         (
                             <>

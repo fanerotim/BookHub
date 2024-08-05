@@ -11,6 +11,7 @@ import Library from './components/library/Library'
 import BookDetails from './components/library/details/BookDetails'
 import EditBook from './components/library/edit/EditBook'
 import DeleteBook from './components/library/delete-modal/DeleteBookModal'
+import Profile from './components/profile/Profile'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/library' element={<Library/>}></Route>
                 <Route path='/library/:bookId' element={<BookDetails/>}></Route>
                 <Route path='/library/:bookId/edit' element={auth ? <EditBook/> : <Navigate to='/login'/>}></Route>
+                <Route path='/profile' element={auth ? <Profile/> : <Navigate to='/login'/>}></Route>
                 {/* <Route path='/library/:bookId/delete' element={<DeleteBook/>}></Route> */}
             </Routes>
 
