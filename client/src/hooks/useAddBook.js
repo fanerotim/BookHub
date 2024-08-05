@@ -1,8 +1,10 @@
+import { useState } from "react";
 import apiService from "../services/apiService";
 import { useNavigate } from 'react-router-dom';
 
 const useAddBook = () => {
 
+    const [error, setError] = useState(null)
     const navigate = useNavigate();
 
     const add = async (values) => {
@@ -10,12 +12,12 @@ const useAddBook = () => {
             const newBook = await apiService.post('/books/add-book', values);
             navigate('/library')
         } catch (err) {
-            // TODO: add error handling
-            console.log(err.message);
+            setError((oldError) => err.message)
+            // console.log(err.message);
         }
     }
 
-    return { add };
+    return { add, error };
 }
 
 export default useAddBook;
