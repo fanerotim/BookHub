@@ -54,3 +54,16 @@ exports.generateToken = async (userDetails) => {
     return token;
 }
 
+exports.getUser = async (id) => {
+    const user = await User
+    .findById(id, {password: 0})
+    .populate('likedBooks')
+    .populate('addedBooks')
+
+    if (!user) {
+        throw Error('Could not find this user in our database')
+    }
+
+    return user;
+}
+
