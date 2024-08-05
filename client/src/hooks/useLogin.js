@@ -10,8 +10,6 @@ const useLogin = () => {
         // make a request to the server
         const user = await apiService.post('/user/login', values);
 
-        // TODO: Validation
-
         // add user details to local storage
         localStorage.setItem('auth', JSON.stringify(user));
 
