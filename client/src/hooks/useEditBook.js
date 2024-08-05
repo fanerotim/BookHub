@@ -1,8 +1,10 @@
 import apiService from "../services/apiService";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const useEditBook = () => {
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
 
     const update = async (bookDetails) => {
         
@@ -10,11 +12,12 @@ const useEditBook = () => {
             const updatedBook = await apiService.put(`/books/${bookDetails._id}/edit`, bookDetails)
             navigate(`/library/${updatedBook._id}`)
         } catch (err) {
-            console.log(err.message)
+            setError((oldError) => err.message)
+            // console.log(err.message)
         }
     }
 
-    return { update }
+    return { update, error }
 }
 
 export default useEditBook;
