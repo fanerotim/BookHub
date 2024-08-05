@@ -2,6 +2,7 @@ import useForm from '../../hooks/useForm'
 import './Login.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import useLogin from '../../hooks/useLogin'
+import { useState } from 'react'
 
 const initialValues = {
     email: '',
@@ -13,14 +14,20 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { values, handleChange } = useForm(initialValues)
+    const [error, setError] = useState(null);
 
     async function handleSubmit(e) {
         e.preventDefault();
 
         // make a request to the API
-        await login(values)
-        // redirect on success
-        navigate('/')
+        try {
+            const loginReq = await login(values)
+            // redirect on success
+            navigate('/')
+        } catch(err) {
+            // on fail set error message just so it can be displayed
+            setError((oldError) => err.message)
+        }        
     }
 
     return (
@@ -55,6 +62,7 @@ const Login = () => {
                             value={values.password}
                             onChange={handleChange} />
                         <p className='login__form__register__info'>Don't have an account? <Link to='/register' className='login__form__register__link'>Click here to register</Link></p>
+                        {error && <p className='login__form__error__message'>{error}</p>}
                         <button className='login__form__button'>Log in</button>
                     </form>
                 </section>
