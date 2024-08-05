@@ -4,28 +4,7 @@ const User = require('../models/User');
 
 exports.create = async (bookDetails) => {
 
-    const {
-        title, 
-        author,
-        description,
-        genre,
-        imgUrl} = bookDetails;
-
-        if (!title) {
-            throw Error('Title is required')
-        } else if (!author) {
-            throw Error('Author is required')
-        } else if (!description) {
-            throw Error('Description is required')
-        } else if (description.length > 600) {
-            throw Error('Description must be less than 600 characters')
-        } else if (!genre) {
-            throw Error('Genre is required')
-        } else if (!imgUrl) {
-            throw Error('Image Url is required')
-        }
-
-    // const title = bookDetails.title;
+    const title = bookDetails.title;
 
     const isAdded = await Book.findOne({ title });
 
@@ -53,24 +32,7 @@ exports.getOne = async (bookId) => {
 }
 
 exports.update = async (bookDetails) => {
-
-    const { 
-        title,
-        author,
-        description,
-        imgUrl
-    } = bookDetails;
-
-    if (!title) {
-        throw Error('Title is required')
-    } else if (!author) {
-        throw Error('Author is required')
-    } else if (!description) {
-        throw Error('Description is required')
-    } else if (!imgUrl) {
-        throw Error('Image Url is required')
-    } 
-
+    
     const updatedBook = await Book.findByIdAndUpdate(bookDetails._id, bookDetails)
     return updatedBook;
 }
