@@ -27,7 +27,7 @@ function App() {
                 <Route path='/add-book' element={auth ? <AddBook /> : <Navigate to='/login'/>}></Route>
                 <Route path='/library' element={<Library/>}></Route>
                 <Route path='/library/:bookId' element={<BookDetails/>}></Route>
-                <Route path='/library/:bookId/edit' element={<EditBook/>}></Route>
+                <Route path='/library/:bookId/edit' element={auth ? <EditBook/> : <Navigate to='/login'/>}></Route>
                 {/* <Route path='/library/:bookId/delete' element={<DeleteBook/>}></Route> */}
             </Routes>
 
