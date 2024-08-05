@@ -19,6 +19,13 @@ const Login = () => {
     async function handleSubmit(e) {
         e.preventDefault();
 
+        // form input validation
+        if (values.email == '') {
+            return setError(() => 'Email must be provided')  
+        } else if (values.password == '') {
+            return setError(() => 'Password must be provided')  
+        }
+
         // make a request to the API
         try {
             const loginReq = await login(values)
