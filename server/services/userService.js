@@ -8,11 +8,19 @@ exports.register = async (newUserDetails) => {
     // check if email is already used
     const emailUsed = await User.findOne({email: newUserDetails.email});
 
+    // TODO: improve data validation
+    if (!newUserDetails.username) {
+        throw new Error('Username is required')
+    } else if (!newUserDetails.email) {
+        throw new Error('Email is required')
+    } else if (!newUserDetails.password) {
+        throw new Error('Password is required')
+    }
+
     if (emailUsed) {
         throw new Error('Email is already registered')
     }
     
-    // check if passwords match
     if (newUserDetails.password !== newUserDetails.rePassword) {
         throw new Error('Password mismatch')
     }
@@ -31,7 +39,7 @@ exports.login = async (loginDetails) => {
     const user = await User.findOne({email: loginDetails.email});
 
     if (!user) {
-        throw new Error('Login failed. Please try again.')
+        throw new Error('Login failed. Please check your login details and try again.')
     }
 
     // check if provided password matches the one in the db and throw an error if it does not
