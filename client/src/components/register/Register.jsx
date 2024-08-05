@@ -65,7 +65,7 @@ const Register = () => {
                             onChange={handleChange}
                             type="password" />
                         <button className='register__form__button'>Submit</button>
-                        {error && (<p>{error}</p>)}
+                        {error && (<p className='register__form__error__message'>{error}</p>)}
                     </form>
                 </div>
             </div>
