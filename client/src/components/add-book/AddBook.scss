@@ -4,7 +4,8 @@
     display: flex;
     justify-content: space-around;
 
-    height: calc(100vh - 2rem);
+    min-height: calc(100vh - 1rem);
+    min-height: calc(100vh - 1rem);
 }
 
 .add-book__form__container {

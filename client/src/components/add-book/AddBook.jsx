@@ -1,7 +1,8 @@
 import useAddBook from '../../hooks/useAddBook';
 import useForm from '../../hooks/useForm';
 import './AddBook.scss'
-
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
     title: '',
@@ -14,12 +15,34 @@ const initialValues = {
 const AddBook = () => {
 
     const { values, handleChange } = useForm(initialValues)
-    const { add, error } = useAddBook();
+    const { add } = useAddBook();
+    const [error, setError] = useState(null)
+    const navigate = useNavigate();
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        add(values);
+        // form input validation
+        if (values.title == '') {
+            return setError((oldError) => 'Title must be provided')
+        } else if (values.author == '') {
+            return setError((oldError) => 'Author must be provided')
+        } else if (values.description == '') {
+            return setError((oldError) => 'Description must be provided')
+        } else if (values.description.length > 600) {
+            return setError((oldError) => 'Description must be less than 600 characters long')
+        } else if (values.genre == '') {
+            return setError((oldError) => 'Genre must be provided')
+        } else if (values.imgUrl == '') {
+            return setError((oldError) => 'Image Url must be provided')
+        }
+
+        try {
+            const createRequest = await add(values);
+            navigate('/library')
+        } catch(err) {
+            setError((oldError) => err.message)
+        }
     }
 
     return (
@@ -62,11 +85,11 @@ const AddBook = () => {
 
                     <div className='add-book__form__field__wrapper'>
                         <label className='add-book__form__label' htmlFor='genre'>Genre</label>
-                        <select 
-                        className='add-book__form__select'
-                        name="genre"
-                        id='genre'
-                        onChange={handleChange}>
+                        <select
+                            className='add-book__form__select'
+                            name="genre"
+                            id='genre'
+                            onChange={handleChange}>
                             <option defaultValue={''}></option>
                             <option value='Fiction'>Fiction</option>
                             <option value='Biography'>Biography</option>
