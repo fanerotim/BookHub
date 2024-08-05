@@ -31,7 +31,7 @@ const EditBook = () => {
     }, [])
 
 
-    const { update } = useEditBook();
+    const { update, error } = useEditBook();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -142,7 +142,7 @@ const EditBook = () => {
                             </div>
                         </div>
 
-
+                        {error && <p className='edit__page__form__fields__error_message'>{error}</p>}
                         <button className='edit__page__form__fields__save__btn'>Save</button>
                     </div>
                 </form>
