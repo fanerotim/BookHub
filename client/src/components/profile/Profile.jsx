@@ -1,8 +1,18 @@
+import useProfile from '../../hooks/useProfile';
 import './Profile.scss'
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
 
 const Profile = () => {
-    // const {auth} = useContext();
+
+    const {getUser} = useProfile();
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        (async () => {
+            const user = await getUser();
+            setUser((prevUser) => user);
+        })()
+    }, [])
 
     return (
         <>
