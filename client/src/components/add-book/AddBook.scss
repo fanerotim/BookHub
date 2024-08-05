@@ -15,6 +15,7 @@
     background-color: rgba(223, 223, 223, 0.5);
     display: flex;
     align-items: center;
+    
 
     &::after {
         content: '';
@@ -54,6 +55,7 @@
         border-radius: .3rem;
         width: 17rem;
         max-width: 17rem;
+        min-width: 17rem;
         padding: .8rem;
 
         &:focus {
@@ -63,7 +65,7 @@
     }
 
     &__textarea {
-        height: 6rem;
+        max-height: 6rem;
     }
 
     &__button {
@@ -81,6 +83,16 @@
             background-color: rgba(3, 107, 38, .8);
             color: white;
         }
+    }
+
+    &__error__message {
+        // background-color: rgb(247, 120, 120, .7);
+        border: 1px solid rgb(247, 120, 120, .7);
+        box-shadow: .2px .2px 1rem rgb(226, 226, 226);
+        border-radius: .3rem;
+        padding: .4rem 1.2rem;
+        margin-top: 1rem;
+        color: red;
     }
 }
 

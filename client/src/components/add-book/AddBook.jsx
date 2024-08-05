@@ -14,7 +14,7 @@ const initialValues = {
 const AddBook = () => {
 
     const { values, handleChange } = useForm(initialValues)
-    const { add } = useAddBook();
+    const { add, error } = useAddBook();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -85,6 +85,7 @@ const AddBook = () => {
                             onChange={handleChange}
                         />
                     </div>
+                    {error && <p className='add-book__form__error__message'>{error}</p>}
                     <button className='add-book__form__button'>Add</button>
                 </form>
             </div>
