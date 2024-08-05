@@ -12,7 +12,7 @@
 .book__details {
     padding: 5rem;
     // setting min-height fixes the issue whereby the whole page's layout changes, but better option will be to limit the length of description in the first place
-    // min-height: 1200px;
+    min-height: 1100px;
 }
 
 .book__details__main__info {
@@ -101,7 +101,7 @@
 
 .button__container {
     display: flex;
-    padding-top: 8rem;
+    padding-top: 3rem;
     gap: 2rem;
 
     &__button {
