@@ -1,0 +1,23 @@
+.profile__container {
+    padding: 3rem;
+}
+
+.profile__information {
+    box-shadow: .1rem .1rem 1rem rgb(233, 233, 233);
+    border-radius: .3rem;
+    width: fit-content;
+    padding: 2rem;
+    background-color: rgb(247, 247, 247);
+
+    &__username__tag,
+    &__email__tag {
+        font-size: .8rem;
+        font-weight: 300;
+    }
+
+    &__username,
+    &__email {
+        font-weight: 300;
+        font-size: 1.3rem;
+    }
+}
