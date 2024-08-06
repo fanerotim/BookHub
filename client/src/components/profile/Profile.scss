@@ -1,23 +1,147 @@
+@import url('../../index.css');
+
 .profile__container {
-    padding: 3rem;
+    // padding: 3rem;
 }
 
-.profile__information {
-    box-shadow: .1rem .1rem 1rem rgb(233, 233, 233);
+.profile__page__text__container {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 3rem 5rem;
+    // background-color: rgb(250, 250, 250);
+    min-height: 680px;
+}
+
+.profile__page__text__wrapper{
+
+    &__heading {
+        font-size: 6rem;
+        line-height: 1.2;
+        font-weight: 100;
+        width: fit-content;
+    }
+
+    &__subheading {
+        color: steelblue;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    &__description {
+        font-size: 1.2rem;
+        font-weight: 200;
+        margin-top: 1rem;
+        color:rgb(51, 38, 38)
+    }
+}
+
+.profile__information__card {
+    min-width: fit-content;
+    margin: 4rem 0;
+    padding: 2rem 3rem;
     border-radius: .3rem;
-    width: fit-content;
-    padding: 2rem;
-    background-color: rgb(247, 247, 247);
+    box-shadow: .1rem .1rem 1rem rgb(233, 233, 233);
+
+    animation-name: dropFromTop;
+    animation-duration: 2s;
+
+    &__heading {
+        font-size: 3rem;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        color:rgb(61, 61, 61);
+    }
 
     &__username__tag,
-    &__email__tag {
+    &__email__tag,
+    &__addedBooks__tag,
+    &__likedBooks__tag {
+        display: block;
+        width: fit-content;
+        border-radius: .3rem;
+        margin: .5rem 0;
+        padding: .2rem .8rem;
         font-size: .8rem;
         font-weight: 300;
+        color: white;
+        background-color: rgb(88, 128, 160);
     }
 
     &__username,
-    &__email {
-        font-weight: 300;
-        font-size: 1.3rem;
+    &__email,
+    &__likedBooks__count,
+    &__addedBooks__count {
+        font-size: 1.5rem;
+        font-weight: 200;
     }
+
+    &__delete__btn {
+        all: unset;
+        cursor: pointer;
+        display: block;
+        margin-top: 3rem;
+        margin-left: auto;
+        padding: .5rem 1.3rem;
+        border-radius: .3rem;
+        color: rgb(51, 38, 38);
+        background-color: rgb(255, 119, 119);
+        font-weight: 600;
+
+        &:hover {
+            color: rgb(43, 43, 43);
+            background-color: rgb(204, 67, 67);
+        }
+    }
+
+    &__added__liked__container {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.profile__likedBooks__card__container,
+.profile__addedBooks__card__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 5rem;
+}
+
+.profile__likedBooks__container__heading,
+.profile__addedBooks__container__heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+
+.profile__addedBooks__container__description,
+.profile__likedBooks__container__description {
+    color: rgb(73, 73, 73);
+    text-align: center;
+}
+
+.profile__addedBooks__container {
+    padding: 3rem;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(221, 195, 195, .1);
+        background-color: rgb(144, 231, 198, .3);
+        z-index: -1;
+        transform: skewY(-3deg);
+    }
+}
+
+.profile__likedBooks__container {
+    // background-color:blanchedalmond;
+    // background-color: aquamarine;
 }
