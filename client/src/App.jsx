@@ -11,6 +11,7 @@ import Library from './components/library/Library'
 import BookDetails from './components/library/details/BookDetails'
 import EditBook from './components/library/edit/EditBook'
 import Profile from './components/profile/Profile'
+import Error404 from './components/error404/error404'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/library/:bookId' element={<BookDetails/>}></Route>
                 <Route path='/library/:bookId/edit' element={auth ? <EditBook/> : <Navigate to='/login'/>}></Route>
                 <Route path='/profile' element={auth ? <Profile/> : <Navigate to='/login'/>}></Route>
+                <Route path='*' element={<Error404/>}></Route>
             </Routes>
 
             <Footer />
