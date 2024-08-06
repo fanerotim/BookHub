@@ -41,7 +41,6 @@ router.get('/profile', async (req, res) => {
 
     try {
         const user = await userService.getUser(userId);
-        console.log(user);
         return res.status(200).json(user);
     } catch(err) {
         res.status(404).json({message: err.message})
