@@ -112,6 +112,13 @@
 
         &__reason {
             padding-bottom: .7rem;
+            color: steelblue;
+            font-size: 2rem;
+            font-weight: 200;
+
+            &__description {
+                font-weight: 200;
+            }
         }
     }
 }
