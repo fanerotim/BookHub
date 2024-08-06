@@ -3,7 +3,7 @@ import { BASE_URL } from "../constants";
 export const apiService = async (method, url, data) => {
     
     const options = {};
-    //TODO: test if delete requests will cause any issues by having headers and body defined
+
     if (method !== 'GET') {
         options.method = method
         options.headers = {
