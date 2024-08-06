@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useBookDetails from "../../../hooks/useBookDetails";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ const BookDetails = () => {
     const [book, setBook] = useState({});
     const [showFullDescription, setShowFullDescription] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
+    const navigate = useNavigate();
 
     // get logged user's token which incldues their id
     const { auth } = useAuthContext();
@@ -27,6 +28,11 @@ const BookDetails = () => {
         (async () => {
 
             const book = await getDetails(bookId);
+            
+            if (!book) {
+                navigate('/404')
+            }
+
             setBook((oldBook) => book);
 
             // check if we have logged in user

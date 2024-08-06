@@ -108,8 +108,8 @@ const AddBook = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    {error && <p className='add-book__form__error__message'>{error}</p>}
                     <button className='add-book__form__button'>Add</button>
+                    {error && <p className='add-book__form__error__message'>{error}</p>}
                 </form>
             </div>
 

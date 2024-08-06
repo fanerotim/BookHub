@@ -69,8 +69,8 @@ const Login = () => {
                             value={values.password}
                             onChange={handleChange} />
                         <p className='login__form__register__info'>Don't have an account? <Link to='/register' className='login__form__register__link'>Click here to register</Link></p>
-                        {error && <p className='login__form__error__message'>{error}</p>}
                         <button className='login__form__button'>Log in</button>
+                        {error && <p className='login__form__error__message'>{error}</p>}
                     </form>
                 </section>
 

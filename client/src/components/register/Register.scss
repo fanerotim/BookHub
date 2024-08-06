@@ -10,11 +10,11 @@
     min-height: calc(100vh - 1.77rem);
     display: flex;
     justify-content: space-around;
-    padding: 3rem 5rem;
+    padding: 5rem 5rem;
     gap: 1rem;
 
     &__text {
-        max-width: 450px;
+        max-width: 500px;
         padding: 3rem;
         min-height: 400px;
         position: relative;
@@ -38,7 +38,7 @@
 
         &__main {
             padding-bottom: 2rem;
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 300;
             line-height: 1.1;
 
