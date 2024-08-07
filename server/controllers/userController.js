@@ -47,9 +47,16 @@ router.get('/profile', async (req, res) => {
     }
 })
 
-// router.delete('/account', (req, res) => {
-//     return res.status(200).json({message: 'Successfully accessed the DELETE route. This can be used to delete account.'})
-// })
+router.delete('/delete-account', async (req, res) => {
+    const userId = req.user._id
+    
+    try {
+        const deletedUser = await userService.deleteAccunt(userId);
+        return res.status(200).json(deletedUser)
+    } catch(err) {
+        return res.status(400).json({error: err.message})
+    }
+})
 
 
 module.exports = router;
