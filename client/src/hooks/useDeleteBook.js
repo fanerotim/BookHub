@@ -3,7 +3,7 @@ import apiService from "../services/apiService";
 import { useNavigate } from "react-router-dom";
 
 const useDeleteBook = () => {
-    const {bookId} = useParams();
+    const { bookId } = useParams();
     const navigate = useNavigate();
 
     const deleteBook = async () => {
@@ -11,12 +11,12 @@ const useDeleteBook = () => {
         try {
             const deletedBook = await apiService.deleteOne(`/books/${bookId}/delete`)
             navigate('/library')
-        } catch(err) {
-            console.log({message: err.message})
+        } catch (err) {
+            console.log({ message: err.message })
         }
     }
 
-    return {deleteBook};
+    return { deleteBook };
 }
 
 export default useDeleteBook;
