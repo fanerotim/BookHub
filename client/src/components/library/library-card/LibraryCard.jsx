@@ -10,8 +10,8 @@ const LibraryCard = ({book}) => {
                 </div>
 
                 <div className='library__card__text'>
-                    <p className='library__card__text__title'>{book.title}</p>
-                    <p className='library__card__text__author'>{book.author}</p>
+                    <p className='library__card__text__title'><span className='library__card__text__title__tag'>Title:</span>{book.title}</p>
+                    <p className='library__card__text__author'><span className='library__card__text__author__tag'>Author:</span>{book.author}</p>
                 </div>
             </Link>
         </section>

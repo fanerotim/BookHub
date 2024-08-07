@@ -23,7 +23,27 @@
 }
 
 .library__card__text {
-    &__author {}
+    padding: .5rem 0;
+
+   &__title__tag,
+   &__author__tag {
+        margin-right: .5rem;
+        font-size: .9rem;
+        color: rgb(18, 23, 27);
+        font-weight: 600;
+   }
+
+   &__title,
+   &__author {
+    font-weight: 300;
+    line-height: 1.2;
+    font-size: 1rem;
+    color: rgb(58, 58, 58);
+   }
+
+   &__title {
+    padding: .2rem 0; 
+   }
 }
 
 .library__card__img__container {
