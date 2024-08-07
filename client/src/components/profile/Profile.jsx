@@ -61,7 +61,7 @@ const Profile = () => {
 
             <div className='profile__addedBooks__container'>
                 <h1 className='profile__addedBooks__container__heading'>Books you added</h1>
-                <p className='profile__addedBooks__container__description'>Here are the books you've added to your collection. Whether you're planning to read them soon or keeping them for later, they're all here. Keep in mind that if you need to edit or delete any of your books you can just click on it</p>
+                <p className='profile__addedBooks__container__description'>{user && user.addedBooks.length > 0 ? "Here are the books you've added to your collection. Whether you're planning to read them soon or keeping them for later, they're all here. Keep in mind that if you need to edit or delete any of your books you can just click on it" : 'You have not yet added any books'}</p>
                 <div className='profile__addedBooks__card__container'>
                     {user && user.addedBooks.map((book) => <LibraryCard key={book._id} book={book} />)}
                 </div>
@@ -69,7 +69,7 @@ const Profile = () => {
 
             <div className='profile__likedBooks__container'>
                 <h1 className='profile__likedBooks__container__heading'>Books you liked</h1>
-                <p className='profile__likedBooks__container__description'>These are the books that have captured your interest. You can revisit your favorites anytime by logging in to your profile</p>
+                <p className='profile__likedBooks__container__description'>{ user && user.likedBooks.length > 0 ? 'These are the books that have captured your interest. You can revisit your favorites anytime by logging in to your profile' : 'You have not yet liked any books'}</p>
                 <div className='profile__likedBooks__card__container'>
                     {user && user.likedBooks.map((book) => <LibraryCard key={book._id} book={book} />)}
                 </div>
