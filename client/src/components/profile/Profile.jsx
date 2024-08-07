@@ -2,11 +2,13 @@ import useProfile from '../../hooks/useProfile';
 import './Profile.scss'
 import { useEffect, useState } from 'react';
 import LibraryCard from '../library/library-card/LibraryCard';
+import DeleteProfileModal from './deleteProfileModal/DeleteProfileModal';
 
 const Profile = () => {
 
     const { getUser } = useProfile();
     const [user, setUser] = useState(null)
+    const [deleteModal, setDeleteModal] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -14,6 +16,10 @@ const Profile = () => {
             setUser((prevUser) => user);
         })()
     }, [])
+
+    function deleteHandler() {
+        setDeleteModal((oldModal) => !oldModal)
+    }
 
     return (
         <section className='profile__container'>
@@ -49,7 +55,7 @@ const Profile = () => {
                             <h1 className='profile__information__card__likedBooks__count'>{user && user.likedBooks.length}</h1>
                         </div>
                     </div>
-                    <button className='profile__information__card__delete__btn'>Delete my account</button>
+                    <button onClick={deleteHandler} className='profile__information__card__delete__btn'>Delete my account</button>
                 </div>
             </div>
 
@@ -69,7 +75,9 @@ const Profile = () => {
                 </div>
             </div>
 
+            {deleteModal && <DeleteProfileModal props={{ deleteHandler }} />}
         </section>
+
     )
 }
 
