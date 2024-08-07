@@ -20,7 +20,7 @@ export const apiService = async (method, url, data) => {
             accessToken: userData.token
         }
     }
-    
+        
     const response = await fetch(`${BASE_URL}${url}`, options);
     const result = await response.json();
 
