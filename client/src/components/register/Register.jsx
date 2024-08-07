@@ -3,6 +3,7 @@ import useForm from '../../hooks/useForm';
 import { useSignup } from '../../hooks/useSignup';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const initialValues = {
     username: '',
@@ -85,6 +86,8 @@ const Register = () => {
                             value={values.rePassword}
                             onChange={handleChange}
                             type="password" />
+                            <p className='register__form__login__info'>Already registered?</p>
+                            <Link className='register__form__login__link' to='/login'>Please click here to login</Link>
                         <button className='register__form__button'>Submit</button>
                         {error && (<p className='register__form__error__message'>{error}</p>)}
                     </form>
