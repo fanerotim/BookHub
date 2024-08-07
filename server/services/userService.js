@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
+const Book = require('../models/Book')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -65,5 +66,25 @@ exports.getUser = async (id) => {
     }
 
     return user;
+}
+
+exports.deleteAccunt = async (id) => {
+    // check if user exists
+    const user = await User.findById(id);
+
+    // throw error if no such user
+    if(!user) {
+        throw Error('User does not exist')
+    }
+    // get ids of all books that the user added to the library
+    const addedBooks = user.addedBooks;
+    
+    // delete all books the user added
+    const deletedBooks = await Book.deleteMany({_id: {$in: addedBooks}});
+    
+    // delete user
+    const deletedUser = await User.findByIdAndDelete(id);
+    
+    return deletedUser;
 }
 
