@@ -8,7 +8,6 @@ const useLogout = () => {
 
     const logout = async () => {
 
-        // TODO: Check why I get error when I manually change token and try to logout
         try {
             const logout = await apiService.post('/user/logout')
 

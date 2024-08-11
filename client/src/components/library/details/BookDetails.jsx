@@ -28,7 +28,8 @@ const BookDetails = () => {
         (async () => {
 
             const book = await getDetails(bookId);
-            
+
+            // if user enters incorrect bookId - navigate to 404 error page
             if (!book) {
                 navigate('/404')
             }
@@ -58,7 +59,7 @@ const BookDetails = () => {
     async function handleLike() {
         const likedBook = await like();
         setBook((notLikedBook) => likedBook)
-        
+
     }
 
     return (
@@ -98,7 +99,7 @@ const BookDetails = () => {
                                 (
                                     <button
                                         onClick={handleLike}
-                                        disabled={book.likes?.some(id => id == auth._id)} 
+                                        disabled={book.likes?.some(id => id == auth._id)}
                                         className="button__container__button button__container__like" >Like</button>
                                 )}
                         </div>}

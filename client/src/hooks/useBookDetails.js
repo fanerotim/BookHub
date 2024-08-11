@@ -5,12 +5,12 @@ const useBookDetails = () => {
         try {
             const bookDetails = await apiService.get(`/books/library/${bookId}`);
             return bookDetails;
-        } catch(err) {
+        } catch (err) {
             console.log(err.message)
         }
-    }   
+    }
 
-    return {getDetails};
+    return { getDetails };
 }
 
 export default useBookDetails;

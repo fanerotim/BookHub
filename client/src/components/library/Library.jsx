@@ -33,6 +33,7 @@ const Library = () => {
             case 'SCIENCE-FICTION':
             case 'PSYCHOLOGY':
 
+                //filter through the already fetched books and set them as books - avoid making more requests to db than neccessary 
                 const curBooks = catalog.filter(book => book.genre.toLowerCase() === genre.toLowerCase())
                 setBooks((oldBooks) => curBooks);
                 break;

@@ -5,7 +5,7 @@ import { useAuthContext } from "./useAuthContext";
 const useDeleteAccount = () => {
 
     const navigate = useNavigate();
-    const {dispatch} = useAuthContext();
+    const { dispatch } = useAuthContext();
 
     const deleteAccount = async () => {
 
@@ -16,11 +16,11 @@ const useDeleteAccount = () => {
             localStorage.removeItem('auth');
 
             // update state: nullify it
-            dispatch({type: 'LOGOUT', payload: null}) 
+            dispatch({ type: 'LOGOUT', payload: null })
 
             // redirect to sign up page
             navigate('/register')
-        } catch(err) {
+        } catch (err) {
             console.log(err.message);
         }
     }
