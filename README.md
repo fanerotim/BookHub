@@ -2,44 +2,8 @@
 
 This is my project, which I built during my ReactJS course @ SoftUni academy. Front-end is built with React and back-end is built with ExpressJS and MongoDB. I am also using Sass and BEM convention. 
 
-# Installation
-
-Once you clone / download the repository you you'd see two folders 'client' and 'server'. Front-end is present in 'client' folder and back-end in server folder. To start the application on your end, please follow the below steps:
-
-1. Install dependencies by running `npm install` in both client and server folders. 
-3. To start ReactJS run `npm run dev` inside 'client' folder. On success you'd see the following message:
-
-Local:   http://localhost:5173/ <br/>
-Network: use --host to expose <br/>
-press h + enter to show help <br/>
-
-For front-end to work, please also create a 'constants.js' file inside 'src' folder and add a constant called BASE_URL. <br/>
-<br/>
-If you keep backend port to 3000, then you can add the following line: <br/>
-<br/>
-`export const BASE_URL = 'http://localhost:3000`
-
-4. To start back-end, first create a .env file inside 'server' folder. This file needs to include the following environment variables, to which you need to assign values depending on your machine:
-
-`PORT <br/>
-MONGO_DB_CONNECTION_STRING <br/>
-JWT_SECRET <br/> `
-
-For example:
-
-`PORT=3000 <br/>
-MONGO_DB_CONNECTION_STRING=mongodb://localhost:27017/book-hub <br/>
-JWT_SECRET=some1Not2Very3Strong4Secret5But6It7is8useD!fOr@deVelopMent$ <br/> `
-
-<br/>
-Once this is done, please run `npm start` inside 'server' folder. On success you should see the following:
-<br/>
-<br/>
-
-DB connected successfully <br/>
-Server is listening on port 3000
-
-Please also keep in mind that as I am using MongoDB, in order for backend to run on your machine you need to also have MongoDB installed and you can use MongoDB Compass to easily manage database
+The application is now deployed and could be accessed via this link:
+https://book-hub.fanerotim.com/
 
 ## Tech Stack
 - Front-end: ReactJS
