@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # file with my variables
-constants.js
+# constants.js
