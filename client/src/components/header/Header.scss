@@ -4,6 +4,10 @@
     padding: 1.5rem;
 }
 
+.hamburger__menu {
+    position: absolute;
+}
+
 .navigation {
     display: flex;
     justify-content: end;
@@ -29,8 +33,6 @@
 
         &:hover {
             color: rgb(88, 88, 88);
-            
-            // transform: scale(1.1);
             transition: color 1s;
         }
     }
@@ -47,4 +49,9 @@
 
 .active {
     border-bottom: 3px solid rgb(57, 110, 255);
+}
+
+// class I can use to hide / show navigation
+.hidden {
+    display: none;
 }

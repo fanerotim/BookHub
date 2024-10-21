@@ -2,21 +2,34 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink } from 'react-router-dom'
 import useLogout from '../../hooks/useLogout';
+import { useState } from 'react';
 
 const Header = () => {
 
     const { auth } = useAuthContext();
     const { logout } = useLogout();
+    const [show, setShow] = useState(false);
 
     const logoutHandler = () => {
         logout();
     }
 
+    const toggleMenu = () => {
+        setShow(() => !show);
+        console.log(show);
+    }
+
     return (
         <header className='navigation__container'>
+
             <ul className='navigation'>
+
+            <div onClick={toggleMenu} className='hamburger__menu'>
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+
                 <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
-                <div className='navigation__wrapper'>
+                <div className={'navigation__wrapper' + (show ? ' hidden' : '')}>
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
                     <NavLink to='/library' className='navigation__item'>Library</NavLink>
                     {auth &&
