@@ -117,3 +117,14 @@ button .material-symbols-outlined {
     display: flex;
     font-size: 1.7rem;
 }
+
+@media(max-width: 950px) {
+    .testimonials__card__text {
+        font-size: .85rem;
+    }
+
+    .testimonials__card__user__container__img {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+}
