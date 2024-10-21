@@ -135,4 +135,12 @@
             padding: 0;
         }
     }
+
+    .home__why__us__text__wrapper {
+        flex-direction: column;
+
+        &__heading {
+            line-height: 1.4;
+        }
+    }
 }
