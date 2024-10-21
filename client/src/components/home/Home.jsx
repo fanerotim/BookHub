@@ -27,7 +27,6 @@ const Home = () => {
                 <div className='home__text__subheading__wrapper'>
                     <h2 className='home__text__subheading__main'>Discover. Read. Connect.</h2>
                     <h2 className='home__text__subheading'>At BookHub, we believe in the power of stories and the magic of books. Our app is designed to be your go-to platform for everything book-related. Whether you’re an avid reader or just starting your literary journey, BookHub offers a world of endless possibilities.</h2>
-
                 </div>
             </section>
 

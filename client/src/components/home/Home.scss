@@ -121,3 +121,18 @@
         }
     }
 }
+
+
+@media (max-width: 950px) {
+    .home__text {
+        width: 100vw;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem;
+        margin: 4rem 0;
+
+        &__subheading__wrapper {
+            padding: 0;
+        }
+    }
+}
