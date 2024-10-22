@@ -21,14 +21,14 @@ const Header = () => {
     return (
         <header className='navigation__container'>
 
-            
+
             <div onClick={toggleMenu} className='hamburger__menu'>
-                <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
                 <span class="material-symbols-outlined">menu</span>
             </div>
 
             <ul className={'navigation' + (show ? ' hidden' : '')}>
 
+                <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
 
                 <div className='navigation__wrapper'>
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
