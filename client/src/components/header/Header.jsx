@@ -16,20 +16,21 @@ const Header = () => {
 
     const toggleMenu = () => {
         setShow(() => !show);
-        console.log(show);
     }
 
     return (
         <header className='navigation__container'>
 
-            <ul className='navigation'>
-
+            
             <div onClick={toggleMenu} className='hamburger__menu'>
+                <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
                 <span class="material-symbols-outlined">menu</span>
             </div>
 
-                <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
-                <div className={'navigation__wrapper' + (show ? ' hidden' : '')}>
+            <ul className={'navigation' + (show ? ' hidden' : '')}>
+
+
+                <div className='navigation__wrapper'>
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
                     <NavLink to='/library' className='navigation__item'>Library</NavLink>
                     {auth &&
@@ -41,12 +42,12 @@ const Header = () => {
                 </div>
 
                 <div className='navigation__wrapper'>
-                    {auth 
-                    ? (
-                        // <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
-                        <button onClick={logoutHandler} className='navigation__item'>Logout</button>
-                    ) 
-                    :
+                    {auth
+                        ? (
+                            // <NavLink to='/logout' className='navigation__item'>Logout</NavLink>
+                            <button onClick={logoutHandler} className='navigation__item'>Logout</button>
+                        )
+                        :
                         (
                             <>
                                 <NavLink to='/login' className='navigation__item'>Login</NavLink>
