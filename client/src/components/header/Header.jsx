@@ -31,8 +31,10 @@ const Header = () => {
                 <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
 
                 <div className='navigation__wrapper'>
-                    <NavLink to='/' className='navigation__item'>Home</NavLink>
-                    <NavLink to='/library' className='navigation__item'>Library</NavLink>
+                    <>
+                        <NavLink to='/' className='navigation__item'>Home</NavLink>
+                        <NavLink to='/library' className='navigation__item'>Library</NavLink>
+                    </>
                     {auth &&
                         <>
                             <NavLink to='/add-book' className='navigation__item'>Add a book</NavLink>
