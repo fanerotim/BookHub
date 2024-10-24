@@ -20,21 +20,21 @@ const Header = () => {
 
     return (
         <header className='navigation__container'>
-
+            
+            <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
 
             <div onClick={toggleMenu} className='hamburger__menu'>
-                <span class="material-symbols-outlined">menu</span>
+                <span className="material-symbols-outlined">menu</span>
             </div>
 
-            <ul className={'navigation' + (show ? ' hidden' : '')}>
 
-                <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
+            <ul className={'navigation' + (show ? ' hidden' : ' visible')}>
 
                 <div className='navigation__wrapper'>
-                    <>
-                        <NavLink to='/' className='navigation__item'>Home</NavLink>
-                        <NavLink to='/library' className='navigation__item'>Library</NavLink>
-                    </>
+
+                    <NavLink to='/' className='navigation__item'>Home</NavLink>
+                    <NavLink to='/library' className='navigation__item'>Library</NavLink>
+
                     {auth &&
                         <>
                             <NavLink to='/add-book' className='navigation__item'>Add a book</NavLink>

@@ -1,11 +1,12 @@
 .navigation__container {
-    // background-color: rgb(255, 234, 175);
     background-color: rgb(243, 243, 243);
     padding: 1.5rem;
+    display: flex;
 }
 
 .hamburger__menu {
     display: none;
+    cursor: pointer;
 }
 
 .navigation {
@@ -54,24 +55,27 @@
 
 // class I can use to hide / show navigation
 .hidden {
-    display: none;
-    transition: 1s;
+    transform: translate(10px, -550px);
 }
 
 @media(max-width: 950px) {
 
     .hamburger__menu {
-        // position: absolute;
-        // right: 0;
         display: flex;
-        width: 100%;
-        height: 100%;
         justify-content: end;
-        align-items: center;
+        align-items: start;
     }
 
     .navigation {
         flex-direction: column;
+        position: absolute;
+        right: 5rem;
+        top: 5rem;
+
+        &.visible {
+            transform: translate(0, 0);
+            transition: transform .5s;
+        }
 
         &__wrapper {
             flex-direction: column;
