@@ -100,5 +100,6 @@
     .hidden {
         transform: translate(500px, 0);
         transition: transform 1s;
+        opacity: 0;
     }
 }
