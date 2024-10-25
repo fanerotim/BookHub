@@ -1,6 +1,6 @@
 import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import useLogout from '../../hooks/useLogout';
 import { useState, useEffect } from 'react';
 
@@ -13,26 +13,31 @@ const Header = () => {
     const logoutHandler = () => {
         logout();
     }
+    
+    const url = useLocation().pathname;
+
+    useEffect(() => {
+        // close mobile navigation when url changes
+        setShow(() => false)
+    }, [url])
 
     useEffect(() => {
         // disable scroll when mobile nav opens
         if (show) {
             document.body.style.overflow = "hidden"
-            console.log(true)
         } else {
-            console.log('false')
             document.body.style.overflow = "auto"
             document.body.style.overflowX = "hidden"
         }
-    })
+    }, [show])
 
     const toggleMenu = () => {
-        setShow(() => !show);   
+        setShow(() => !show);
     }
 
     return (
         <header className='navigation__container'>
-            
+
             <Link to='/' className='navigation__logo navigation__item'>BookHub</Link>
 
             <div onClick={toggleMenu} className='hamburger__menu'>
