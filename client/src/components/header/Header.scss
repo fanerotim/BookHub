@@ -27,7 +27,7 @@
         font-size: 1.1rem;
         font-weight: 500;
         cursor: pointer;
-        
+
         &:last-child {
             margin-right: 3rem;
         }
@@ -53,11 +53,6 @@
     width: fit-content;
 }
 
-// class I can use to hide / show navigation
-.hidden {
-    transform: translate(10px, -550px);
-}
-
 @media(max-width: 950px) {
 
     .hamburger__menu {
@@ -68,13 +63,22 @@
 
     .navigation {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         position: absolute;
-        right: 5rem;
-        top: 5rem;
+        right: 0;
+        height: calc(100% - 4.7rem);
+        top: 4.7rem;
+        z-index: 50;
+
+        background-color: rgb(236, 232, 232);
+        width: fit-content;
+        padding: 5rem;
 
         &.visible {
             transform: translate(0, 0);
             transition: transform .5s;
+            margin: 0;
         }
 
         &__wrapper {
@@ -90,5 +94,11 @@
                 margin-right: 0;
             }
         }
+    }
+
+    // class I can use to hide / show navigation
+    .hidden {
+        transform: translate(500px, 0);
+        transition: transform 1s;
     }
 }

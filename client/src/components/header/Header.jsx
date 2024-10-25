@@ -2,7 +2,7 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink } from 'react-router-dom'
 import useLogout from '../../hooks/useLogout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
 
@@ -14,8 +14,20 @@ const Header = () => {
         logout();
     }
 
+    useEffect(() => {
+        // disable scroll when mobile nav opens
+        if (show) {
+            document.body.style.overflow = "hidden"
+            console.log(true)
+        } else {
+            console.log('false')
+            document.body.style.overflow = "auto"
+            document.body.style.overflowX = "hidden"
+        }
+    })
+
     const toggleMenu = () => {
-        setShow(() => !show);
+        setShow(() => !show);   
     }
 
     return (
@@ -28,7 +40,7 @@ const Header = () => {
             </div>
 
 
-            <ul className={'navigation' + (show ? ' hidden' : ' visible')}>
+            <ul className={'navigation' + (show ? ' visible' : ' hidden')}>
 
                 <div className='navigation__wrapper'>
 
