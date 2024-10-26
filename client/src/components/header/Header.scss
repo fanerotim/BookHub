@@ -59,6 +59,20 @@
         display: flex;
         justify-content: end;
         align-items: start;
+
+        &--closer {
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: transform .3s;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+
+            &:hover {
+                transform: rotate(180deg);
+            }
+        }
     }
 
     .navigation {
@@ -67,8 +81,10 @@
         justify-content: center;
         position: absolute;
         right: 0;
-        height: calc(100% - 4.7rem);
-        top: 4.7rem;
+        // height: calc(100% - 4.7rem);
+        // top: 4.7rem;
+        height: 100%;
+        top: 0;
         z-index: 50;
 
         background-color: rgb(236, 232, 232);

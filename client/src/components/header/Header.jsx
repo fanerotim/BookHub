@@ -35,6 +35,10 @@ const Header = () => {
         setShow(() => !show);
     }
 
+    const closeMenu = () => {
+        setShow(() => !show)
+    }
+
     return (
         <header className='navigation__container'>
 
@@ -46,7 +50,9 @@ const Header = () => {
 
 
             <ul className={'navigation' + (show ? ' visible' : ' hidden')}>
-
+            
+            {show && <span onClick={closeMenu} class="material-symbols-outlined hamburger__menu--closer">close</span>}
+            
                 <div className='navigation__wrapper'>
 
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
