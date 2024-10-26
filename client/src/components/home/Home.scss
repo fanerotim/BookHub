@@ -2,6 +2,8 @@
 
 .home__container {
     margin: 0 auto;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .home__text {
@@ -143,4 +145,29 @@
             line-height: 1.4;
         }
     }
+}
+
+@media (max-width: 500px) {
+    .home__container {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+
+    .home__text__main-heading {
+        font-size: 1.8rem;
+
+        &__description {
+            font-size: 1.2rem;
+        }
+    }
+
+    .home__text__subheading {
+        font-size: .9rem;
+
+        &__main {
+            font-size: 1.2rem;
+        }
+    }
+
 }
