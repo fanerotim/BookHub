@@ -153,6 +153,7 @@
     }
 
     .home__text {
+        gap: 1.5rem;
         padding: 3rem;
         margin: 0;
     }
@@ -170,7 +171,23 @@
 
         &__main {
             font-size: 1.2rem;
+            margin: 0;
         }
     }
 
+    // Why-us section
+
+    .home__why__us__text__wrapper {
+        padding: 2rem;
+
+        &__heading {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+
+            &__question__mark {
+                font-size: 3rem;
+            }
+        }
+    }
 }

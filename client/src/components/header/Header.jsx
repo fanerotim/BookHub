@@ -13,7 +13,7 @@ const Header = () => {
     const logoutHandler = () => {
         logout();
     }
-    
+
     const url = useLocation().pathname;
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const Header = () => {
         if (show) {
             document.body.style.overflow = "hidden"
         } else {
-            document.body.style.overflow = "auto"
+            document.body.style.overflowY = "auto"
             document.body.style.overflowX = "hidden"
         }
     }, [show])
@@ -48,11 +48,10 @@ const Header = () => {
                 <span className="material-symbols-outlined">menu</span>
             </div>
 
+            <ul className={'navigation' + (show ? '' : ' hidden')}>
 
-            <ul className={'navigation' + (show ? ' visible' : ' hidden')}>
-            
-            {show && <span onClick={closeMenu} class="material-symbols-outlined hamburger__menu--closer">close</span>}
-            
+                {show && <span onClick={closeMenu} className="material-symbols-outlined hamburger__menu--closer">close</span>}
+
                 <div className='navigation__wrapper'>
 
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
