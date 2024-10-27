@@ -150,15 +150,18 @@
 @media (max-width: 500px) {
     .home__container {
         width: 100vw;
-        overflow-x: hidden;
     }
 
+    .home__text {
+        padding: 3rem;
+        margin: 0;
+    }
 
     .home__text__main-heading {
-        font-size: 1.8rem;
+        font-size: 2rem;
 
         &__description {
-            font-size: 1.2rem;
+            font-size: 2rem;
         }
     }
 
