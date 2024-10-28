@@ -3,7 +3,6 @@
 .home__app__info {
     // background-color: rgb(243, 242, 242);
     padding: 8rem 2rem 6rem 2rem;
-    gap: 2rem;
 
     &__features__wrapper {
         display: flex;
@@ -76,6 +75,37 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .home__app__info {
+        padding: 3rem;
+
+        &__heading {
+            font-size: 2.5rem;
+            text-align: left;
+        }
+
+        &__subheading {
+            font-size: .9rem;
+            padding: 0;
+            text-align: left;
+        }
+
+        &__features__wrapper {
+            flex-direction: column;
+            padding: 0;
+            margin-top: 3rem;
+        }
+
+        .home__app__info__icons__list__icon {
+            font-size: 1rem;
+        }
+
+        .home__app__info__icons__list__item {
+            font-size: .9rem;
+        }
     }
 }
 
