@@ -178,7 +178,7 @@
     // Why-us section
 
     .home__why__us__text__wrapper {
-        padding: 2rem;
+        padding: 3rem;
 
         &__heading {
             font-size: 3rem;
@@ -187,6 +187,24 @@
 
             &__question__mark {
                 font-size: 3rem;
+            }
+        }
+    }
+
+    .home__why__us__list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .home__why__us__list__item {
+        padding: 0;
+
+        &__reason {
+            font-size: 1.4rem;
+
+            &__description {
+                font-size: .9rem;
             }
         }
     }
