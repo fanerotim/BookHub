@@ -39,8 +39,9 @@
     margin: 0 auto;
     // padding: .2rem;
     // background-color: rgba(54, 134, 255, 0.3);
-    border-radius: 1rem;
+    border-radius: .1rem;
     box-shadow: .2rem .2rem .6rem rgba(58, 1, 1, 0.3);
+    // position: relative;
 
     &__user__container {
         display: flex;
@@ -48,7 +49,6 @@
         position: relative;
         padding: 3rem 2rem;
         background-color: white;
-        border-radius: 1rem;
 
         &__img {
             width: 6rem;
@@ -144,6 +144,12 @@ button .material-symbols-outlined {
             &__small {
                 text-align: left;
                 margin-bottom: 1rem;
+            }
+        }
+
+        &__card {
+            &__user__container {
+                flex-direction: column;
             }
         }
     }
