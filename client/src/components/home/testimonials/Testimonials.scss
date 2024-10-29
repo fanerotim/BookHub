@@ -148,9 +148,36 @@ button .material-symbols-outlined {
         }
 
         &__card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
             &__user__container {
                 flex-direction: column;
+                // fixed width for now
+                height: 350px;
             }
+        }
+
+        &__buttons {
+            // setting up z-index as the left button disappeared behind the card
+            z-index: 100;
+            background-color: transparent;
+            box-shadow: none;
+            transform: scale(1);
+
+            &__left {
+                top: .5rem;
+                left: .5rem;
+                padding: 0;
+            }
+
+            &__right {
+                top: .5rem;
+                right: .5rem;
+                padding: 0;
+            }
+            
         }
     }
 

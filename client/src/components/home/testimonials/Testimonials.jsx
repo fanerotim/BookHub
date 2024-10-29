@@ -51,7 +51,6 @@ const Testimonials = () => {
             <section className="testimonials__card" >
                 {/* <p className="testimonials__card__text">{testimonials[index].text}</p> */}
 
-
                 <button onClick={slideLeft} className='testimonials__buttons testimonials__buttons__left'><span className="material-symbols-outlined">arrow_back</span></button>
                 
                 <div className='testimonials__card__user__container'>
@@ -65,10 +64,8 @@ const Testimonials = () => {
                     </div>
                     <span className='testimonials__card__user__container__quote__icon'></span>
                 </div>
-                
+
                 <button onClick={slideRight} className='testimonials__buttons testimonials__buttons__right'><span className="material-symbols-outlined">arrow_forward</span></button>
-
-
 
             </section>
 
