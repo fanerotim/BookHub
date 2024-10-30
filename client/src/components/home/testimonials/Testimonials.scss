@@ -155,12 +155,15 @@ button .material-symbols-outlined {
             // position: relative;
             display: flex;
             flex-direction: column;
-            justify-items: center;
+            align-items: center;
+            max-width: 100%;
+            width: 250px;
 
             &__user__container {
                 flex-direction: column;
-                // fixed width for now
+                // fixed height for now
                 height: 350px;
+                // width: 250px;
             }
         }
 
@@ -185,13 +188,13 @@ button .material-symbols-outlined {
             &__left {
                 left: 3rem;
                 padding: .4rem;
-                background-color: rgb(114, 170, 243);
+                // background-color: rgb(114, 170, 243);
             }
 
             &__right {
                 right: 3rem;
                 padding: .4rem;
-                background-color: rgb(114, 170, 243);
+                // background-color: rgb(114, 170, 243);
 
             }
             
