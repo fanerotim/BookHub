@@ -219,4 +219,13 @@
             }
         }
     }
+
+    .button__container {
+        font-size: .75rem;
+        
+        & > button,
+        & > Link {
+            padding: .4rem 1.2rem;
+        }
+    }
 }
