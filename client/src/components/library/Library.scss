@@ -96,8 +96,8 @@
 
 
         &__heading {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
         }
 
         &__subheading {
@@ -111,10 +111,14 @@
 
             &__main {
                 font-size: 1.3rem;
-                line-height: 0;
+                line-height: 1.2;
                 text-align: center;
                 margin: 0 .5rem;
                 font-weight: 300;
+
+                &::after {
+                    font-size: 3rem;
+                }
             }
         }
     }
