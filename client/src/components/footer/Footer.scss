@@ -9,3 +9,14 @@
         font-size: 1.1rem;
     }
 }
+
+@media(max-width: 500px) {
+
+    .footer {
+        padding: 2rem;
+
+        &__text {
+            font-size: .7rem;
+        }
+    }
+}

@@ -152,3 +152,52 @@
         font-size: .9rem;
     }
 }
+
+
+@media(max-width: 500px) {
+    .register__content__wrapper {
+        flex-direction: column;
+        padding: 2rem;
+
+        &__text {
+            min-height: auto;
+
+            &::after {
+                transform: skewX(-6deg);
+            }
+
+            &__main {
+                font-size: 2rem;
+
+                &::after {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+
+        .register__form__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .register__form__heading {
+            font-size: 3.5rem;
+            margin-top: 2rem;
+
+            &::after {
+                font-size: 3rem;
+            }
+        }
+
+        .register__form__label {
+            font-size: .8rem;
+        }
+
+        .register__form__input {
+            padding: .15rem;
+            width: 13rem;
+        }
+    }
+}
