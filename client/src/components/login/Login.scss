@@ -143,16 +143,8 @@
     .login__wrapper {
         height: auto;
         flex-direction: column;
-        padding: 1rem;
+        padding: 2rem;
         gap: 3rem;
-    }
-
-    .login__form__container {
-        width: fit-content;
-        padding: 0;
-        align-self: center;
-        justify-self: center;
-        margin-bottom: 3rem;
     }
 
     .login__wrapper__info__container {
@@ -171,21 +163,35 @@
     }
 
 
-    .login__form__heading {
-        font-size: 3.5rem;
-        align-self: center;
-
-        &::after {
-            font-size: 3rem;
+    .login__form {
+        &__container {
+            // width: fit-content;
+            width: 100%;
+            padding: 0;
+            align-self: center;
+            justify-self: center;
+            margin-bottom: 3rem;
         }
-    }
 
-    .login__form__label {
-        font-size: .8rem;
-    }
+        &__heading {
+            font-size: 3.5rem;
+            align-self: center;
+    
+            &::after {
+                font-size: 3rem;
+            }
+        }
 
-    .login__form__input {
-        width: 16rem;
-        padding: .25rem;
+        &__label {
+            font-size: .8rem;
+        }
+
+        &__input {
+            padding: .25rem;
+        }
+
+        &__error__message {
+            font-size: .8rem;
+        }
     }
 }
