@@ -166,3 +166,57 @@
         
     }
 }
+
+@media(max-width: 500px) {
+    .book__details {
+        padding: 2rem;
+        // this will need to be improved to avoid footer position shift
+        min-height: auto;
+    
+        &__main__info {
+
+            &__title {
+                font-size: 3rem;
+            }
+
+            &__span {
+                font-size: .9rem;
+            }
+
+            &__author {
+                font-size: 1.5rem;
+            }
+        }
+    
+    
+        &__secondary__info {
+            flex-direction: column;
+            padding-top: 3rem;
+
+            &__genre {
+                font-size: .7rem;
+                padding: .2rem .8rem;
+            }
+
+            &__description {
+                width: fit-content;
+
+                &__heading {
+                    font-size: 1.5rem;
+                }
+
+                &__summary {
+                    font-size: .9rem;
+                }
+
+                &__button {
+                    font-size: .8rem;
+                }
+            }
+
+            &__img__container {
+                display: none;
+            }
+        }
+    }
+}
