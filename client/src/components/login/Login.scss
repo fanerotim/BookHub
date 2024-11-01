@@ -15,7 +15,6 @@
     //this is a hacky way to get the footer stuck to the bottom of the page
     height: calc(100vh - 11.77rem);
     height: 90vh;
-    ;
 
     &__info__container {
         // max-width: 450px;
@@ -136,5 +135,57 @@
         padding: .4rem 1.2rem;
         margin-top: 1rem;
         color: red;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .login__wrapper {
+        height: auto;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 3rem;
+    }
+
+    .login__form__container {
+        width: fit-content;
+        padding: 0;
+        align-self: center;
+        justify-self: center;
+        margin-bottom: 3rem;
+    }
+
+    .login__wrapper__info__container {
+        width: 100%;
+        overflow: hidden;
+
+        &__main__text {
+            // width: fit-content;
+            font-size: 2rem;
+            margin-top: 2rem;
+            line-height: 1.1;
+            // line-break: anywhere;
+            padding: 0;
+            text-align: center;
+        }
+    }
+
+
+    .login__form__heading {
+        font-size: 3.5rem;
+        align-self: center;
+
+        &::after {
+            font-size: 3rem;
+        }
+    }
+
+    .login__form__label {
+        font-size: .8rem;
+    }
+
+    .login__form__input {
+        width: 16rem;
+        padding: .25rem;
     }
 }
