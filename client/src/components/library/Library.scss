@@ -92,12 +92,17 @@
 // TODO: Apply styles for mobile and tablet views
 
 @media(max-width: 500px) {
-    .library__text__container {
 
+    .library__container {
+        padding: 2.5rem 0;
+    }
+
+    .library__text__container {
 
         &__heading {
             font-size: 3.5rem;
             margin-bottom: 2rem;
+            margin-top: 0;
         }
 
         &__subheading {
