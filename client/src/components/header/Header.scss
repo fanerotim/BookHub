@@ -115,11 +115,18 @@
 }
 
 @media(max-width: 400px) {
+    
+    .navigation__container {
+        padding: 2rem;
+        justify-content: space-between;
+    }
+
     .navigation__logo {
-        font-size: .9rem;
+        font-size: 1.3rem;
+        margin: 0;
     }
 
     .hamburger__menu > span {
-        font-size: 1.2rem;
+        font-size: 1.7rem;
     }
 }
