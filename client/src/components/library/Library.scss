@@ -94,7 +94,7 @@
 @media(max-width: 500px) {
 
     .library__container {
-        padding: 2.5rem 0;
+        padding: 2.5rem 2rem;
     }
 
     .library__text__container {
@@ -103,6 +103,7 @@
             font-size: 3.5rem;
             margin-bottom: 2rem;
             margin-top: 0;
+            text-align: center;
         }
 
         &__subheading {
@@ -136,6 +137,10 @@
         &__item {
             font-size: 1rem;
         }
+    }
+
+    .library__card__container {
+        padding: 0;
     }
 
     .library__card__container__empty {
