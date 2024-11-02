@@ -77,7 +77,6 @@ const Profile = () => {
 
             {deleteModal && <DeleteProfileModal props={{ deleteHandler }} />}
         </section>
-
     )
 }
 

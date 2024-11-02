@@ -3,14 +3,14 @@
 .profile__page__text__container {
     display: flex;
     gap: 3rem;
-    justify-content: space-between;  
+    justify-content: space-between;
     align-items: center;
     padding: 3rem 5rem;
     // background-color: rgb(250, 250, 250);
     min-height: 680px;
 }
 
-.profile__page__text__wrapper{
+.profile__page__text__wrapper {
 
     &__heading {
         font-size: 6rem;
@@ -29,7 +29,7 @@
         font-size: 1.2rem;
         font-weight: 200;
         margin-top: 1rem;
-        color:rgb(51, 38, 38)
+        color: rgb(51, 38, 38)
     }
 }
 
@@ -48,7 +48,7 @@
         font-weight: 300;
         line-height: 1.2;
         margin-bottom: 1rem;
-        color:rgb(61, 61, 61);
+        color: rgb(61, 61, 61);
     }
 
     &__username__tag,
@@ -140,7 +140,83 @@
     }
 }
 
-.profile__likedBooks__container {
-    // background-color:blanchedalmond;
-    // background-color: aquamarine;
+@media(max-width: 500px) {
+    .profile__page__text__container {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .profile__page__text__wrapper {
+
+        &__heading {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        &__subheading {
+            font-size: 1.5rem;
+            line-height: 1.1;
+        }
+
+        &__description {
+            font-size: 1rem;
+        }
+    }
+
+    .profile__information__card {
+        margin-top: 0;
+        // padding: 0;
+
+        &__heading {
+            font-size: 2.5rem;
+        }
+
+        &__username,
+        &__email,
+        &__addedBooks,
+        &__likedBooks {
+            font-size: 1rem;
+
+            &__tag {
+                font-size: .6rem;
+            }
+
+            &__count {
+                font-size: 1rem;
+            }
+        }
+
+        &__delete__btn {
+            font-size: .8rem;
+            padding: .3rem .7rem;
+        }
+    }
+
+    .profile__addedBooks__container {
+        padding: 2rem;
+
+        &__heading {
+            font-size: 3rem;
+            line-height: 1.1;
+        }
+
+        &__description {
+            color: rgb(82, 82, 82);
+            line-height: 1.2;
+        }
+    }
+
+    .profile__likedBooks__container {
+        padding: 2rem;
+        line-height: 1.1;
+
+        &__heading {
+            font-size: 3rem;
+        }
+
+        &__description {
+            color: rgb(82, 82, 82);
+            line-height: 1.2;
+        }
+    }
 }
