@@ -72,3 +72,27 @@
         }
     }
 }
+
+@media(max-width: 500px) {
+
+    .delete__modal {
+        width: 90%;
+        padding: 1.5rem;
+
+        &__text {
+            font-size: .9rem;
+
+            &__notice {
+                font-size: .9rem;
+                margin-bottom: 0;
+            }
+        }
+
+        &__button__container {
+            &__button {
+                font-size: .8rem;
+                padding: .3rem .7rem;
+            }
+        }
+    }
+}

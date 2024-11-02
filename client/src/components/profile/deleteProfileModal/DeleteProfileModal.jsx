@@ -16,18 +16,18 @@ const DeleteProfileModal = ({ props }) => {
         }
     }, [])
 
-    function handleReject() {
+    function handleReject(e) {
+        e.stopPropagation();
         // hide modal
         props.deleteHandler();
     }
 
     function handleApprove() {
         deleteAccount();
-        console.log('worked')
     }
 
     return (
-        <section className='delete__modal__container'>
+        <section onClick={(e) => handleReject(e)} className='delete__modal__container'>
             <div className='delete__modal'>
                 <h1 className='delete__modal__text'>Are you sure you want to delete your account from <span className='delete__modal__text__logo'>BookHub</span>? This action cannot be undone.</h1>
                 <p className='delete__modal__text__notice'>By clicking <span className='delete__modal__text__notice__delete'>Delete</span>, your account will be permanently removed from our library. Additionally, all books that you added to our library will be deleted as well.</p>
