@@ -203,6 +203,7 @@
         &__description {
             color: rgb(82, 82, 82);
             line-height: 1.2;
+            width: 100%;
         }
     }
 
@@ -217,6 +218,12 @@
         &__description {
             color: rgb(82, 82, 82);
             line-height: 1.2;
+            width: 100%;
         }
+    }
+
+    .profile__likedBooks__card__container, 
+    .profile__addedBooks__card__container {
+        padding: 2rem;
     }
 }
