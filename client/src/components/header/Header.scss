@@ -95,14 +95,19 @@
         &__wrapper {
             flex-direction: column;
             align-items: center;
+            margin-right: 0;
         }
 
         &__item {
-            align-self: end;
+            align-self: start;
             width: fit-content;
 
             &:nth-child(2) {
                 margin-right: 0;
+            }
+
+            &:last-child {
+                // margin-right: 0;
             }
         }
     }
