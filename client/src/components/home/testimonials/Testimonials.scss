@@ -152,19 +152,18 @@ button .material-symbols-outlined {
         }
 
         &__card {
-            // position: relative;
             display: flex;
+            position: relative;
             flex-direction: column;
             align-items: center;
             max-width: 100%;
             width: 250px;
+            margin-bottom: 2rem;
 
             &__user__container {
                 flex-direction: column;
                 // fixed height for now
                 height: 350px;
-                
-                // width: 250px;
             }
         }
 
@@ -173,10 +172,7 @@ button .material-symbols-outlined {
         }
 
         &__buttons {
-            // setting up z-index as the left button disappeared behind the card
             z-index: 100;
-            // background-color: transparent;
-            // box-shadow: none;
 
             &:hover {
                 transform: none;
@@ -187,18 +183,16 @@ button .material-symbols-outlined {
             }
 
             &__left {
-                left: 3rem;
+                top: 45%;
+                left: -2.5rem;
                 padding: .4rem;
-                // background-color: rgb(114, 170, 243);
             }
 
             &__right {
-                right: 3rem;
+                top: 45%;
+                right: -2.5rem;
                 padding: .4rem;
-                // background-color: rgb(114, 170, 243);
-
-            }
-            
+            }  
         }
     }
 
