@@ -2,6 +2,7 @@ import './Library.scss';
 import LibraryCard from './library-card/LibraryCard';
 import useLibrary from '../../hooks/useLibrary';
 import { useEffect, useState } from 'react';
+import Loader from '../loader/Loader';
 
 const Library = () => {
 
@@ -9,6 +10,7 @@ const Library = () => {
     const [genre, setGenre] = useState('ALL');
     // catalog contains all books in the db. it is used to keep all books and help me avoid making more than 1 request to db
     const [catalog, setCatalog] = useState([]);
+    const [fetching, setFetching] = useState(true)
 
     const { getAll } = useLibrary();
 
@@ -16,10 +18,12 @@ const Library = () => {
         (async () => {
             // only req to the db to get all books
             const allBooks = await getAll();
+            
             // this state changes depending on genre and it is used to render books
             setBooks(oldBooks => allBooks)
             // keep all books in catalog state
             setCatalog(allBooks);
+            setFetching(false)
         })()
     }, [])
 
@@ -60,6 +64,9 @@ const Library = () => {
                 <button onClick={getBooksHandler} className={genre === 'PSYCHOLOGY' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>PSYCHOLOGY</button>
             </ul>
 
+            {/* TODO: set loader properly */}
+            {fetching && <Loader/>}
+        
             {books.length > 0
                 ?
                 (

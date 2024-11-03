@@ -1,9 +1,11 @@
 import './Loader.scss'
 
-const loader = () => {
+const Loader = () => {
     return (
-        <span class="loader"></span>
+        <div className='loader__container'>
+            <span className="loader"></span>
+        </div>
     )
 }
 
-export default loader;
+export default Loader;
