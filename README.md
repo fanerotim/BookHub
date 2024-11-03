@@ -1,6 +1,8 @@
 # BookHub
 
-This is my project, which I built during my ReactJS course @ SoftUni academy. Front-end is built with React and back-end is built with ExpressJS and MongoDB. I am also using Sass and BEM convention. 
+This is my project, which I built during my ReactJS course @ SoftUni academy. Front-end is built with React and back-end is built with ExpressJS and MongoDB. I am also using Sass and BEM convention. It is a responsive application and it works on mobile devices also. 
+
+Currently its REST API is deployed on a free 'Render' server and due to this on first load it takes some time until it fetches data from backend.
 
 The application is now deployed and could be accessed via this link:
 https://book-hub.fanerotim.com/
