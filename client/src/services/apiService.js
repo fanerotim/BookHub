@@ -1,5 +1,3 @@
-import { BASE_URL } from "../constants";
-
 export const apiService = async (method, url, data) => {
     
     const options = {};
@@ -21,7 +19,7 @@ export const apiService = async (method, url, data) => {
         }
     }
         
-    const response = await fetch(`${BASE_URL}${url}`, options);
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL}${url}`, options);
     const result = await response.json();
 
     if (!response.ok) {
