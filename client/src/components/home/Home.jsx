@@ -19,8 +19,6 @@ const Home = () => {
         triggerAnimation()
     }, [])
 
-    console.log(import.meta.env.VITE_BASE_URL)
-
     return (
         <main className='home__container'>
             <section className='home__text'>
