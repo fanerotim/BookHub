@@ -1,12 +1,9 @@
 .loader__container {
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(8, 8, 8, .8);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0;
+    border: 1px solid red;
+    height: 300px;
 }
 
 .loader,
@@ -21,6 +18,7 @@
 
 .loader {
     color: #FFF;
+    color: black;
     font-size: 7px;
     position: relative;
     text-indent: -9999em;
