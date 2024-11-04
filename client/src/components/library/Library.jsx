@@ -23,10 +23,7 @@ const Library = () => {
             setBooks(oldBooks => allBooks)
             // keep all books in catalog state
             setCatalog(allBooks);
-
-            setTimeout(() => {
-                setFetching(false)
-            }, 3000)
+            setFetching(false)
         })()
     }, [])
 
