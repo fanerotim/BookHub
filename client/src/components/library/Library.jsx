@@ -2,6 +2,7 @@ import './Library.scss';
 import LibraryCard from './library-card/LibraryCard';
 import useLibrary from '../../hooks/useLibrary';
 import { useEffect, useState } from 'react';
+import Loader from '../loader/Loader';
 
 const Library = () => {
 
@@ -9,6 +10,7 @@ const Library = () => {
     const [genre, setGenre] = useState('ALL');
     // catalog contains all books in the db. it is used to keep all books and help me avoid making more than 1 request to db
     const [catalog, setCatalog] = useState([]);
+    const [fetching, setFetching] = useState(true)
 
     const { getAll } = useLibrary();
 
@@ -16,10 +18,15 @@ const Library = () => {
         (async () => {
             // only req to the db to get all books
             const allBooks = await getAll();
+
             // this state changes depending on genre and it is used to render books
             setBooks(oldBooks => allBooks)
             // keep all books in catalog state
             setCatalog(allBooks);
+
+            setTimeout(() => {
+                setFetching(false)
+            }, 3000)
         })()
     }, [])
 
@@ -60,18 +67,20 @@ const Library = () => {
                 <button onClick={getBooksHandler} className={genre === 'PSYCHOLOGY' ? 'activeSubRoute library__subNavigation__item' : 'library__subNavigation__item'}>PSYCHOLOGY</button>
             </ul>
 
-            {books.length > 0
-                ?
-                (
-                    <div className='library__card__container'>
-                        {books.map((book) => (
-                            <LibraryCard key={book._id} book={book} />
-                        ))}
-                    </div>
-                )
-                : (
-                    <h1 className='library__card__container__empty'>{catalog.length > 0 ? `We do not currently have ${genre.toLowerCase()} books` : 'Our library is currently empty'}</h1>
-                )}
+            {fetching
+                ? <Loader />
+                : books.length > 0
+                    ?
+                    (
+                        <div className='library__card__container'>
+                            {books.map((book) => (
+                                <LibraryCard key={book._id} book={book} />
+                            ))}
+                        </div>
+                    )
+                    : (
+                        <h1 className='library__card__container__empty'>{catalog.length > 0 ? `We do not currently have ${genre.toLowerCase()} books` : 'Our library is currently empty'}</h1>
+                    )}
 
         </section>
     )
