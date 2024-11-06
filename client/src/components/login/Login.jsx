@@ -57,7 +57,9 @@ const Login = () => {
                     <h1 className='login__form__heading'>Log in</h1>
 
                     {logging
-                        ? <Loader />
+                        ? <div className='loader__container'>
+                            <Loader />
+                        </div>
                         :
                         <form className='login__form' onSubmit={handleSubmit}>
                             <label className='login__form__label' htmlFor="">Email</label>
