@@ -23,7 +23,7 @@ My React JS app has four core folders:
 
 ## Key functionalities
 
-- It is a CRUD application which allows users to register and create their own accounts
+- It is a CRUD application which allows users to register and create their own accounts. Upon successful registration the users receive an email to confirm their registration. 
 - Once users sign up, they can add, delete and edit their own books
 - Registered users have access to their Profile page where they can see the books they added and liked (if any)
 - Registered users also have the option to delete their account if they decide to. This will delete all of the books they added to the website
