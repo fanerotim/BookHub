@@ -42,6 +42,7 @@ const Register = () => {
             // redirect on success
             navigate('/')
         } catch (err) {
+            setRegistering(() => false)
             setError((oldError) => err.message)
         }
     }

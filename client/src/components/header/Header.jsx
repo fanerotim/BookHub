@@ -55,6 +55,7 @@ const Header = () => {
                 <div className='navigation__wrapper'>
 
                     <NavLink to='/' className='navigation__item'>Home</NavLink>
+                    <NavLink to='/quotes' className='navigation__item'>Quotes</NavLink>
                     <NavLink to='/library' className='navigation__item'>Library</NavLink>
 
                     {auth &&
