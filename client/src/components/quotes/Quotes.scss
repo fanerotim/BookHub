@@ -29,5 +29,12 @@
                 animation-duration: 4.2s;
             }
         }
+
+        &__subheading {
+            font-size: .8rem;
+            font-weight: 300;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
     }
 }
