@@ -1,4 +1,6 @@
 import './Quotes.scss'
+import QuotesCard from './quotes-card/QuotesCard';
+import db from './db';
 
 const Quotes = () => {
     return (
@@ -8,8 +10,10 @@ const Quotes = () => {
 
             <h2 className='quotes__container__subheading'>BookHub's collection of words worth remembering. Add your favorite quotes and let readers discover new gems.</h2>
 
-            <section>
-
+            <section className='quotes__container__quote__card'>
+                {db.map((q, index) => (
+                    <QuotesCard q={q} key={index}/>
+                ))}
             </section>
 
         </div>
