@@ -1,9 +1,9 @@
 import styles from './QuotesCard.module.scss';
 
-const QuotesCard = ({q}) => {
-   
+const QuotesCard = ({q, index}) => {
+
     return (
-        <section className={styles.quotes__container}>
+        <section className={`${styles.quotes__container} ${index % 2 === 0 ? styles.cardA : styles.cardB}`}>
             <h1 className={styles.quotes__container__quote}>
                 {q.quote}
             </h1>

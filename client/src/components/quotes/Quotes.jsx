@@ -12,7 +12,7 @@ const Quotes = () => {
 
             <section className='quotes__container__quote__card'>
                 {db.map((q, index) => (
-                    <QuotesCard q={q} key={index}/>
+                    <QuotesCard q={q} index={index} key={index}/>
                 ))}
             </section>
 
