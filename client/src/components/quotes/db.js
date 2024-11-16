@@ -13,6 +13,11 @@ const quotes = [
         quote: '“People die crossing borders, and sometimes just being near them. The lucky ones are reborn on the other side.”',
         author: 'Kapka Kassabova',
         id: 2
+    },
+    {
+        quote: '“But I don’t want to go among mad people," Alice remarked."Oh, you can’t help that," said the Cat: "we’re all mad here. I’m mad. You’re mad.""How do you know I’m mad?" said Alice."You must be," said the Cat, "or you wouldn’t have come here.”',
+        author: 'Lewis Caroll',
+        id: 3
     }
 ]
 
