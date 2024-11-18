@@ -2,7 +2,7 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import './Header.scss'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import useLogout from '../../hooks/useLogout';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Header = () => {
 
@@ -37,6 +37,19 @@ const Header = () => {
 
     const closeMenu = () => {
         setShow(() => !show)
+    }
+
+    // close mobile navigation when user clicks outside the nav
+    document.onclick = (e) => {
+
+        if (
+            show === true
+            && !e.target.className.includes('navigation')
+            && !e.target.className.includes('material-symbols-outlined')) {
+
+            setShow(!show)
+        }
+
     }
 
     return (
