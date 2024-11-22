@@ -1,11 +1,9 @@
 import styles from './QuotesCard.module.scss';
-import { FacebookShareButton, FacebookIcon } from 'react-share';
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 
 const QuotesCard = ({ q, index }) => {
 
-    const shareUrl = 'https://book-hub.fanerotim.com/library';
     const location = useLocation();
 
     return (
@@ -21,15 +19,8 @@ const QuotesCard = ({ q, index }) => {
                     {q.quote}
                 </h1>
 
-
                 <h2 className={styles.quotes__container__author}>
                     {q.author}
-
-                    <FacebookShareButton url={shareUrl}>
-                        <FacebookIcon
-                            size={25}
-                            round={true} />
-                    </FacebookShareButton>
                 </h2>
             </Link>
         </section>
