@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Back = ({prevPathname}) => {
     return (
-        <Link to={prevPathname} className={styles.backWrapper}>
+        <Link 
+            to={prevPathname} 
+            className={styles.backWrapper}>
             Back
         </Link>
     )
