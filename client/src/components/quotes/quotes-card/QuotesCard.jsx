@@ -13,7 +13,10 @@ const QuotesCard = ({ q, index }) => {
             `${styles.quotes__container} 
             ${index % 2 === 0 ? styles.cardA : styles.cardB} 
             ${index === 0 ? `${styles.first__card__animation}` : ''}`}>
-            <Link state={{q, location}} className={styles.linkStyleReset} to={`/quotes/${q._id}`}>
+            <Link 
+            state={{q, location}} 
+            className={styles.linkStyleReset} 
+            to={`/quotes/${q._id}`}>
                 <h1 className={styles.quotes__container__quote}>
                     {q.quote}
                 </h1>

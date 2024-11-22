@@ -14,6 +14,7 @@ const QuoteDetails = () => {
             <Back prevPathname={prevPathname}/>
             <div className={styles.quoteWrapper}>
                 <h1 className={styles.quoteText}>{quote}</h1>
+                <p className={styles.quoteAuthor}>{author}</p>
             </div>
         </>
     )

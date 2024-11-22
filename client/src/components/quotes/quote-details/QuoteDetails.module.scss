@@ -4,6 +4,14 @@
 }
 
 .quoteText {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 300;
+}
+
+.quoteAuthor {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgb(37, 21, 21);
+    text-align: end;
+    margin-top: 2rem;
 }
