@@ -6,18 +6,26 @@ import FaceBookShareButton from '../social-media-buttons/FacebookButton'
 const QuoteDetails = () => {
 
     const location = useLocation();
-    const { quote, author } = location.state.q;
-    const prevPathname  = location.state.location.pathname;
+    const { quote, author, title } = location.state.q;
+    const prevPathname = location.state.location.pathname;
 
     return (
         <>
-            <Back prevPathname={prevPathname}/>
+            <div className={styles.buttonsWrapper}>
+                <Back prevPathname={prevPathname} />
+                <FaceBookShareButton />
+            </div>
             <div className={styles.quoteWrapper}>
+                <h1 
+                    className={styles.quoteTitle}>
+                    <span className={styles.quoteTitleSpan}>Excerpt from </span> 
+                    {title}
+                </h1>
                 <h1 className={styles.quoteText}>{quote}</h1>
                 <p className={styles.quoteAuthor}>{author}</p>
             </div>
 
-            <FaceBookShareButton/>
+
         </>
     )
 }
