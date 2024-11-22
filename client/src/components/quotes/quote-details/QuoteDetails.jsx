@@ -1,7 +1,7 @@
 import Back from '../../back-btn/Back';
 import styles from './QuoteDetails.module.scss'
 import { useLocation } from 'react-router-dom';
-
+import FaceBookShareButton from '../social-media-buttons/FacebookButton'
 
 const QuoteDetails = () => {
 
@@ -16,6 +16,8 @@ const QuoteDetails = () => {
                 <h1 className={styles.quoteText}>{quote}</h1>
                 <p className={styles.quoteAuthor}>{author}</p>
             </div>
+
+            <FaceBookShareButton/>
         </>
     )
 }
