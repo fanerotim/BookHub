@@ -1,15 +1,21 @@
+import Back from '../../back-btn/Back';
 import styles from './QuoteDetails.module.scss'
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 const QuoteDetails = () => {
 
-    const {quoteId} = useParams();
-    console.log(quoteId);
+    const location = useLocation();
+    const { quote, author } = location.state.q;
+    const prevPathname  = location.state.location.pathname;
 
     return (
-        <div>
-            <h1 className={styles.headingColor}>Id is {quoteId}</h1>
-        </div>
+        <>
+            <Back prevPathname={prevPathname}/>
+            <div className={styles.quoteWrapper}>
+                <h1 className={styles.quoteText}>{quote}</h1>
+            </div>
+        </>
     )
 }
 
