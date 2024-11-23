@@ -1,14 +1,22 @@
 @import url('../../../index.css');
 
 :root {
-    --card__color-1: rgba(191, 247, 205, 0.2);
-    --card__color-2: rgb(250, 250, 170, .4);
+    --card__color-1: rgba(121, 121, 121, 0.2);
+    --card__color-2: rgb(20, 20, 20);
 }
 
 // removes underline of the default Link tag
 .linkStyleReset {
     all: unset;
     cursor: pointer;
+    background-color: rgb(218, 45, 59, .6);
+    font-size: .6rem;
+    padding: .15rem .5rem;
+    border-radius: .3rem;
+
+    &:hover {
+        background-color: rgba(241, 90, 102, 0.6);
+    }
 }
 
 .quotes__container {
@@ -16,7 +24,7 @@
     padding: 1.5rem;
     border-radius: .5rem;
     margin-bottom: 1rem;
-    
+
     &__quote {
         font-size: .82rem;
         font-weight: 300;
@@ -30,14 +38,10 @@
 }
 
 .cardA {
-    background-color: var(--card__color-1);
+    // outline: 1px solid black;
 }
 
 .cardB {
     background-color: var(--card__color-2);
-}
-
-.first__card__animation {
-    animation-name: slideIn;
-    animation-duration: 3.2s;
+    color: white;
 }
