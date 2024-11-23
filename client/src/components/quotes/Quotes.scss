@@ -2,7 +2,7 @@
 
 .quotes__container {
     padding: 2rem;
-    background: #f7f3f3;
+    // background: #f7f3f3;
 
     &__heading {
         text-align: center;
@@ -16,17 +16,17 @@
             animation-duration: 1.2s;
         }
 
-        &::before {
-            content: '\275E';
-            position: absolute;
-            display: block;
-            font-size: 10rem;
-            color: rgba(41, 4, 4, 0.2);
-            top: 5rem;
-            transform: rotateZ(-20deg);
-            animation-name: delayedLoad;
-            animation-duration: 4.2s;
-        }
+        // &::before {
+        //     content: '\275E';
+        //     position: absolute;
+        //     display: block;
+        //     font-size: 10rem;
+        //     color: rgba(41, 4, 4, 0.2);
+        //     top: 5rem;
+        //     transform: rotateZ(-20deg);
+        //     animation-name: delayedLoad;
+        //     animation-duration: 4.2s;
+        // }
     }
 
     &__subheading {
@@ -41,7 +41,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-template-rows: masonry;
-        gap: .5rem;
+        gap: 1rem;
     }
 
     @media(max-width: 600px) {

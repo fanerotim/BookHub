@@ -3,6 +3,7 @@ import styles from './Back.module.scss'
 import { Link } from 'react-router-dom';
 
 const Back = ({ prevPathname }) => {
+    console.log(prevPathname)
     return (
         <>
             <Link
