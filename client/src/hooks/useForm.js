@@ -8,7 +8,6 @@ const useForm = (initialFormData) => {
     }, [initialFormData])
 
     const handleChange = (e) => {
-        console.log(e.target.value)
         setValues((oldData) => {
             return {
                 ...oldData,

@@ -1,20 +1,23 @@
 import styles from './AddQuote.module.scss';
 import Back from '../back-btn/Back';
 import useForm from '../../hooks/useForm';
+import useAdd from '../../hooks/useAddQuote';
 
 const initialValues = {
     quoteText: '',
     author: '',
-    title: '' 
+    title: ''
 }
 
 const AddQuote = () => {
 
     const { values, handleChange } = useForm(initialValues);
+    const { add } = useAdd();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values);
+        
+        add(values)
     }
 
     return (
