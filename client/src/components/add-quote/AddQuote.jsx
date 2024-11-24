@@ -1,23 +1,31 @@
 import styles from './AddQuote.module.scss';
 import Back from '../back-btn/Back';
+import useForm from '../../hooks/useForm';
+
+const initialValues = {
+    quoteText: '',
+    author: '',
+    title: '' 
+}
+
 const AddQuote = () => {
 
+    const { values, handleChange } = useForm(initialValues);
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(values);
     }
 
     return (
         <section className={styles.addQuoteWrapper}>
-            {/* <h1 className={styles.addQuoteHeading}>Share a Memorable Quote</h1> */}
-            {/* <h2 className={styles.addQuoteSubheading}>Have a line from a book that moved you, made you laugh, or stuck with you? Add it here and let the BookHub community discover the magic of words through your eyes.</h2> */}
-            <Back/>
+            <Back />
             <form
                 className={styles.addQuoteForm}
-                onSubmit={handleSubmit}>
+                onSubmit={(e) => handleSubmit(e)}>
                 <h1
                     className={styles.addQuoteForm__heading}>
-                    Add 
+                    Add
                     <span
                         className={styles.addQuoteForm__heading__modifier}>
                         a quote
@@ -30,8 +38,9 @@ const AddQuote = () => {
                         Quote text
                     </label>
                     <textarea
+                        onChange={handleChange}
                         className={styles.addQuoteForm__textArea}
-                        name=""
+                        name="quoteText"
                         id="">
                     </textarea>
                 </div>
@@ -43,7 +52,9 @@ const AddQuote = () => {
                         Author
                     </label>
                     <input
+                        onChange={handleChange}
                         className={styles.addQuoteForm__input}
+                        name="author"
                         type="text" />
                 </div>
                 <div
@@ -54,10 +65,12 @@ const AddQuote = () => {
                         Book title
                     </label>
                     <input
+                        onChange={handleChange}
                         className={styles.addQuoteForm__input}
+                        name="title"
                         type="text" />
                 </div>
-                <button 
+                <button
                     className={styles.addQuoteForm__btn__submit}>
                     Add
                 </button>
