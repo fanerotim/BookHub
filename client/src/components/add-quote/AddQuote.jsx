@@ -4,7 +4,7 @@ import useForm from '../../hooks/useForm';
 import useAdd from '../../hooks/useAddQuote';
 
 const initialValues = {
-    quoteText: '',
+    quote: '',
     author: '',
     title: ''
 }
@@ -16,7 +16,7 @@ const AddQuote = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         add(values)
     }
 
@@ -43,7 +43,7 @@ const AddQuote = () => {
                     <textarea
                         onChange={handleChange}
                         className={styles.addQuoteForm__textArea}
-                        name="quoteText"
+                        name="quote"
                         id="">
                     </textarea>
                 </div>
