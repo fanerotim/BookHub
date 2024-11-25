@@ -15,4 +15,4 @@ const quoteSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Quotes', quoteSchema)
+module.exports = mongoose.model('Quote', quoteSchema)
