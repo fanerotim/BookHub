@@ -14,6 +14,7 @@ import Profile from './components/profile/Profile'
 import Error404 from './components/error404/error404'
 import Quotes from './components/quotes/Quotes'
 import QuoteDetails from './components/quotes/quote-details/QuoteDetails'
+import AddQuote from './components/add-quote/AddQuote'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/login' element={ auth ? <Navigate to='/'/> : <Login />}></Route>
                 <Route path='/register' element={auth ? <Navigate to='/'/> : <Register />}></Route>
                 <Route path='/add-book' element={auth ? <AddBook /> : <Navigate to='/login'/>}></Route>
+                <Route path='/add-quote' element={<AddQuote/>}/>
                 <Route path='/quotes' element={<Quotes/>}></Route>
                 <Route path='/quotes/:quoteId' element={<QuoteDetails/>}></Route>
                 <Route path='/library' element={<Library/>}></Route>

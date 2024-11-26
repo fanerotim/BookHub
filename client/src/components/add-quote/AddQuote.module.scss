@@ -1,0 +1,90 @@
+.addQuoteWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.addQuoteForm {
+    border-radius: .3rem;
+    margin-top: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    // this class can move inputs: start/center/end
+    &__inputWrapper {
+        // align-self: end;
+    }
+
+    &__heading {
+        font-size: 3rem;
+        line-height: 1.5rem;
+        margin: 1.5rem 0;
+        text-align: center;
+
+        &__modifier {
+            font-weight: 100;
+            font-size: 2rem;
+            margin-left: .5rem;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: .7rem;
+        font-weight: bold;
+        margin-bottom: .3rem;
+    }
+
+    &__textArea {
+        border: none;
+        resize: none;
+
+        background-color: rgb(241, 241, 241);
+
+        width: 100%;
+        height: 150px;
+        padding: .5rem;
+        border-radius: .3rem;
+
+        &:focus {
+            outline: none;
+            background-color: rgb(241, 241, 241, .5);
+        }
+    }
+
+    &__input {
+        border-radius: .3rem;
+        border: none;
+        padding: .5rem 1.5rem;
+        background-color: rgb(241, 241, 241);
+
+        &:focus {
+            outline: none;
+            background-color: rgb(241, 241, 241, .5);
+        }
+    }
+
+    &__btn__submit {
+        align-self: end;
+        font-size: .8rem;
+        font-weight: bold;
+
+        border: none;
+        width: fit-content;
+        padding: .8rem 2rem;
+        margin-top: 2.5rem;
+        border-radius: .3rem;
+        background-color: rgb(93, 218, 100, .6);
+
+        &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: rgb(24, 23, 23);
+            transition: background-color .2s;
+        }
+    }
+
+    
+}

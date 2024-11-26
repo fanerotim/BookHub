@@ -1,3 +1,42 @@
-.headingColor {
-    color: red;
+.quoteWrapper {
+    margin: auto;
+    padding: 2rem;
+}
+
+.quoteText {
+    padding: 2rem;
+    font-size: .85rem;
+    font-weight: 300;
+}
+
+.quoteAuthor {
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgb(37, 21, 21);
+    text-align: end;
+    margin-top: 2rem;
+}
+
+.quoteTitle {
+    line-height: 1.2;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-bottom: 1.3rem;
+    text-align: center;
+
+    &Span {
+        font-weight: 200;
+        font-size: 1.1rem;
+        color: rgb(43, 42, 42);
+    }
+}
+
+.buttonsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: fit-content;
+    margin-left: 2rem;
+    gap: 3rem;
+    margin-top: 3rem;
 }

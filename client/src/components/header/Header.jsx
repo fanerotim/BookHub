@@ -74,6 +74,7 @@ const Header = () => {
                     {auth &&
                         <>
                             <NavLink to='/add-book' className='navigation__item'>Add a book</NavLink>
+                            <NavLink to='/add-quote' className='navigation__item'>Add a quote</NavLink>
                             <NavLink to='/profile' className='navigation__item'>Profile</NavLink>
                         </>
                     }
