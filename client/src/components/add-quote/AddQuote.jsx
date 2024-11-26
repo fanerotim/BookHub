@@ -1,7 +1,7 @@
 import styles from './AddQuote.module.scss';
 import Back from '../back-btn/Back';
 import useForm from '../../hooks/useForm';
-import useAdd from '../../hooks/useAddQuote';
+import useAddQuote from '../../hooks/useAddQuote';
 
 const initialValues = {
     quote: '',
@@ -12,7 +12,7 @@ const initialValues = {
 const AddQuote = () => {
 
     const { values, handleChange } = useForm(initialValues);
-    const { add } = useAdd();
+    const { add } = useAddQuote();
 
     const handleSubmit = (e) => {
         e.preventDefault();
