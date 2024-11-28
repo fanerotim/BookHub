@@ -8,9 +8,9 @@ router.post('/add', async (req, res) => {
 
     try {
         const newQuote = await quoteService.create(quoteData);
-        return newQuote;
+        return res.status(200).json(newQuote);
     } catch(err) {
-        console.log(err)
+        console.log(err);
         return err;
     }
 })
