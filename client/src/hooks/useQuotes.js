@@ -6,7 +6,7 @@ const useQuotes = () => {
         
         try {
             const quotes = await apiService.get('/quotes');
-            console.log(quotes)
+   
             return quotes;
         } catch (err) {
             return err;
