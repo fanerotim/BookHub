@@ -17,3 +17,8 @@ exports.create = async (quoteDetails) => {
 
     return newQuote;
 }
+
+exports.getAll = async () => {
+    const quotes = await Quote.find();
+    return quotes;
+}
