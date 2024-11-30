@@ -4,16 +4,38 @@ import Search from '../search/Search';
 import { useEffect, useState } from 'react';
 import useQuotes from '../../hooks/useQuotes';
 import Loader from '../loader/Loader';
+import Pagination from '../pagination/Pagination';
+import usePaginate from '../../hooks/usePaginate';
 
 const Quotes = () => {
 
-    const [quotes, setQuotes] = useState([]);
     const { getAllQuotes } = useQuotes();
+    const { paginate, getPagesCount } = usePaginate();
+
+    const [quotes, setQuotes] = useState([]);
+    const [pagesCount, setPagesCount] = useState([]);
+    const [quotesToRender, setQuotesToRender] = useState([]);
+
+    const handlePageNumberClick = (e) => {
+        const curPageNumber = e.target.innerText;
+        const curQuotes = paginate(curPageNumber, quotes);
+        
+        setQuotesToRender((prevQuotes) => curQuotes);
+    }
 
     useEffect(() => {
         (async () => {
+
+            //get all quotes
             const allQuotes = await getAllQuotes()
             setQuotes(allQuotes);
+
+            //get number of pages in an array
+            const numberOfPages = getPagesCount(allQuotes);
+            //set number of pages in state
+            setPagesCount((prevPages) => numberOfPages);
+
+            setQuotesToRender(allQuotes.slice(0, 10));
         })()
     }, [])
 
@@ -30,7 +52,7 @@ const Quotes = () => {
                 {quotes.length > 0
                     ?
                     <section className='quotes__container__quote__card'>
-                        {quotes.map((q, index) => (
+                        {quotesToRender.map((q, index) => (
                             <QuotesCard
                                 q={q}
                                 index={index}
@@ -42,7 +64,9 @@ const Quotes = () => {
                 }
 
             </div>
-
+            <Pagination
+                pagesCount={pagesCount}
+                handlePageNumberClick={handlePageNumberClick} />
         </div>
     )
 }

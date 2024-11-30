@@ -1,12 +1,7 @@
 import styles from './Pagination.module.scss'
 
-const Pagination = ({ pagesCount, paginate }) => {
-
-    const handleClick = (e) => {
-        const curPage = e.target.innerText;
-        paginate(curPage);
-    }
-
+const Pagination = ({ pagesCount, handlePageNumberClick }) => {
+    
     return (
         <ul
             className={styles.paginationContainer}>
@@ -14,7 +9,7 @@ const Pagination = ({ pagesCount, paginate }) => {
                 pagesCount.map(i => (
                     <li 
                         className={styles.paginationContainer__pageNumber}
-                        onClick={(e) => handleClick(e)}
+                        onClick={(e) => handlePageNumberClick(e)}
                         key={i}>
                         {i}
                     </li>
