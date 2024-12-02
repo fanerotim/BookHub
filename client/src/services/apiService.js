@@ -25,7 +25,6 @@ export const apiService = async (method, url, data) => {
     if (!response.ok) {
         throw result;
     }
-
     return result;
 }
 

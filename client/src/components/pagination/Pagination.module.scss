@@ -1,0 +1,7 @@
+.paginationContainer {
+    display: flex;
+
+    &__pageNumber {
+        cursor: pointer;
+    }
+}

@@ -2,6 +2,7 @@ import styles from './AddQuote.module.scss';
 import Back from '../back-btn/Back';
 import useForm from '../../hooks/useForm';
 import useAddQuote from '../../hooks/useAddQuote';
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
     quote: '',
@@ -13,16 +14,16 @@ const AddQuote = () => {
 
     const { values, handleChange } = useForm(initialValues);
     const { add } = useAddQuote();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        add(values)
+        const newQuote = await add(values)
     }
 
     return (
         <section className={styles.addQuoteWrapper}>
-            <Back />
+            {/* <Back /> */}
             <form
                 className={styles.addQuoteForm}
                 onSubmit={(e) => handleSubmit(e)}>
