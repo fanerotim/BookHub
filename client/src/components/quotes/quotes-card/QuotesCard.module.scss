@@ -13,6 +13,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation-name: delayedLoad;
+    animation-duration: .5s;
 
     &:hover {
         transform: scale(1.01);

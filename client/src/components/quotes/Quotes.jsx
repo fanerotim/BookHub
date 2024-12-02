@@ -16,16 +16,18 @@ const Quotes = () => {
     const [pagesCount, setPagesCount] = useState([]);
     const [quotesToRender, setQuotesToRender] = useState([]);
 
+    const [hasPageChanged, setHasPageChanged] = useState(false);
+
     const handlePageNumberClick = (e) => {
         const curPageNumber = e.target.innerText;
         const curQuotes = paginate(curPageNumber, quotes);
-        
         setQuotesToRender((prevQuotes) => curQuotes);
+        console.log(quotesToRender)
+        setHasPageChanged((prevPageChange) => !prevPageChange)
     }
 
     useEffect(() => {
         (async () => {
-
             //get all quotes
             const allQuotes = await getAllQuotes()
             setQuotes(allQuotes);
@@ -35,6 +37,7 @@ const Quotes = () => {
             //set number of pages in state
             setPagesCount((prevPages) => numberOfPages);
 
+            //set initial default values
             setQuotesToRender(allQuotes.slice(0, 10));
         })()
     }, [])
@@ -48,7 +51,8 @@ const Quotes = () => {
 
             <Search />
 
-            <div className='quotes__container__card__container'>
+            <div
+                className={`quotes__container__card__container ${hasPageChanged ? 'quotes__container__card__container__pageChanged' : 'quotes__container__card__container__pageChanged__again'}`}>
                 {quotes.length > 0
                     ?
                     <section className='quotes__container__quote__card'>
@@ -56,7 +60,7 @@ const Quotes = () => {
                             <QuotesCard
                                 q={q}
                                 index={index}
-                                key={index} />
+                                key={q._id} />
                         ))}
                     </section>
                     :
