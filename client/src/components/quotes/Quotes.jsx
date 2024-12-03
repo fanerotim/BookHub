@@ -14,16 +14,17 @@ const Quotes = () => {
 
     const [quotes, setQuotes] = useState([]);
     const [pagesCount, setPagesCount] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
     const [quotesToRender, setQuotesToRender] = useState([]);
 
     const [hasPageChanged, setHasPageChanged] = useState(false);
 
     const handlePageNumberClick = (e) => {
         const curPageNumber = e.target.innerText;
+        setCurrentPage((prevCurPage) => e.target.innerText);
         const curQuotes = paginate(curPageNumber, quotes);
         setQuotesToRender((prevQuotes) => curQuotes);
-        console.log(quotesToRender)
-        setHasPageChanged((prevPageChange) => !prevPageChange)
+        setHasPageChanged((prevPageChange) => !prevPageChange);
     }
 
     useEffect(() => {
@@ -69,8 +70,10 @@ const Quotes = () => {
 
             </div>
             <Pagination
+                currentPage={currentPage}
                 pagesCount={pagesCount}
-                handlePageNumberClick={handlePageNumberClick} />
+                handlePageNumberClick={handlePageNumberClick} 
+            />
         </div>
     )
 }
