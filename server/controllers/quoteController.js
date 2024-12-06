@@ -12,6 +12,15 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/search/:searchQuery', async (req, res) => {
+    const searchQuery = req.params.searchQuery;
+
+    console.log('searchQuery is', searchQuery);
+
+    
+    return res.status(200).json({success: 'request successfully completed'})
+})
+
 router.post('/add', async (req, res) => {
 
     const quoteData = req.body;
