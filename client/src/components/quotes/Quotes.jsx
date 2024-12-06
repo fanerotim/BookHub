@@ -27,6 +27,10 @@ const Quotes = () => {
         setHasPageChanged((prevPageChange) => !prevPageChange);
     }
 
+    const searchHandler = (result) => {
+        console.log('currently entered value', result)
+    }
+
     useEffect(() => {
         (async () => {
             //get all quotes
@@ -50,7 +54,9 @@ const Quotes = () => {
 
             <h2 className='quotes__container__subheading'>BookHub's collection of words worth remembering. Add your favorite quotes and let readers discover new gems.</h2>
 
-            <Search />
+            <Search
+                searchHandler={searchHandler}
+            />
 
             <div
                 className={`quotes__container__card__container ${hasPageChanged ? 'quotes__container__card__container__pageChanged' : 'quotes__container__card__container__pageChanged__again'}`}>
@@ -72,7 +78,7 @@ const Quotes = () => {
             <Pagination
                 currentPage={currentPage}
                 pagesCount={pagesCount}
-                handlePageNumberClick={handlePageNumberClick} 
+                handlePageNumberClick={handlePageNumberClick}
             />
         </div>
     )
