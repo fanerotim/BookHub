@@ -22,3 +22,9 @@ exports.getAll = async () => {
     const quotes = await Quote.find();
     return quotes;
 }
+
+exports.search = async (author) => {
+    //case-insensitive search
+    const searchResult = await Quote.find({author: new RegExp(author, 'i')})
+    return searchResult;
+}
