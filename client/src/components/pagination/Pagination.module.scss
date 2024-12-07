@@ -12,6 +12,10 @@
         border-radius: .3rem;
         padding: .1rem .5rem;
         margin-right: .1rem;
+
+        &:hover {
+            background-color: rgb(196, 234, 252);
+        }
     }
 
     &__currentPage {
@@ -29,6 +33,7 @@
         padding: 0rem .5rem;
 
         &:hover {
+            cursor: pointer;
             background-color: black;
             color: white;
         }

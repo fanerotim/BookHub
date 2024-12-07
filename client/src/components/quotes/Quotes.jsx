@@ -20,7 +20,9 @@ const Quotes = () => {
     const [hasPageChanged, setHasPageChanged] = useState(false);
 
     const [reset, setReset] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
+    // TODO: rename this fn to pageClickHandler
     const handlePageNumberClick = (pageNumber) => {
         setCurrentPage((prevCurPage) => pageNumber);
         const curQuotes = paginate(pageNumber, quotes);
@@ -30,10 +32,9 @@ const Quotes = () => {
 
     // receive search results from child and update quotesToRender
     const searchHandler = (searchResult) => {
-
         // each new search starts from page 1
-        const pageToStartFrom = 1;
-        setCurrentPage((prevCurPage) => pageToStartFrom)
+        const defaultPage = 1;
+        setCurrentPage((prevCurPage) => defaultPage)
         // if no search query - reset to default
         if (!searchResult) {
             return setReset((prevReset) => !prevReset);
@@ -44,8 +45,7 @@ const Quotes = () => {
         setPagesCount((oldPagesCount) => currentPagesCount);
 
         // each new search result will start from page 1 - that's why it's hardcoded
-        const itemsToRender = paginate(pageToStartFrom, searchResult);
-
+        const itemsToRender = paginate(defaultPage, searchResult);
         // set the search result as quotes to be rendered
         setQuotesToRender((prevQuotes) => itemsToRender);
         // set search results as quotes that will be rendered when we change pages
@@ -54,15 +54,17 @@ const Quotes = () => {
 
     useEffect(() => {
         (async () => {
+            //show loader while fetching data
+            setIsLoading((prevLoading) => !prevLoading)
             //get all quotes
             const allQuotes = await getAllQuotes()
+            // hide loader (data downloaded)
+            setIsLoading((prevLoading) => !prevLoading)
             setQuotes(allQuotes);
-
             //get number of pages in an array
             const numberOfPages = getPagesCount(allQuotes);
             //set number of pages in state
             setPagesCount((prevPages) => numberOfPages);
-
             //set initial default values
             setQuotesToRender(allQuotes.slice(0, 5));
         })()
@@ -91,16 +93,19 @@ const Quotes = () => {
                                 key={q._id} />
                         ))}
                     </section>
-                    :
-                    <Loader />
+                    : isLoading
+                        ? <Loader />
+                        : <p>No match found. Please search for another quote.</p>
+
                 }
 
             </div>
+            {quotes.length > 0 && 
             <Pagination
                 currentPage={currentPage}
                 pagesCount={pagesCount}
                 handlePageNumberClick={handlePageNumberClick}
-            />
+            />}
         </div>
     )
 }
