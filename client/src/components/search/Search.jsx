@@ -1,25 +1,18 @@
-import { useEffect, useState } from 'react'
 import styles from './Search.module.scss'
 import useSearch from '../../hooks/useSearch';
 
 const Search = ({ searchHandler }) => {
 
     const { search } = useSearch();
-    const [searchString, setSearchString] = useState('');
 
     const handleSearch = (e) => {
 
         const currentSearchQuery = e.target.value;
-        setSearchString((prevString) => currentSearchQuery);
 
-        searchHandler(currentSearchQuery)
+        const searchResult = search(`/quotes/search/${currentSearchQuery}`);
+
+        searchHandler(searchResult)
     }
-
-
-
-    useEffect(() => {
-        search(searchString)
-    }, [searchString])
 
     return (
         <form className={styles.searchInputWrapper}>
