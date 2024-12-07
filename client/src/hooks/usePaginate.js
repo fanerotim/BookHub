@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const usePaginate = () => {
 
-    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
 
     let startIndex = 0;
     let endIndex = itemsPerPage;

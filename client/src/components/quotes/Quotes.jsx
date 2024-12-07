@@ -19,6 +19,8 @@ const Quotes = () => {
 
     const [hasPageChanged, setHasPageChanged] = useState(false);
 
+    const [reset, setReset] = useState(false);
+
     const handlePageNumberClick = (e) => {
         const curPageNumber = e.target.innerText;
         setCurrentPage((prevCurPage) => e.target.innerText);
@@ -27,16 +29,28 @@ const Quotes = () => {
         setHasPageChanged((prevPageChange) => !prevPageChange);
     }
 
+    // receive search results from child and update quotesToRender
     const searchHandler = (searchResult) => {
-        //receive search results from child and update quotesToRender
-        
-        // this fixes a bug when searchResult is undefined - it is not the best fix - need to debug it
+
+        // each new search starts from page 1
+        const pageToStartFrom = 1;
+        setCurrentPage((prevCurPage) => pageToStartFrom)
+        // if no search query - reset to default
         if (!searchResult) {
-            setQuotesToRender(quotes.slice(0, 10))
-            return;
+            return setReset((prevReset) => !prevReset);    
         }
-            
-        setQuotesToRender((prevQuotes) => searchResult);
+
+        // check how many pages need to be rendered based on search result number
+        const currentPagesCount = getPagesCount(searchResult);
+        setPagesCount((oldPagesCount) => currentPagesCount);
+
+        // each new search result will start from page 1 - that's why it's hardcoded
+        const itemsToRender = paginate(pageToStartFrom, searchResult);
+
+        // set the search result as quotes to be rendered
+        setQuotesToRender((prevQuotes) => itemsToRender);
+        // set search results as quotes that will be rendered when we change pages
+        setQuotes((prevQuotes) => searchResult);
     }
 
     useEffect(() => {
@@ -51,9 +65,9 @@ const Quotes = () => {
             setPagesCount((prevPages) => numberOfPages);
 
             //set initial default values
-            setQuotesToRender(allQuotes.slice(0, 10));
+            setQuotesToRender(allQuotes.slice(0, 5));
         })()
-    }, [])
+    }, [reset])
 
     return (
 

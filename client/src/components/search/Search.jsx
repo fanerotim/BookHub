@@ -12,12 +12,12 @@ const Search = ({ searchHandler }) => {
         // if search query is empty string - do not make a call to db 
         //TODO: (not the best solution - needs refactoring)
         if (currentSearchQuery === '') {
-            return;
+            return searchHandler(undefined);
         }
         
         //get results from this search
         const searchResult = await search(`/quotes/search/${currentSearchQuery}`);
-        
+
         //return the results of the search to Parent by passing res to searchHandler
         searchHandler(searchResult)
     }
@@ -28,7 +28,7 @@ const Search = ({ searchHandler }) => {
             <input
                 className={styles.searchInput}
                 onChange={(e) => handleSearch(e)}
-                placeholder='Search by author or title'
+                placeholder='Search by author name'
             />
 
             <span
