@@ -9,6 +9,12 @@ const Search = ({ searchHandler }) => {
 
         const currentSearchQuery = e.target.value;
 
+        // if search query is empty string - do not make a call to db 
+        //TODO: (not the best solution - needs refactoring)
+        if (currentSearchQuery === '') {
+            return;
+        }
+        
         //get results from this search
         const searchResult = await search(`/quotes/search/${currentSearchQuery}`);
         
