@@ -21,10 +21,9 @@ const Quotes = () => {
 
     const [reset, setReset] = useState(false);
 
-    const handlePageNumberClick = (e) => {
-        const curPageNumber = e.target.innerText;
-        setCurrentPage((prevCurPage) => e.target.innerText);
-        const curQuotes = paginate(curPageNumber, quotes);
+    const handlePageNumberClick = (pageNumber) => {
+        setCurrentPage((prevCurPage) => pageNumber);
+        const curQuotes = paginate(pageNumber, quotes);
         setQuotesToRender((prevQuotes) => curQuotes);
         setHasPageChanged((prevPageChange) => !prevPageChange);
     }
@@ -37,7 +36,7 @@ const Quotes = () => {
         setCurrentPage((prevCurPage) => pageToStartFrom)
         // if no search query - reset to default
         if (!searchResult) {
-            return setReset((prevReset) => !prevReset);    
+            return setReset((prevReset) => !prevReset);
         }
 
         // check how many pages need to be rendered based on search result number

@@ -1,24 +1,52 @@
 import styles from './Pagination.module.scss'
 
-const Pagination = ({ 
-    pagesCount, 
+const Pagination = ({
+    pagesCount,
     handlePageNumberClick,
     currentPage }) => {
+    
+    const nextPageHandler = () => {
+        if (currentPage + 1 <= pagesCount.length) {
+            handlePageNumberClick(currentPage + 1);
+        }
+    }
+
+    const prevPageHandler = () => {
+        if (currentPage - 1 > 0) {
+            handlePageNumberClick(currentPage - 1);
+        }
+    }
 
     return (
-        <ul
-            className={styles.paginationContainer}>
-            {
-                pagesCount.map(i => (
-                    <li 
-                        className={`${styles.paginationContainer__pageNumber} ${currentPage == i ? `${styles.activePage}` : ''}`}
-                        onClick={(e) => handlePageNumberClick(e)}
-                        key={i}>
-                        {i}
-                    </li>
-                ))
-            }
-        </ul>
+        <article className={styles.paginationWrapper}>
+            <ul
+                className={styles.paginationList}>
+                {
+                    pagesCount.map(i => (
+                        <li
+                            className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
+                            onClick={() => handlePageNumberClick(i)}
+                            key={i}>
+                            {i}
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <div className={styles.paginationBtnContainer}>
+                <button
+                    className={styles.paginationBtnContainer__btn} 
+                    onClick={prevPageHandler}>
+                        Prev
+                </button>
+                <button 
+                    className={styles.paginationBtnContainer__btn}
+                    onClick={nextPageHandler}>
+                        Next
+                </button>
+            </div>
+
+        </article>
     )
 }
 

@@ -1,11 +1,36 @@
-.paginationContainer {
+.paginationWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.paginationList {
     display: flex;
 
-    &__pageNumber {
+    &__item {
         cursor: pointer;
+        border: 1px solid black;
+        border-radius: .3rem;
+        padding: .1rem .5rem;
+        margin-right: .1rem;
+    }
+
+    &__currentPage {
+        color: white;
+        background-color: rgb(31, 31, 31);
     }
 }
 
-.activePage {
-    color: grey;
+.paginationBtnContainer {
+    display: flex;
+    gap: 1rem;
+
+    &__btn {
+        font-size: .8rem;
+        padding: 0rem .5rem;
+
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
 }
