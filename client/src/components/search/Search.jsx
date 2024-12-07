@@ -5,12 +5,14 @@ const Search = ({ searchHandler }) => {
 
     const { search } = useSearch();
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
 
         const currentSearchQuery = e.target.value;
 
-        const searchResult = search(`/quotes/search/${currentSearchQuery}`);
-
+        //get results from this search
+        const searchResult = await search(`/quotes/search/${currentSearchQuery}`);
+        
+        //return the results of the search to Parent by passing res to searchHandler
         searchHandler(searchResult)
     }
 

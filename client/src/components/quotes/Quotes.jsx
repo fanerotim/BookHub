@@ -27,8 +27,16 @@ const Quotes = () => {
         setHasPageChanged((prevPageChange) => !prevPageChange);
     }
 
-    const searchHandler = (result) => {
-        console.log('currently entered value', result)
+    const searchHandler = (searchResult) => {
+        //receive search results from child and update quotesToRender
+        
+        // this fixes a bug when searchResult is undefined - it is not the best fix - need to debug it
+        if (!searchResult) {
+            setQuotesToRender(quotes.slice(0, 10))
+            return;
+        }
+            
+        setQuotesToRender((prevQuotes) => searchResult);
     }
 
     useEffect(() => {
@@ -63,7 +71,7 @@ const Quotes = () => {
                 {quotes.length > 0
                     ?
                     <section className='quotes__container__quote__card'>
-                        {quotesToRender.map((q, index) => (
+                        {quotesToRender.length > 0 && quotesToRender.map((q, index) => (
                             <QuotesCard
                                 q={q}
                                 index={index}
