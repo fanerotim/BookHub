@@ -14,18 +14,33 @@ const Quotes = () => {
 
     const [quotes, setQuotes] = useState([]);
     const [pagesCount, setPagesCount] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
     const [quotesToRender, setQuotesToRender] = useState([]);
+
+    const [hasPageChanged, setHasPageChanged] = useState(false);
 
     const handlePageNumberClick = (e) => {
         const curPageNumber = e.target.innerText;
+        setCurrentPage((prevCurPage) => e.target.innerText);
         const curQuotes = paginate(curPageNumber, quotes);
-        
         setQuotesToRender((prevQuotes) => curQuotes);
+        setHasPageChanged((prevPageChange) => !prevPageChange);
+    }
+
+    const searchHandler = (searchResult) => {
+        //receive search results from child and update quotesToRender
+        
+        // this fixes a bug when searchResult is undefined - it is not the best fix - need to debug it
+        if (!searchResult) {
+            setQuotesToRender(quotes.slice(0, 10))
+            return;
+        }
+            
+        setQuotesToRender((prevQuotes) => searchResult);
     }
 
     useEffect(() => {
         (async () => {
-
             //get all quotes
             const allQuotes = await getAllQuotes()
             setQuotes(allQuotes);
@@ -35,6 +50,7 @@ const Quotes = () => {
             //set number of pages in state
             setPagesCount((prevPages) => numberOfPages);
 
+            //set initial default values
             setQuotesToRender(allQuotes.slice(0, 10));
         })()
     }, [])
@@ -46,17 +62,20 @@ const Quotes = () => {
 
             <h2 className='quotes__container__subheading'>BookHub's collection of words worth remembering. Add your favorite quotes and let readers discover new gems.</h2>
 
-            <Search />
+            <Search
+                searchHandler={searchHandler}
+            />
 
-            <div className='quotes__container__card__container'>
+            <div
+                className={`quotes__container__card__container ${hasPageChanged ? 'quotes__container__card__container__pageChanged' : 'quotes__container__card__container__pageChanged__again'}`}>
                 {quotes.length > 0
                     ?
                     <section className='quotes__container__quote__card'>
-                        {quotesToRender.map((q, index) => (
+                        {quotesToRender.length > 0 && quotesToRender.map((q, index) => (
                             <QuotesCard
                                 q={q}
                                 index={index}
-                                key={index} />
+                                key={q._id} />
                         ))}
                     </section>
                     :
@@ -65,8 +84,10 @@ const Quotes = () => {
 
             </div>
             <Pagination
+                currentPage={currentPage}
                 pagesCount={pagesCount}
-                handlePageNumberClick={handlePageNumberClick} />
+                handlePageNumberClick={handlePageNumberClick}
+            />
         </div>
     )
 }

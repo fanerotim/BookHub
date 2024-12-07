@@ -12,6 +12,19 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/search/:searchQuery', async (req, res) => {
+    const searchQuery = req.params.searchQuery;
+
+    try {
+        const searchReq = await quoteService.search(searchQuery);
+        return res.status(200).json(searchReq)
+    } catch(err) {
+        console.log(err)
+    }
+
+    
+})
+
 router.post('/add', async (req, res) => {
 
     const quoteData = req.body;

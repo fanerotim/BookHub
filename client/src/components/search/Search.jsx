@@ -1,9 +1,25 @@
 import styles from './Search.module.scss'
+import useSearch from '../../hooks/useSearch';
 
-const Search = () => {
+const Search = ({ searchHandler }) => {
 
-    const handleSearch = (e) => {
-        console.log(e.target.value)
+    const { search } = useSearch();
+
+    const handleSearch = async (e) => {
+
+        const currentSearchQuery = e.target.value;
+
+        // if search query is empty string - do not make a call to db 
+        //TODO: (not the best solution - needs refactoring)
+        if (currentSearchQuery === '') {
+            return;
+        }
+        
+        //get results from this search
+        const searchResult = await search(`/quotes/search/${currentSearchQuery}`);
+        
+        //return the results of the search to Parent by passing res to searchHandler
+        searchHandler(searchResult)
     }
 
     return (
