@@ -4,7 +4,7 @@ const Pagination = ({
     pagesCount,
     handlePageNumberClick,
     currentPage }) => {
-    
+
     const nextPageHandler = () => {
         if (currentPage + 1 <= pagesCount.length) {
             handlePageNumberClick(currentPage + 1);
@@ -17,32 +17,42 @@ const Pagination = ({
         }
     }
 
+    console.log(pagesCount)
+
     return (
         <article className={styles.paginationWrapper}>
             <ul
                 className={styles.paginationList}>
                 {
-                    pagesCount.map(i => (
+                    pagesCount.map(i =>
+                         i < 3 ? 
                         <li
                             className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
                             onClick={() => handlePageNumberClick(i)}
                             key={i}>
                             {i}
+
                         </li>
-                    ))
+                        : i === 4 
+                        ? <li>...</li> 
+                        : i === 5 
+                        ? <li
+                            className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
+                        >5
+                        </li> : '')
                 }
             </ul>
 
             <div className={styles.paginationBtnContainer}>
                 <button
-                    className={styles.paginationBtnContainer__btn} 
+                    className={styles.paginationBtnContainer__btn}
                     onClick={prevPageHandler}>
-                        Prev
+                    Prev
                 </button>
-                <button 
+                <button
                     className={styles.paginationBtnContainer__btn}
                     onClick={nextPageHandler}>
-                        Next
+                    Next
                 </button>
             </div>
 
