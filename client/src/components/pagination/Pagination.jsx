@@ -6,18 +6,18 @@ const Pagination = ({
     handlePageNumberClick,
     currentPage }) => {
 
-    const [pageNumbers, setPageNumbers] = useState(pagesCount); 
+    const [pageNumbers, setPageNumbers] = useState(pagesCount);
 
     const nextPageHandler = () => {
         if (currentPage + 1 <= pagesCount.length) {
             handlePageNumberClick(currentPage + 1);
         }
 
-     
+
         const newPageNumbers = pageNumbers;
         const firstPageNumber = newPageNumbers.shift();
         newPageNumbers.push(firstPageNumber);
-        
+
         setPageNumbers((prevPageNums) => newPageNumbers);
     }
 
@@ -40,24 +40,25 @@ const Pagination = ({
                 className={styles.paginationList}>
                 {
                     pagesCount.map((i, index) =>
-                        index < 2 ?
+                        i === 1
+                            ?
                             <li
                                 className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
                                 onClick={() => handlePageNumberClick(i)}
                                 key={i}>
-                                {pageNumbers[index]}
-
+                                {1}
                             </li>
-                            : i === 4
-                                ? <li>...</li>
-                                : i === 5
-                                    ? <li
-                                        className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
-                                        onClick={() => handlePageNumberClick(i)}
-                                        key={i}
-                                    >{pageNumbers[index]}
-                                    </li> 
-                                    : '')
+                            : i === 2
+                                ? <li>{pageNumbers[i]}</li>
+                                : i === 3 ? <li>...</li>
+                                    : i === 5
+                                        ? <li
+                                            className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
+                                            onClick={() => handlePageNumberClick(i)}
+                                            key={i}
+                                        >{pageNumbers[index]}
+                                        </li>
+                                        : null)
                 }
             </ul>
 
