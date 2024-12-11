@@ -40,7 +40,7 @@ const Pagination = ({
                 className={styles.paginationList}>
                 {
                     pagesCount.map((i, index) =>
-                        i === 1
+                        index === 0
                             ?
                             <li
                                 className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
@@ -48,17 +48,20 @@ const Pagination = ({
                                 key={i}>
                                 {1}
                             </li>
-                            : i === 2
-                                ? <li>{pageNumbers[i]}</li>
-                                : i === 3 ? <li>...</li>
-                                    : i === 5
+                            : index === 1
+                                ? <li
+                                    className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
+                                >{pageNumbers[index]}</li>
+                                : index === 2
+                                    ? <li>...</li>
+                                    : index === 4
                                         ? <li
                                             className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
                                             onClick={() => handlePageNumberClick(i)}
                                             key={i}
-                                        >{pageNumbers[index]}
+                                        >{5}
                                         </li>
-                                        : null)
+                                        : '')
                 }
             </ul>
 
