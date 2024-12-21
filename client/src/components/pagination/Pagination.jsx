@@ -6,33 +6,38 @@ const Pagination = ({
     handlePageNumberClick,
     currentPage }) => {
 
-    const [pageNumbers, setPageNumbers] = useState(pagesCount);
+    //initially set the pageNumbers to numbers without the first and last as those will be page 1 and last page
+    const [pageNumbers, setPageNumbers] = useState(pagesCount.slice(1, pagesCount.length - 1));
+    const [dynamicPageNum, setDynamicPageNum] = useState(2);
+    console.log(currentPage);
 
     const nextPageHandler = () => {
+
         if (currentPage + 1 <= pagesCount.length) {
             handlePageNumberClick(currentPage + 1);
         }
 
+        setDynamicPageNum((oldNum) => oldNum + 1);
 
-        const newPageNumbers = pageNumbers;
-        const firstPageNumber = newPageNumbers.shift();
-        newPageNumbers.push(firstPageNumber);
-
-        setPageNumbers((prevPageNums) => newPageNumbers);
+        // const newPageNumbers = pageNumbers;
+        // const firstPageNumber = newPageNumbers.shift();
+        // newPageNumbers.push(firstPageNumber);
+        // setPageNumbers((prevPageNums) => newPageNumbers);
     }
 
     const prevPageHandler = () => {
+
         if (currentPage - 1 > 0) {
             handlePageNumberClick(currentPage - 1);
         }
 
-        const newPageNumbers = pageNumbers;
-        const lastPageNumber = newPageNumbers.pop();
-        newPageNumbers.push(lastPageNumber);
-        setPageNumbers(newPageNumbers);
-    }
+        setDynamicPageNum((oldNum) => oldNum - 1)
 
-    console.log(pagesCount)
+        // const newPageNumbers = pageNumbers;
+        // const lastPageNumber = newPageNumbers.pop();
+        // newPageNumbers.unshift(lastPageNumber);
+        // setPageNumbers((prevPagenums) => newPageNumbers);
+    }
 
     return (
         <article className={styles.paginationWrapper}>
@@ -43,20 +48,22 @@ const Pagination = ({
                         index === 0
                             ?
                             <li
-                                className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
+                                className={`${styles.paginationList__item} ${currentPage == 1 ? `${styles.paginationList__currentPage}` : ''}`}
                                 onClick={() => handlePageNumberClick(i)}
                                 key={i}>
                                 {1}
                             </li>
                             : index === 1
                                 ? <li
-                                    className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
-                                >{pageNumbers[index]}</li>
+                                    onClick={() => handlePageNumberClick(i)}
+                                    className={`${styles.paginationList__item} ${currentPage !== 1 && currentPage !== 5 ? `${styles.paginationList__currentPage}` : ''}`}
+                                    key={i}
+                                >{dynamicPageNum}</li>
                                 : index === 2
                                     ? <li>...</li>
                                     : index === 4
                                         ? <li
-                                            className={`${styles.paginationList__item} ${currentPage == i ? `${styles.paginationList__currentPage}` : ''}`}
+                                            className={`${styles.paginationList__item} ${currentPage == 5 ? `${styles.paginationList__currentPage}` : ''}`}
                                             onClick={() => handlePageNumberClick(i)}
                                             key={i}
                                         >{5}
