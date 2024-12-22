@@ -8,8 +8,7 @@ const Pagination = ({
 
     //initially set the pageNumbers to numbers without the first and last as those will be page 1 and last page
     const [pageNumbers, setPageNumbers] = useState(pagesCount.slice(1, pagesCount.length - 1));
-    const [dynamicPageNum, setDynamicPageNum] = useState(2);
-    console.log(currentPage);
+    console.log('page nums are:', pageNumbers);
 
     const nextPageHandler = () => {
 
@@ -17,26 +16,38 @@ const Pagination = ({
             handlePageNumberClick(currentPage + 1);
         }
 
-        setDynamicPageNum((oldNum) => oldNum + 1);
+        if (currentPage + 1 == 2) {
+            return;
+        }
 
-        // const newPageNumbers = pageNumbers;
-        // const firstPageNumber = newPageNumbers.shift();
-        // newPageNumbers.push(firstPageNumber);
-        // setPageNumbers((prevPageNums) => newPageNumbers);
+        if (currentPage == 4) {
+            return;
+        }
+        
+        const newPageNumbers = pageNumbers;
+        const firstPageNumber = newPageNumbers.shift();
+        newPageNumbers.push(firstPageNumber);
+        setPageNumbers((prevPageNums) => newPageNumbers);
     }
 
     const prevPageHandler = () => {
-
+        
         if (currentPage - 1 > 0) {
             handlePageNumberClick(currentPage - 1);
         }
 
-        setDynamicPageNum((oldNum) => oldNum - 1)
+        if (currentPage == 5) {
+            return;
+        }
 
-        // const newPageNumbers = pageNumbers;
-        // const lastPageNumber = newPageNumbers.pop();
-        // newPageNumbers.unshift(lastPageNumber);
-        // setPageNumbers((prevPagenums) => newPageNumbers);
+        if (currentPage == 1 || currentPage == 2) {
+            return
+        }
+        
+        const newPageNumbers = pageNumbers;
+        const lastPageNumber = newPageNumbers.pop();
+        newPageNumbers.unshift(lastPageNumber);
+        setPageNumbers((prevPagenums) => newPageNumbers);
     }
 
     return (
@@ -58,7 +69,7 @@ const Pagination = ({
                                     onClick={() => handlePageNumberClick(i)}
                                     className={`${styles.paginationList__item} ${currentPage !== 1 && currentPage !== 5 ? `${styles.paginationList__currentPage}` : ''}`}
                                     key={i}
-                                >{dynamicPageNum}</li>
+                                >{pageNumbers[0]}</li>
                                 : index === 2
                                     ? <li>...</li>
                                     : index === 4
