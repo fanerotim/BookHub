@@ -8,7 +8,7 @@ const Pagination = ({
 
     //initially set the pageNumbers to numbers without the first and last as those will be page 1 and last page
     const [pageNumbers, setPageNumbers] = useState(pagesCount.slice(1, pagesCount.length - 1));
-    console.log('page nums are:', pageNumbers);
+    const lastPage = pagesCount[pagesCount.length - 1];
 
     const nextPageHandler = () => {
 
@@ -36,7 +36,7 @@ const Pagination = ({
             handlePageNumberClick(currentPage - 1);
         }
 
-        if (currentPage == 5) {
+        if (currentPage == lastPage) {
             return;
         }
 
