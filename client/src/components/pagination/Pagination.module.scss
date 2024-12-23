@@ -1,6 +1,7 @@
 .paginationWrapper {
     display: flex;
     justify-content: space-between;
+    justify-self: flex-end;
 }
 
 .paginationList {
