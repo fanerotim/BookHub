@@ -21,12 +21,13 @@
     }
 
     &__quote {
-        font-size: .88rem;
+        font-size: .80rem;
         font-weight: 300;
     }
 
     &__author {
-        font-size: .65rem;
+        font-size: .85rem;
+        font-weight: 400;
         text-align: end;
         margin-top: 1rem;
     }
@@ -34,9 +35,10 @@
     &__linkBtn {
         all: unset;
         cursor: pointer;
-        background-color: rgb(218, 45, 59, .6);
         background-color: rgb(174, 206, 243, .5);
-        font-size: .78rem;
+        background-color: rgb(37, 36, 36);
+        color: white;
+        font-size: .53rem;
         padding: .15rem .5rem;
         border-radius: .3rem;
 
@@ -47,11 +49,12 @@
 }
 
 .cardA {
-    outline: 1px solid black;
+    // outline: 1px solid black;
 }
 
 .cardB {
-    background-color: var(--card__color-2);
-    background-color: rgb(26, 24, 24);
+    // background-color: var(--card__color-2);
+    background-color: rgb(177, 221, 247, .7);
     color: white;
+    color: rgb(24, 23, 23);
 }

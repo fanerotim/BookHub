@@ -11,6 +11,10 @@ const Pagination = ({
     const lastPage = pagesCount[pagesCount.length - 1];
     const secondToLastPage = pagesCount[pagesCount.length - 2];
     const firstPage = pagesCount[pagesCount[0]];
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     const nextPageHandler = () => {
 
