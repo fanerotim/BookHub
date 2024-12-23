@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Pagination.module.scss'
 
 const Pagination = ({
@@ -8,7 +8,13 @@ const Pagination = ({
 
     //initially set the pageNumbers to numbers without the first and last as those will be page 1 and last page
     const [pageNumbers, setPageNumbers] = useState(pagesCount.slice(1, pagesCount.length - 1));
-    console.log('page nums are:', pageNumbers);
+    const lastPage = pagesCount[pagesCount.length - 1];
+    const secondToLastPage = pagesCount[pagesCount.length - 2];
+    const firstPage = pagesCount[pagesCount[0]];
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     const nextPageHandler = () => {
 
@@ -20,10 +26,10 @@ const Pagination = ({
             return;
         }
 
-        if (currentPage == 4) {
+        if (currentPage == secondToLastPage || currentPage == lastPage) {
             return;
         }
-        
+
         const newPageNumbers = pageNumbers;
         const firstPageNumber = newPageNumbers.shift();
         newPageNumbers.push(firstPageNumber);
@@ -31,19 +37,20 @@ const Pagination = ({
     }
 
     const prevPageHandler = () => {
-        
+
         if (currentPage - 1 > 0) {
             handlePageNumberClick(currentPage - 1);
         }
 
-        if (currentPage == 5) {
+        //re-set when last page is reached
+        if (currentPage == lastPage) {
             return;
         }
 
-        if (currentPage == 1 || currentPage == 2) {
+        if (currentPage == firstPage || currentPage == 2 || currentPage == 1) {
             return
         }
-        
+
         const newPageNumbers = pageNumbers;
         const lastPageNumber = newPageNumbers.pop();
         newPageNumbers.unshift(lastPageNumber);
@@ -71,13 +78,16 @@ const Pagination = ({
                                     key={i}
                                 >{pageNumbers[0]}</li>
                                 : index === 2
-                                    ? <li>...</li>
+                                    ? <li
+                                        key={i}
+                                    >...
+                                    </li>
                                     : index === 4
                                         ? <li
                                             className={`${styles.paginationList__item} ${currentPage == 5 ? `${styles.paginationList__currentPage}` : ''}`}
                                             onClick={() => handlePageNumberClick(i)}
                                             key={i}
-                                        >{5}
+                                        >{lastPage}
                                         </li>
                                         : '')
                 }

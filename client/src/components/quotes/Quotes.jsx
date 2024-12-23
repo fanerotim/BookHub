@@ -81,6 +81,13 @@ const Quotes = () => {
                 searchHandler={searchHandler}
             />
 
+            <p className='quotes__container__paginationInfo'>
+                page
+                <span className='quotes__container__paginationInfo__pageNum'>{currentPage}</span>
+                of
+                <span className='quotes__container__paginationInfo__pageNum'>{pagesCount.length}</span>
+            </p>
+
             <div
                 className={`quotes__container__card__container ${hasPageChanged ? 'quotes__container__card__container__pageChanged' : 'quotes__container__card__container__pageChanged__again'}`}>
                 {quotes.length > 0
@@ -100,12 +107,12 @@ const Quotes = () => {
                 }
 
             </div>
-            {quotes.length > 0 && 
-            <Pagination
-                currentPage={currentPage}
-                pagesCount={pagesCount}
-                handlePageNumberClick={handlePageNumberClick}
-            />}
+            {quotes.length > 0 &&
+                <Pagination
+                    currentPage={currentPage}
+                    pagesCount={pagesCount}
+                    handlePageNumberClick={handlePageNumberClick}
+                />}
         </div>
     )
 }
