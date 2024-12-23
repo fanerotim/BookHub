@@ -16,9 +16,9 @@
     animation-name: delayedLoad;
     animation-duration: .5s;
 
-    &:hover {
-        transform: scale(1.01);
-    }
+    // &:hover {
+    //     transform: scale(1.01);
+    // }
 
     &__quote {
         font-size: .80rem;
@@ -43,7 +43,8 @@
         border-radius: .3rem;
 
         &:hover {
-            background-color: rgba(241, 90, 102, 0.6);
+            // background-color: rgba(241, 90, 102, 0.6);
+            background-color: rgba(39, 38, 38, 0.6);
         }
     }
 }

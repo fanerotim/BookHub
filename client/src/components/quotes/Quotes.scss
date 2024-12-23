@@ -30,4 +30,18 @@
         grid-template-rows: masonry;
         gap: 2.5rem;
     }
+
+    &__paginationInfo {
+        font-size: .7rem;
+        color: black;
+        text-align: end;
+        margin-bottom: 2rem;
+
+        &__pageNum {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 .2rem;
+            color: rgb(153, 153, 221);
+        }
+    }
 }
