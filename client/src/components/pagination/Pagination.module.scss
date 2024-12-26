@@ -24,21 +24,34 @@
     &__currentPage {
         color: white;
         background-color: rgb(31, 31, 31);
+        background-color: rgb(173, 131, 179);
     }
 }
 
 .paginationBtnContainer {
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
 
     &__btn {
+        all: unset;
         font-size: .8rem;
         padding: 0rem .5rem;
+        color: rgb(39, 38, 38);
+        font-weight: 600;
 
         &:hover {
             cursor: pointer;
-            background-color: black;
-            color: white;
+        }
+    }
+
+    &__pageInfo {
+        font-size: .6rem;
+
+        &__pageNum {
+            color: rgb(153, 153, 221);
+            font-weight: bold;
+            padding: .2rem;
+            font-size: 1.1rem;
         }
     }
 }

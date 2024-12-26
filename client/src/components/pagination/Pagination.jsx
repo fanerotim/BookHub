@@ -11,7 +11,7 @@ const Pagination = ({
     const lastPage = pagesCount[pagesCount.length - 1];
     const secondToLastPage = pagesCount[pagesCount.length - 2];
     const firstPage = pagesCount[pagesCount[0]];
-    
+
     useEffect(() => {
         window.scrollTo(0, 0)
     })
@@ -59,7 +59,7 @@ const Pagination = ({
 
     return (
         <article className={styles.paginationWrapper}>
-            <ul
+            {/* <ul
                 className={styles.paginationList}>
                 {
                     pagesCount.map((i, index) =>
@@ -91,7 +91,7 @@ const Pagination = ({
                                         </li>
                                         : '')
                 }
-            </ul>
+            </ul> */}
 
             <div className={styles.paginationBtnContainer}>
                 <button
@@ -99,6 +99,14 @@ const Pagination = ({
                     onClick={prevPageHandler}>
                     Prev
                 </button>
+
+                <p className={styles.paginationBtnContainer__pageInfo}>
+                    {/* page */}
+                    <span className={styles.paginationBtnContainer__pageInfo__pageNum}>{currentPage}</span>
+                    of
+                    <span className={styles.paginationBtnContainer__pageInfo__pageNum}>{pagesCount.length}</span>
+                </p>
+
                 <button
                     className={styles.paginationBtnContainer__btn}
                     onClick={nextPageHandler}>
