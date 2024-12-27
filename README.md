@@ -47,6 +47,12 @@ My React JS app has four core folders:
 ![image](https://github.com/user-attachments/assets/35fab10d-5adc-44fc-8c15-2f6739b5bed8)
 ![image](https://github.com/user-attachments/assets/5bc505b6-1ad0-45ad-bc28-c6c52aef13ba)
 
+## Quotes page
+![image](https://github.com/user-attachments/assets/97589697-328c-4fa9-b1fc-208f65bdc1d0)
+
+## Quote details
+![image](https://github.com/user-attachments/assets/759f5ad4-8229-4498-8515-6ac11c43e580)
+
 ## Add book page
 ![image](https://github.com/user-attachments/assets/521c6457-2d86-41e7-812f-dfef1a85f42b)
 
