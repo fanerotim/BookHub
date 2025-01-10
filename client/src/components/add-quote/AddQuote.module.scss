@@ -84,7 +84,12 @@
             background-color: rgb(24, 23, 23);
             transition: background-color .2s;
         }
-    }
+    }   
+}
 
-    
+@media(min-width: 700px) {
+    .addQuoteWrapper {
+        width: 60%;
+        margin: 0 auto;
+    }
 }
