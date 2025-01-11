@@ -6,7 +6,7 @@ const useBookDetails = () => {
             const bookDetails = await apiService.get(`/books/library/${bookId}`);
             return bookDetails;
         } catch (err) {
-            console.log(err.message)
+            return (err);
         }
     }
 
