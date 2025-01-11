@@ -23,6 +23,11 @@ exports.getAll = async () => {
     return quotes;
 }
 
+exports.getOne = async (quoteId) => {
+    const quoteDetails = await Quote.findOne({_id: quoteId});
+    return quoteDetails;
+}
+
 exports.search = async (author) => {
     //case-insensitive search
     const searchResult = await Quote.find({author: new RegExp(author, 'i')})

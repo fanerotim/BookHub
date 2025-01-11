@@ -12,6 +12,17 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:quoteId', async (req, res) => {
+    const quoteId = req.params.quoteId;
+
+    try {
+        const quoteDetails = await quoteService.getOne(quoteId);
+        return res.status(200).json(quoteDetails);
+    } catch(err) {
+        return err;
+    }
+})
+
 router.get('/search/:searchQuery', async (req, res) => {
     const searchQuery = req.params.searchQuery;
 
@@ -19,7 +30,7 @@ router.get('/search/:searchQuery', async (req, res) => {
         const searchReq = await quoteService.search(searchQuery);
         return res.status(200).json(searchReq)
     } catch(err) {
-        console.log(err)
+        return err;
     }
 
     

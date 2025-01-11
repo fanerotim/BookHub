@@ -1,14 +1,29 @@
 import Back from '../../back-btn/Back';
 import styles from './QuoteDetails.module.scss'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import FaceBookShareButton from '../social-media-buttons/FacebookButton'
 import { Helmet } from 'react-helmet'
-const QuoteDetails = () => {
+import { useEffect, useState } from 'react';
+import useQuoteDetails from '../../../hooks/useQuoteDetails';
 
-    const location = useLocation();
-    console.log(location)
-    const { quote, author, title } = location.state.q;
-    const prevPathname = location.state.location.pathname;
+
+const QuoteDetails = () => {
+    
+    const { quoteId } = useParams();
+    const [quoteData, setQuoteData] = useState({});
+    const { quote, author, title } = quoteData;
+
+    // const location = useLocation();
+    // const prevPathname = location.state.location.pathname;
+    
+    const { getDetails } = useQuoteDetails();
+
+    useEffect(() => {
+        (async () => {
+            const quoteDetails = await getDetails(quoteId);
+            setQuoteData(quoteDetails);
+        })()
+    }, [])
 
     return (
         <>
@@ -19,7 +34,7 @@ const QuoteDetails = () => {
             </Helmet> */}
 
             <div className={styles.buttonsWrapper}>
-                <Back prevPathname={prevPathname} />
+                <Back prevPathname='/quotes' />
                 <FaceBookShareButton
                     quote={quote}
                     hashtag='#bookhub'
