@@ -4,7 +4,7 @@ This is a course project, which I built during my ReactJS course @ SoftUni acade
 
 Currently its REST API is deployed on a free 'Render' server and due to this on first load it takes some time until it fetches data from backend.
 
-The application is now deployed and could be accessed via this link: (not currently hosted)
+The application is now deployed and could be accessed via this link: https://fanerotim-book-hub.netlify.app/
 
 ## Tech Stack
 - Front-end: ReactJS
