@@ -9,7 +9,7 @@ const expressConfig = (app) => {
 
     app.use(cors({
         // prod
-        origin: 'https://book-hub.fanerotim.com',
+        origin: 'https://fanerotim-book-hub.netlify.app/',
         // dev
         // origin: 'http://localhost:5173',
         
